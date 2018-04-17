@@ -1,12 +1,16 @@
 <template>
   <div class="input">
     <form v-on:submit="addNote($event)">
-    <input
-      class="input__input"
-      v-model="item"
-      type="text"
-      placeholder="Type here..."
-    />
+      <select class="input__select" v-model="selected">
+        <option value="checkbox" default>Task</option>
+        <option value="note">Note</option>
+      </select>
+      <input
+        class="input__input"
+        v-model="value"
+        type="text"
+        placeholder="Type here..."
+      />
     </form>
   </div>
 </template>
@@ -16,14 +20,19 @@ export default {
   name: 'Input',
   data() {
     return {
-      item: '',
+      value: '',
+      selected: '',
     };
   },
   methods: {
     addNote(event) {
       event.preventDefault();
-      this.$store.commit('ADD_ITEM', this.item);
-      this.item = '';
+      const itemObj = {
+        type: this.selected,
+        value: this.value,
+      };
+      this.$store.commit('ADD_ITEM', itemObj);
+      this.value = '';
     },
   },
 };
