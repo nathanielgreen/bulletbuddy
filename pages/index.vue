@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style style="scss">
 .container
 {
   min-height: 100vh;
