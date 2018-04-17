@@ -32,7 +32,7 @@ export default {
         value: this.value,
       };
       this.$store.commit('ADD_ITEM', itemObj);
-      this.item = '';
+      this.value = '';
     },
   },
 };
