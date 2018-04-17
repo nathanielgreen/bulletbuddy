@@ -3,6 +3,7 @@
     <form v-on:submit="addNote($event)">
     <input
       class="input__input"
+      v-model="item"
       type="text"
       placeholder="Type here..."
     />
@@ -13,10 +14,16 @@
 <script>
 export default {
   name: 'Input',
+  data() {
+    return {
+      item: '',
+    };
+  },
   methods: {
     addNote(event) {
       event.preventDefault();
-      console.log('hi');
+      this.$store.commit('ADD_ITEM', this.item);
+      this.item = '';
     },
   },
 };

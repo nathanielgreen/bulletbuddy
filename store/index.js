@@ -10,7 +10,7 @@ const store = () => new Vuex.Store({
   mutations: {
     ADD_ITEM(state, value) {
       state.items.push(value);
-    };
+    },
   },
   actions: {
   },
