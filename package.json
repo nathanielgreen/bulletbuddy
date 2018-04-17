@@ -20,8 +20,9 @@
     "cross-env": "^5.0.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-import-resolver-webpack": "^0.9.0",
     "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.8.3",
     "sass-loader": "^7.0.1"
