@@ -5,9 +5,6 @@ const store = () => new Vuex.Store({
   state: {
     viewedItems: {},
     pages: {
-      1: {
-
-      },
     },
   },
   getters: {
