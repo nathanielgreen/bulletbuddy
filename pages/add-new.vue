@@ -8,13 +8,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'AddNew',
+  computed: {
+    ...mapGetters([
+      'getTotalPages',
+    ]),
+  },
   methods: {
     addNewDailyLog() {
       this.$store.dispatch('addNewDailyLog')
         .then(() => {
-          this.$router.push('/pages/1');
+          this.$router.push(`/pages/${this.getTotalPages}`);
         });
     },
   },

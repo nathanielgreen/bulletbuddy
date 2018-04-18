@@ -5,7 +5,7 @@
   "author": "Nathaniel Green",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --spa",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -15,7 +15,8 @@
   "dependencies": {
     "nuxt": "^1.0.0",
     "vue": "^2.5.16",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

@@ -3,14 +3,13 @@ import Vuex from 'vuex';
 
 const store = () => new Vuex.Store({
   state: {
-    viewedItems: {
-    },
-    pages: {
-    },
+    viewedItems: {},
+    pages: {},
   },
   getters: {
     getViewedItems: state => state.viewedItems,
     getPages: state => state.pages,
+    getTotalPages: state => Object.keys(state.pages).length,
   },
   mutations: {
     ADD_ITEM(state, value) {
