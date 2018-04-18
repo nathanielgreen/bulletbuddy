@@ -1,6 +1,19 @@
 <template>
-  <nuxt/>
+  <div class="layout--default">
+    <nuxt/>
+    <Navbar class="layout__navbar" />
+  </div>
 </template>
+
+<script>
+import Navbar from '~/components/Navbar.vue';
+
+export default {
+  components: {
+    Navbar,
+  },
+};
+</script>
 
 <style>
 html
@@ -24,9 +37,15 @@ body {
   height: 100%;
 }
 #__nuxt {
-  height: 100%;
+  height: 90%;
 }
 #__layout {
   height: 100%;
+}
+.layout--default {
+    height: 100%;
+}
+.layout__navbar {
+  height: 10%;
 }
 </style>
