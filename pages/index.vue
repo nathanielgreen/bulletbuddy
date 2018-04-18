@@ -15,6 +15,11 @@ export default {
       'getPages',
     ]),
   },
+  mounted() {
+    if (Object.keys(this.getPages).length === 0) {
+      this.$router.push('/add-new');
+    }
+  },
   methods: {
     goToPage(value) {
       this.$router.push(`/pages/${value}`);
