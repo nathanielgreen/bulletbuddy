@@ -2,7 +2,7 @@
   <div class="input">
     <form class="input__form" v-on:submit="addNote($event)">
       <select class="input__form-select" v-model="selected">
-        <option value="checkbox" default>Task</option>
+        <option value="task" default>Task</option>
         <option value="note">Note</option>
       </select>
       <input
