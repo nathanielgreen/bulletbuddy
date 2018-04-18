@@ -38,14 +38,6 @@ export default {
 
   &__item {
     padding: 16px 16px 16px 16px;
-
-    &-square {
-      display: inline-block;
-      width: 16px;
-      vertical-align: center;
-      height: 2px;
-      background: black;
-    }
   }
 }
 </style>

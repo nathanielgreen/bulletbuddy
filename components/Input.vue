@@ -1,16 +1,16 @@
 <template>
-    <form class="input" v-on:submit="addNote($event)">
-      <select class="input__select" v-model="selected">
-        <option value="task" default>Task</option>
-        <option value="note">Note</option>
-      </select>
-      <input
-        class="input__input"
-        v-model="value"
-        type="text"
-        placeholder="Type here..."
-      />
-    </form>
+  <form class="input" v-on:submit="addNote($event)">
+    <select class="input__select" v-model="selected">
+      <option value="task" default>Task</option>
+      <option value="note">Note</option>
+    </select>
+    <input
+      class="input__input"
+      v-model="value"
+      type="text"
+      placeholder="Type here..."
+    />
+  </form>
 </template>
 
 <script>
@@ -41,8 +41,6 @@ export default {
   width: 100%;
   display: flex;
 
-  &__select {
-  }
   &__input {
     flex: 1;
     font-size: 18px;
