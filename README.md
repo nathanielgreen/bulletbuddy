@@ -12,6 +12,7 @@ preserves the framework and it's modular system while still being customisable.
 
 - [1.0 Tech Stack](#1.0)
 - [2.0 System Design](#2.0)
+  - [2.1 Styling Guidelines](#2.1)
 - [3.0 Github Project Info](#3.0)
   - [3.1 Branching Strategy](#3.1)
   - [3.2 Install & Run](#3.2)
