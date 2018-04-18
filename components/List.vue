@@ -1,26 +1,23 @@
 <template>
   <div class="list">
-    <ul class="list__list" v-for="item in items" :key="item">
-      <li v-if="item.type !== 'checkbox'">{{ item.value }}</li>
-      <input
+    <div class="list__item" v-for="item in items" :key="item.value">
+      <ItemTask
         v-if="item.type === 'checkbox'"
-        type="checkbox"
-        value="item.value"
-      />
-      <label
-        v-if="item.type === 'checkbox'"
-        for="checkbox"
-        value="item.value"
-      >{{ item.value }}</label>
-    </ul>
+        v-bind:data="item"
+      ></ItemTask>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import ItemTask from '~/components/ItemTask.vue';
 
 export default {
   name: 'List',
+  components: {
+    ItemTask,
+  },
   computed: {
     ...mapGetters({
       items: 'getViewedItems',
@@ -30,4 +27,19 @@ export default {
 </script>
 
 <style lang="scss">
+.list {
+  width: 100%;
+
+  &__item {
+    padding: 16px 16px 16px 16px;
+
+    &-square {
+      display: inline-block;
+      width: 16px;
+      vertical-align: center;
+      height: 2px;
+      background: black;
+    }
+  }
+}
 </style>
