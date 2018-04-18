@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^2.0.8",
     "nuxt": "^1.0.0",
     "vue": "^2.5.16",
     "vuex": "^3.0.1"
