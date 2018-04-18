@@ -25,6 +25,9 @@ const store = () => new Vuex.Store({
     },
   },
   actions: {
+    addNewDailyLog(state) {
+      state.commit('ADD_NEW_DAILY_LOG');
+    },
   },
 });
 

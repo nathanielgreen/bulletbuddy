@@ -12,7 +12,10 @@ export default {
   name: 'AddNew',
   methods: {
     addNewDailyLog() {
-      this.$store.commit('ADD_NEW_DAILY_LOG');
+      this.$store.dispatch('addNewDailyLog')
+        .then(() => {
+          this.$router.push('/pages/1');
+        });
     },
   },
 };
