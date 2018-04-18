@@ -3,7 +3,8 @@ import Vuex from 'vuex';
 
 const store = () => new Vuex.Store({
   state: {
-    viewedItems: {},
+    viewedItems: {
+    },
     pages: {
     },
   },
@@ -13,15 +14,15 @@ const store = () => new Vuex.Store({
   },
   mutations: {
     ADD_ITEM(state, value) {
-      const size = Object.keys(state.items).length;
-      Vue.set(state.items, (size + 1), value);
+      const size = Object.keys(state.viewedItems).length;
+      Vue.set(state.viewedItems, (size + 1), value);
     },
     ADD_NEW_DAILY_LOG(state) {
       const size = Object.keys(state.pages).length;
       Vue.set(state.pages, (size + 1), {});
     },
     UPDATE_VIEWED_ITEMS(state, value) {
-      state.viewedItems = value;
+      state.viewedItems = state.pages[value];
     },
   },
   actions: {

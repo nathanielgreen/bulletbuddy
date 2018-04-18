@@ -30,7 +30,7 @@ export default {
     if (data == null) {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
-      store.commit('UPDATE_VIEWED_ITEMS', data);
+      store.commit('UPDATE_VIEWED_ITEMS', params.id);
     }
   },
 };
