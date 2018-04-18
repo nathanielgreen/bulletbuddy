@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <List></List>
-    <Input />
+    <List class="page__list"></List>
+    <Input class="page__input"/>
   </div>
 </template>
 
@@ -37,4 +37,17 @@ export default {
 </script>
 
 <style lang="scss">
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__list {
+  }
+  &__input {
+    width: 20vw;
+  }
+}
 </style>
