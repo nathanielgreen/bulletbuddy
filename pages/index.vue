@@ -1,7 +1,12 @@
 <template>
   <section class="index">
-    <ul v-for="(value, key) in getPages" v-bind:key="key">
-      <li v-on:click="goToPage(key)">{{ key }}</li>
+    <ul class="index__list">
+      <li
+        class="index__list-item"
+        v-on:click="goToPage(key)"
+        v-for="(value, key) in getPages"
+        v-bind:key="key"
+      >{{ key }}</li>
     </ul>
   </section>
 </template>
@@ -28,12 +33,26 @@ export default {
 };
 </script>
 
-<style style="scss">
+<style lang="scss">
 .index {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  &__list {
+    padding: 0;
+
+    &-item {
+      width: 100px;
+      border-left: solid;
+      border-width: 2px;
+      text-align: center;
+      list-style-type: none;
+      margin: 12px;
+      padding: 4px;
+    }
+  }
 }
 </style>
