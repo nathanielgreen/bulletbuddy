@@ -1,21 +1,26 @@
 <template>
-  <section class="container">
-    <List></List>
-    <Input />
+  <section class="index">
+    {{ getPages }}
   </section>
 </template>
 
 <script>
-import List from '~/components/List.vue';
-import Input from '~/components/Input.vue';
+import { mapGetters } from 'vuex';
 
 export default {
-  components: {
-    List,
-    Input,
+  computed: {
+    ...mapGetters([
+      'getPages',
+    ]),
   },
 };
 </script>
 
 <style style="scss">
+.index {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
 </style>
