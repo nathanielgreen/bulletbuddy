@@ -1,6 +1,8 @@
 <template>
   <section class="index">
-    {{ getPages }}
+    <ul v-for="(key, value) in getPages" v-bind:key="key">
+      <li v-on:click="goToPage(value)">{{ value }}</li>
+    </ul>
   </section>
 </template>
 
@@ -13,6 +15,11 @@ export default {
       'getPages',
     ]),
   },
+  methods: {
+    goToPage(value) {
+      this.$router.push(`/pages/${value}`);
+    },
+  },
 };
 </script>
 
@@ -21,6 +28,7 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
