@@ -38,6 +38,17 @@ preserves the framework and it's modular system while still being customisable.
 
 # 2.0 System Design
 
+<div id="2.1" />
+
+## 2.1 Styling Guidelines
+
+- Components are styled using the 
+  [BEM Methodoloy](http://getbem.com/introduction/) and SCSS. 
+- SCSS inside a `.vue` component should only effect elements within 
+  that component.
+- SCSS inside a `layout` component can affect global css element (e.g. `html`,
+  `body`).
+
 [<-- Back to Contents](#contents)
 
 ---
