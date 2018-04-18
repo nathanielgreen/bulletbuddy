@@ -1,7 +1,7 @@
 <template>
   <section class="index">
-    <ul v-for="(key, value) in getPages" v-bind:key="key">
-      <li v-on:click="goToPage(value)">{{ value }}</li>
+    <ul v-for="(value, key) in getPages" v-bind:key="key">
+      <li v-on:click="goToPage(key)">{{ key }}</li>
     </ul>
   </section>
 </template>
