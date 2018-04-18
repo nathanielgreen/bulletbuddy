@@ -5,7 +5,7 @@
   "author": "Nathaniel Green",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --spa",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
