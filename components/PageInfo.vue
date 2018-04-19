@@ -24,14 +24,16 @@ export default {
   display: flex;
   height: 20px;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
 
   &__header {
-    padding: 8px 0 0 8px;
+    padding: 10px 0 0 10px;
   }
   &__page-number {
-    padding: 8px 8px 0 0;
+    padding: 10px 10px 0 0;
   }
 }
 </style>
