@@ -1,6 +1,7 @@
 <template>
   <div class="item-note">
-    {{ data.value }}
+    <img class="item-note" src="../static/icons/square.svg" />
+    <div class="item-note__label">{{ data.value }}</div>
   </div>
 </template>
 
@@ -12,10 +13,18 @@ export default {
 </script>
 
 <style lang="scss">
-.item-note {
+.item-task {
+  display: flex;
+  align-items: center;
 
+  &__icon {
+    flex: 1;
+    height: 30px;
+  }
   &__label {
-    padding-left: 10px;
+    font-size: 18px;
+    padding-left: 16px;
+    flex: 8;
   }
 }
 </style>

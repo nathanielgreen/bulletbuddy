@@ -1,9 +1,7 @@
 <template>
   <div class="item-task">
     <img class="item-task__icon" src="../static/icons/square.svg" />
-    <div
-      class="item-task__label"
-    >{{ data.value }}</div>
+    <div class="item-task__label">{{ data.value }}</div>
   </div>
 </template>
 
@@ -26,10 +24,7 @@ export default {
     font-size: 18px;
     padding-left: 16px;
     flex: 8;
-
-
   }
-
 }
 </style>
 

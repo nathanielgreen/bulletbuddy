@@ -54,18 +54,24 @@ export default {
 .input {
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   border-top: solid;
   border-color: #cccccc;
   border-width: 1px;
+  padding: 16px;
 
   &__input {
-    flex: 1;
+    flex: 8;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
     border: none;
   }
   &__icon {
-    padding: 16px;
+    flex: 1;
+
+    &-img {
+      height: 30px;
+    }
   }
 }
 </style>
