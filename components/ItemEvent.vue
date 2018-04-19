@@ -1,19 +1,19 @@
 <template>
-  <div class="item-note">
-    <img class="item-note__icon" src="../static/icons/minus.svg" />
-    <div class="item-note__label">{{ data.value }}</div>
+  <div class="item-event">
+    <img class="item-event__icon" src="../static/icons/circle.svg" />
+    <div class="item-event__label">{{ data.value }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ItemNote',
+  name: 'ItemEvent',
   props: ['data'],
 };
 </script>
 
 <style lang="scss">
-.item-note {
+.item-event {
   display: flex;
   align-items: center;
 

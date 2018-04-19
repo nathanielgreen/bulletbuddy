@@ -1,9 +1,10 @@
 <template>
   <form class="input" v-on:submit="addNote($event)">
-    <select class="input__select" v-model="selected">
-      <option value="task" default>Task</option>
-      <option value="note">Note</option>
-    </select>
+    <div class="input__icon" v-on:click="changeType">
+      <img class="input__icon-img" v-if="type === 'task'" src="../static/icons/square.svg" />
+      <img class="input__icon-img" v-if="type === 'note'" src="../static/icons/minus.svg" />
+      <img class="input__icon-img" v-if="type === 'event'" src="../static/icons/circle.svg" />
+    </div>
     <input
       class="input__input"
       v-model="value"
@@ -19,18 +20,31 @@ export default {
   data() {
     return {
       value: '',
-      selected: '',
+      type: 'note',
     };
   },
   methods: {
     addNote(event) {
       event.preventDefault();
       const itemObj = {
-        type: this.selected,
+        type: this.type,
         value: this.value,
       };
       this.$store.commit('ADD_ITEM', itemObj);
       this.value = '';
+    },
+    changeType() {
+      switch (this.type) {
+        case 'note':
+          this.type = 'task';
+          break;
+        case 'task':
+          this.type = 'event';
+          break;
+        default:
+          this.type = 'note';
+          break;
+      }
     },
   },
 };
@@ -40,12 +54,24 @@ export default {
 .input {
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: solid;
+  border-color: #cccccc;
+  border-width: 1px;
+  padding: 16px;
 
   &__input {
-    flex: 1;
+    flex: 8;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
     border: none;
+  }
+  &__icon {
+    flex: 1;
+
+    &-img {
+      height: 30px;
+    }
   }
 }
 </style>
