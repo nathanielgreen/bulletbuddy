@@ -6,7 +6,7 @@
     </nuxt-link>
     <nuxt-link class="navbar__item" to="/add-new">
       <img class="navbar__item-img" src="../static/icons/file-plus.svg" />
-      <label>New Daily Log</label>
+      <label>New Page</label>
     </nuxt-link>
   </nav>
 </template>
