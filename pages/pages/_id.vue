@@ -36,7 +36,6 @@ export default {
   mounted() {
     const URL = window.location.href;
     this.pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
-    console.log(this.pageNumber);
   },
   methods: {
     swipeLeft() {
