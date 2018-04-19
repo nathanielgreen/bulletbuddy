@@ -1,7 +1,13 @@
 <template>
   <nav class="navbar">
-    <nuxt-link class="navbar__item" to="/">Index</nuxt-link>
-    <nuxt-link class="navbar__item" to="/add-new">New Log</nuxt-link>
+    <nuxt-link class="navbar__item" to="/">
+      <img class="navbar__item-img" src="../static/icons/bookmark.svg" />
+      <label>Index</label>
+    </nuxt-link>
+    <nuxt-link class="navbar__item" to="/add-new">
+      <img class="navbar__item-img" src="../static/icons/file-plus.svg" />
+      <label>New Daily Log</label>
+    </nuxt-link>
   </nav>
 </template>
 
@@ -18,6 +24,8 @@ export default {
   justify-content: center;
 
   &__item {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     height: 100%;
     text-align: center;
