@@ -62,6 +62,7 @@ export default {
 
   &__input {
     flex: 8;
+    margin-left: 10px;
     font-size: 18px;
     border: none;
     outline: none;
@@ -71,6 +72,7 @@ export default {
 
     &-img {
       height: 30px;
+      width: 35px;
     }
   }
 }
