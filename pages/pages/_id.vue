@@ -4,6 +4,7 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
+    <PageInfo :pageNumber="pageNumber"></PageInfo>
     <List class="page__list"></List>
     <Input class="page__input"/>
   </div>
@@ -13,9 +14,15 @@
 import { mapGetters } from 'vuex';
 import List from '~/components/List.vue';
 import Input from '~/components/Input.vue';
+import PageInfo from '~/components/PageInfo.vue';
 
 export default {
   layout: 'default',
+  data() {
+    return {
+      pageNumber: '',
+    };
+  },
   computed: {
     ...mapGetters([
       'getTotalPages',
@@ -24,6 +31,12 @@ export default {
   components: {
     List,
     Input,
+    PageInfo,
+  },
+  mounted() {
+    const URL = window.location.href;
+    this.pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
+    console.log(this.pageNumber);
   },
   methods: {
     swipeLeft() {
