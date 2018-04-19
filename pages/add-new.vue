@@ -4,6 +4,10 @@
       class="add-new__button"
       v-on:click="addNewDailyLog"
     >New Daily Log</button>
+    <button
+      class="add-new__button"
+      v-on:click="addNewMonthlyLog"
+    >New Monthly Log</button>
   </div>
 </template>
 
@@ -24,6 +28,12 @@ export default {
           this.$router.push(`/pages/${this.getTotalPages}`);
         });
     },
+    addNewMonthlyLog() {
+      this.$store.dispatch('addNewMonthlyLog')
+        .then(() => {
+          this.$router.push(`/pages/${this.getTotalPages}`);
+        });
+    },
   },
 };
 </script>
@@ -31,6 +41,7 @@ export default {
 <style lang="scss">
 .add-new {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
