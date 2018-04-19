@@ -7,7 +7,7 @@ and emulate it's ease of use and handy method of 'Rapid Logging' in to a digital
 format, that doesn't adversely affect the speed of using Bullet Journal, and
 preserves the framework and it's modular system while still being customisable.
 
-A live WIP version is available at: https://peaceful-colden-973ede.netlify.com
+A live WIP version is available at: https://bulletjournal.ngreen.io
 
 <div id="contents" />
 
@@ -33,6 +33,7 @@ A live WIP version is available at: https://peaceful-colden-973ede.netlify.com
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
+- [Netlify (Static Site Hosting](https://www.netlify.com/)
 
 [<-- Back to Contents](#contents)
 
