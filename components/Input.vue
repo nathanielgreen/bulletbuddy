@@ -30,7 +30,10 @@ export default {
         type: this.type,
         value: this.value,
       };
-      this.$store.dispatch('addItem', data);
+      this.$store.dispatch('addItem', data)
+        .then(() => {
+          this.value = '';
+        });
     },
     changeType() {
       switch (this.type) {
