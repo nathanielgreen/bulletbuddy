@@ -9,6 +9,10 @@
         v-if="item.type === 'note'"
         v-bind:data="item"
       ></ItemNote>
+      <ItemEvent
+        v-if="item.type === 'event'"
+        v-bind:data="item"
+      ></ItemEvent>
     </div>
   </div>
 </template>
@@ -17,12 +21,14 @@
 import { mapGetters } from 'vuex';
 import ItemTask from '~/components/ItemTask.vue';
 import ItemNote from '~/components/ItemNote.vue';
+import ItemEvent from '~/components/ItemEvent.vue';
 
 export default {
   name: 'List',
   components: {
     ItemTask,
     ItemNote,
+    ItemEvent,
   },
   computed: {
     ...mapGetters({
