@@ -8,13 +8,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'AddNew',
+  computed: {
+    ...mapGetters([
+      'getTotalPages',
+    ]),
+  },
   methods: {
     addNewDailyLog() {
       this.$store.dispatch('addNewDailyLog')
         .then(() => {
-          this.$router.push('/pages/1');
+          this.$router.push(`/pages/${this.getTotalPages}`);
         });
     },
   },
@@ -22,4 +29,17 @@ export default {
 </script>
 
 <style lang="scss">
+.add-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &__button {
+    background: none;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+}
 </style>

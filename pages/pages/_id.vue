@@ -1,7 +1,11 @@
 <template>
-  <div class="page">
-    <List></List>
-    <Input />
+  <div
+    class="page"
+    v-touch:swipe.left="swipeLeft"
+    v-touch:swipe.right="swipeRight"
+  >
+    <List class="page__list"></List>
+    <Input class="page__input"/>
   </div>
 </template>
 
@@ -14,12 +18,32 @@ export default {
   layout: 'default',
   computed: {
     ...mapGetters([
-      'getViewedItems',
+      'getTotalPages',
     ]),
   },
   components: {
     List,
     Input,
+  },
+  methods: {
+    swipeLeft() {
+      const URL = window.location.href;
+      const pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
+      if (pageNumber === this.getTotalPages) {
+        this.$router.push('/add-new');
+      } else {
+        this.$router.push(`/pages/${pageNumber + 1}`);
+      }
+    },
+    swipeRight() {
+      const URL = window.location.href;
+      const pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
+      if (pageNumber === 1) {
+        this.$router.push('/');
+      } else {
+        this.$router.push(`/pages/${pageNumber - 1}`);
+      }
+    },
   },
   async validate({ params }) {
     return /^\d+$/.test(params.id);
@@ -37,4 +61,17 @@ export default {
 </script>
 
 <style lang="scss">
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__list {
+  }
+  &__input {
+    width: 20vw;
+  }
+}
 </style>
