@@ -1,13 +1,13 @@
 <template>
   <div class="item-task">
     <img
-      v-if="data.options.checked === false"
+      v-if="data.checked === false"
       v-on:click="toggleTask(data)"
       class="item-task__icon"
       src="../static/icons/square.svg"
     />
     <img
-      v-if="data.options.checked === true"
+      v-if="data.checked === true"
       v-on:click="toggleTask(data)"
       class="item-task__icon"
       src="../static/icons/x-square.svg"
@@ -22,8 +22,7 @@ export default {
   props: ['data'],
   methods: {
     toggleTask(data) {
-      // eslint-disable-next-line
-      data.options.checked = true;
+      this.$store.commit('TOGGLE_TASK', data);
     },
   },
 };

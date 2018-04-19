@@ -21,6 +21,15 @@ const store = () => new Vuex.Store({
       };
       Vue.set(state.viewedItems, (size + 1), note);
     },
+    ADD_EVENT(state, val) {
+      const size = Object.keys(state.viewedItems).length;
+      const event = {
+        index: size + 1,
+        type: 'event',
+        value: val,
+      };
+      Vue.set(state.viewedItems, (size + 1), event);
+    },
     ADD_TASK(state, val) {
       const size = Object.keys(state.viewedItems).length;
       const task = {
@@ -30,6 +39,10 @@ const store = () => new Vuex.Store({
         checked: false,
       };
       Vue.set(state.viewedItems, (size + 1), task);
+    },
+    TOGGLE_TASK(state, data) {
+      const task = state.viewedItems[data.index];
+      task.checked = !task.checked;
     },
     ADD_NEW_DAILY_LOG(state) {
       const size = Object.keys(state.pages).length;
