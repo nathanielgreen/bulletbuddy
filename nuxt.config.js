@@ -21,7 +21,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: '#3B8070' },
 
   /*
   ** Global CSS
@@ -41,7 +41,19 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa',
+    [
+      '@nuxtjs/pwa', 
+      { 
+        icon: {
+          iconSrc: '~/static/icons/book-open.svg',
+        },
+        manifest: {
+          name: 'Bullet Journal',
+          lang: 'en',
+        },
+      }
+    
+    ]
   ],
 
   /*
