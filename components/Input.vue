@@ -1,9 +1,10 @@
 <template>
   <form class="input" v-on:submit="addNote($event)">
-    <select class="input__select" v-model="selected">
-      <option value="task" default>Task</option>
-      <option value="note">Note</option>
-    </select>
+    <div class="input__icon" v-on:click="changeIcon">
+      <img v-if="icon === 'task'" src="../static/icons/square.svg" />
+      <img v-if="icon === 'note'" src="../static/icons/minus.svg" />
+      <img v-if="icon === 'event'" src="../static/icons/circle.svg" />
+    </div>
     <input
       class="input__input"
       v-model="value"
@@ -20,6 +21,7 @@ export default {
     return {
       value: '',
       selected: '',
+      icon: 'note',
     };
   },
   methods: {
@@ -31,6 +33,19 @@ export default {
       };
       this.$store.commit('ADD_ITEM', itemObj);
       this.value = '';
+    },
+    changeIcon() {
+      switch (this.icon) {
+        case 'note':
+          this.icon = 'task';
+          break;
+        case 'task':
+          this.icon = 'event';
+          break;
+        default:
+          this.icon = 'note';
+          break;
+      }
     },
   },
 };
