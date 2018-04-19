@@ -1,5 +1,5 @@
 <template>
-  <form class="input" v-on:submit="addNote($event)">
+  <form class="input" v-on:submit="addItem($event)">
     <div class="input__icon" v-on:click="changeType">
       <img class="input__icon-img" v-if="type === 'task'" src="../static/icons/square.svg" />
       <img class="input__icon-img" v-if="type === 'note'" src="../static/icons/minus.svg" />
@@ -19,19 +19,21 @@ export default {
   name: 'Input',
   data() {
     return {
-      value: '',
       type: 'note',
+      value: '',
     };
   },
   methods: {
-    addNote(event) {
+    addItem(event) {
       event.preventDefault();
-      const itemObj = {
+      const data = {
         type: this.type,
         value: this.value,
       };
-      this.$store.commit('ADD_ITEM', itemObj);
-      this.value = '';
+      this.$store.dispatch('addItem', data)
+        .then(() => {
+          this.value = '';
+        });
     },
     changeType() {
       switch (this.type) {

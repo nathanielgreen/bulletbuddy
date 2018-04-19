@@ -1,6 +1,17 @@
 <template>
   <div class="item-task">
-    <img class="item-task__icon" src="../static/icons/square.svg" />
+    <img
+      v-if="data.checked === false"
+      v-on:click="toggleTask(data)"
+      class="item-task__icon"
+      src="../static/icons/square.svg"
+    />
+    <img
+      v-if="data.checked === true"
+      v-on:click="toggleTask(data)"
+      class="item-task__icon"
+      src="../static/icons/x-square.svg"
+    />
     <div class="item-task__label">{{ data.value }}</div>
   </div>
 </template>
@@ -9,6 +20,11 @@
 export default {
   name: 'ItemTask',
   props: ['data'],
+  methods: {
+    toggleTask(data) {
+      this.$store.commit('TOGGLE_TASK', data);
+    },
+  },
 };
 </script>
 

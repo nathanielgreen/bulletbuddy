@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div class="list__item" v-for="item in items" :key="item.value">
+    <div class="list__item" v-for="item in items" :key="item.index">
       <ItemTask
         v-if="item.type === 'task'"
         v-bind:data="item"

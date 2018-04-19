@@ -79,6 +79,7 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-y: scroll;
 
   &__list {
   }
