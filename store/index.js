@@ -16,6 +16,15 @@ const store = () => new Vuex.Store({
       const size = Object.keys(state.viewedItems).length;
       Vue.set(state.viewedItems, (size + 1), value);
     },
+    ADD_NOTE(state, val) {
+      const size = Object.keys(state.viewedItems).length;
+      const note = {
+        index: size,
+        type: 'note',
+        value: val,
+      };
+      Vue.set(state.viewedItems, (size + 1), note);
+    },
     ADD_NEW_DAILY_LOG(state) {
       const size = Object.keys(state.pages).length;
       Vue.set(state.pages, (size + 1), {});
@@ -27,6 +36,20 @@ const store = () => new Vuex.Store({
   actions: {
     addNewDailyLog(state) {
       state.commit('ADD_NEW_DAILY_LOG');
+    },
+    addItem(state, data) {
+      console.log(data);
+      switch (data.type) {
+        case 'note':
+          state.commit('ADD_NOTE', data.value);
+          break;
+        case 'task':
+          state.commit('ADD_TASK', data.value);
+          break;
+        default:
+          state.commit('ADD_EVENT', data.value);
+          break;
+      }
     },
   },
 });
