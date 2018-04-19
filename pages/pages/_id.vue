@@ -67,6 +67,7 @@ export default {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
       store.commit('UPDATE_VIEWED_ITEMS', params.id);
+      store.commit('UPDATE_VIEWED_MONTH', params.id);
     }
   },
 };

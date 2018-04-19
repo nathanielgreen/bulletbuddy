@@ -1,12 +1,20 @@
 <template>
   <div class="page-info">
+    <div class="page-info__month">{{ getViewedMonth }}</div>
     <div class="page-info__page-number">{{ pageNumber }}</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'PageInfo',
+  computed: {
+    ...mapGetters([
+      'getViewedMonth',
+    ]),
+  },
   props: ['pageNumber'],
 };
 </script>

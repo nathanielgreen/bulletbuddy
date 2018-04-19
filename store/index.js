@@ -5,10 +5,12 @@ import Moment from 'moment';
 const store = () => new Vuex.Store({
   state: {
     viewedItems: {},
+    viewedMonth: '',
     pages: {},
   },
   getters: {
     getViewedItems: state => state.viewedItems,
+    getViewedMonth: state => state.viewedMonth,
     getPages: state => state.pages,
     getTotalPages: state => Object.keys(state.pages).length,
   },
@@ -63,6 +65,9 @@ const store = () => new Vuex.Store({
     },
     UPDATE_VIEWED_ITEMS(state, value) {
       state.viewedItems = state.pages[value].items;
+    },
+    UPDATE_VIEWED_MONTH(state, value) {
+      state.viewedMonth = state.pages[value].month;
     },
   },
   actions: {
