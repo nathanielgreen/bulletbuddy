@@ -1,13 +1,9 @@
 <template>
   <div class="item-task">
-    <input
-      class="item-task__checkbox"
-      type="checkbox"
-    />
-    <label
+    <img class="item-task__icon" src="../static/icons/square.svg" />
+    <div
       class="item-task__label"
-      for="checkbox"
-    >{{ data.value }}</label>
+    >{{ data.value }}</div>
   </div>
 </template>
 
@@ -20,10 +16,20 @@ export default {
 
 <style lang="scss">
 .item-task {
-
-  &__label {
-    padding-left: 10px;
+  display: flex;
+  align-items: center;
+  &__icon {
+    flex: 1;
+    height: 30px;
   }
+  &__label {
+    font-size: 18px;
+    padding-left: 16px;
+    flex: 8;
+
+
+  }
+
 }
 </style>
 

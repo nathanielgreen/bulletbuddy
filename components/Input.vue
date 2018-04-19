@@ -1,9 +1,9 @@
 <template>
   <form class="input" v-on:submit="addNote($event)">
     <div class="input__icon" v-on:click="changeIcon">
-      <img v-if="icon === 'task'" src="../static/icons/square.svg" />
-      <img v-if="icon === 'note'" src="../static/icons/minus.svg" />
-      <img v-if="icon === 'event'" src="../static/icons/circle.svg" />
+      <img class="input__icon-img" v-if="icon === 'task'" src="../static/icons/square.svg" />
+      <img class="input__icon-img" v-if="icon === 'note'" src="../static/icons/minus.svg" />
+      <img class="input__icon-img" v-if="icon === 'event'" src="../static/icons/circle.svg" />
     </div>
     <input
       class="input__input"
@@ -20,7 +20,6 @@ export default {
   data() {
     return {
       value: '',
-      selected: '',
       icon: 'note',
     };
   },
@@ -28,7 +27,7 @@ export default {
     addNote(event) {
       event.preventDefault();
       const itemObj = {
-        type: this.selected,
+        icon: this.icon,
         value: this.value,
       };
       this.$store.commit('ADD_ITEM', itemObj);
@@ -55,12 +54,18 @@ export default {
 .input {
   width: 100%;
   display: flex;
+  border-top: solid;
+  border-color: #cccccc;
+  border-width: 1px;
 
   &__input {
     flex: 1;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     border: none;
+  }
+  &__icon {
+    padding: 16px;
   }
 }
 </style>

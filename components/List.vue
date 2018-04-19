@@ -37,7 +37,7 @@ export default {
   width: 100%;
 
   &__item {
-    padding: 16px 16px 16px 16px;
+    padding: 16px;
   }
 }
 </style>
