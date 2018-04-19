@@ -7,11 +7,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Bullet Journal',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -45,7 +45,7 @@ module.exports = {
       '@nuxtjs/pwa', 
       { 
         icon: {
-          iconSrc: '~/static/icons/book-open.svg',
+          iconSrc: '~/static/icons/book-open.png',
         },
         manifest: {
           name: 'Bullet Journal',
