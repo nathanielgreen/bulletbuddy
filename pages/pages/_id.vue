@@ -38,7 +38,11 @@ export default {
     swipeRight() {
       const URL = window.location.href;
       const pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
-      this.$router.push(`/pages/${pageNumber - 1}`);
+      if (pageNumber === 1) {
+        this.$router.push('/');
+      } else {
+        this.$router.push(`/pages/${pageNumber - 1}`);
+      }
     },
   },
   async validate({ params }) {
