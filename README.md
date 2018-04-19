@@ -33,7 +33,8 @@ A live WIP version is available at: https://bulletjournal.ngreen.io
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
-- [Netlify (Static Site Hosting](https://www.netlify.com/)
+- [Netlify (Static Site Hosting)](https://www.netlify.com/)
+- [Feather Icons](https://feathericons.com/)
 
 [<-- Back to Contents](#contents)
 
