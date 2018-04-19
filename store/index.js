@@ -5,12 +5,12 @@ import Moment from 'moment';
 const store = () => new Vuex.Store({
   state: {
     viewedItems: {},
-    viewedMonth: '',
+    viewedHeader: '',
     pages: {},
   },
   getters: {
     getViewedItems: state => state.viewedItems,
-    getViewedMonth: state => state.viewedMonth,
+    getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
     getTotalPages: state => Object.keys(state.pages).length,
   },
@@ -51,7 +51,7 @@ const store = () => new Vuex.Store({
       const size = Object.keys(state.pages).length;
       Vue.set(state.pages, (size + 1), {
         type: 'DL',
-        date: currentDate,
+        header: currentDate,
         items: {},
       });
     },
@@ -59,15 +59,15 @@ const store = () => new Vuex.Store({
       const size = Object.keys(state.pages).length;
       Vue.set(state.pages, (size + 1), {
         type: 'ML',
-        month: currentMonth,
+        header: currentMonth,
         items: {},
       });
     },
     UPDATE_VIEWED_ITEMS(state, value) {
       state.viewedItems = state.pages[value].items;
     },
-    UPDATE_VIEWED_MONTH(state, value) {
-      state.viewedMonth = state.pages[value].month;
+    UPDATE_VIEWED_HEADER(state, value) {
+      state.viewedHeader = state.pages[value].header;
     },
   },
   actions: {
