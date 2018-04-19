@@ -1,5 +1,5 @@
 <template>
-  <section class="index">
+  <section class="index" v-touch:swipe.left="swipeHandler">
     <ul class="index__list">
       <li
         class="index__list-item"
@@ -28,6 +28,9 @@ export default {
   methods: {
     goToPage(value) {
       this.$router.push(`/pages/${value}`);
+    },
+    swipeHandler() {
+      this.$router.push('/pages/1');
     },
   },
 };
