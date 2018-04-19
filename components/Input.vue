@@ -64,6 +64,7 @@ export default {
     flex: 8;
     font-size: 18px;
     border: none;
+    outline: none;
   }
   &__icon {
     flex: 1;

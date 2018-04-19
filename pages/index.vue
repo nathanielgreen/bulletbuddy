@@ -7,7 +7,7 @@
         v-for="(value, key) in getPages"
         v-bind:key="key"
         >
-        <span class="index__list-item__key">{{ key }}</span>
+        <span class="index__list-item__key">{{ key }} {{ value.type}}</span>
         <span class="index__list-item__value">{{ value.header }}</span>
       </li>
     </ul>
