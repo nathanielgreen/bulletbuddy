@@ -34,6 +34,7 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
+    '~/plugins/vueTouchEvents.js',
   ],
 
   /*
