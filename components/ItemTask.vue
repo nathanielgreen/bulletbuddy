@@ -19,6 +19,7 @@ export default {
   &__icon {
     flex: 1;
     height: 30px;
+    width: 30px;
   }
   &__label {
     font-size: 18px;

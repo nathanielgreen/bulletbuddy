@@ -1,9 +1,9 @@
 <template>
   <form class="input" v-on:submit="addNote($event)">
-    <div class="input__icon" v-on:click="changeIcon">
-      <img class="input__icon-img" v-if="icon === 'task'" src="../static/icons/square.svg" />
-      <img class="input__icon-img" v-if="icon === 'note'" src="../static/icons/minus.svg" />
-      <img class="input__icon-img" v-if="icon === 'event'" src="../static/icons/circle.svg" />
+    <div class="input__icon" v-on:click="changeType">
+      <img class="input__icon-img" v-if="type === 'task'" src="../static/icons/square.svg" />
+      <img class="input__icon-img" v-if="type === 'note'" src="../static/icons/minus.svg" />
+      <img class="input__icon-img" v-if="type === 'event'" src="../static/icons/circle.svg" />
     </div>
     <input
       class="input__input"
@@ -20,29 +20,29 @@ export default {
   data() {
     return {
       value: '',
-      icon: 'note',
+      type: 'note',
     };
   },
   methods: {
     addNote(event) {
       event.preventDefault();
       const itemObj = {
-        icon: this.icon,
+        type: this.type,
         value: this.value,
       };
       this.$store.commit('ADD_ITEM', itemObj);
       this.value = '';
     },
-    changeIcon() {
-      switch (this.icon) {
+    changeType() {
+      switch (this.type) {
         case 'note':
-          this.icon = 'task';
+          this.type = 'task';
           break;
         case 'task':
-          this.icon = 'event';
+          this.type = 'event';
           break;
         default:
-          this.icon = 'note';
+          this.type = 'note';
           break;
       }
     },
