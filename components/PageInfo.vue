@@ -16,9 +16,10 @@ export default {
   height: 20px;
   width: 100%;
   text-align: right;
+  margin-bottom: 8px;
 
   &__page-number {
-    padding: 8px;
+    padding: 8px 8px 0 0;
   }
 }
 </style>
