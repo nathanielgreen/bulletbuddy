@@ -1,17 +1,19 @@
 <template>
   <div class="item-task">
-    <img
-      v-if="data.checked === false"
-      v-on:click="toggleTask(data)"
-      class="item-task__icon"
-      src="../static/icons/square.svg"
-    />
-    <img
-      v-if="data.checked === true"
-      v-on:click="toggleTask(data)"
-      class="item-task__icon"
-      src="../static/icons/x-square.svg"
-    />
+    <div class="item-task__icon">
+      <img
+        v-if="data.checked === false"
+        v-on:click="toggleTask(data)"
+        class="item-task__icon-img"
+        src="../static/icons/square.svg"
+      />
+      <img
+        v-if="data.checked === true"
+        v-on:click="toggleTask(data)"
+        class="item-task__icon-img"
+        src="../static/icons/x-square.svg"
+      />
+    </div>
     <div class="item-task__label">{{ data.value }}</div>
   </div>
 </template>
@@ -32,9 +34,17 @@ export default {
 .item-task {
   display: flex;
   align-items: center;
+  justify-content: center;
+
   &__icon {
     flex: 1;
     height: 30px;
+    width: 30px;
+
+    &-img {
+      height: 30px;
+      width: 30px;
+    }
   }
   &__label {
     font-size: 18px;

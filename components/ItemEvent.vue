@@ -1,6 +1,8 @@
 <template>
   <div class="item-event">
-    <img class="item-event__icon" src="../static/icons/circle.svg" />
+    <div class="item-event__icon">
+      <img class="item-event__icon-img" src="../static/icons/circle.svg" />
+    </div>
     <div class="item-event__label">{{ data.value }}</div>
   </div>
 </template>
@@ -16,10 +18,17 @@ export default {
 .item-event {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   &__icon {
     flex: 1;
     height: 30px;
+    width: 30px;
+
+    &-img {
+      height: 30px;
+      width: 30px;
+    }
   }
   &__label {
     font-size: 18px;

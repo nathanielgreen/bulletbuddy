@@ -1,6 +1,8 @@
 <template>
   <div class="item-note">
-    <img class="item-note__icon" src="../static/icons/minus.svg" />
+    <div class="item-note__icon">
+      <img class="item-note__icon-img" src="../static/icons/minus.svg" />
+    </div>
     <div class="item-note__label">{{ data.value }}</div>
   </div>
 </template>
@@ -21,10 +23,16 @@ export default {
   &__icon {
     flex: 1;
     height: 30px;
+    width: 30px;
+
+    &-img {
+      height: 30px;
+      width: 30px;
+    }
   }
   &__label {
     font-size: 18px;
-    margin-left: 10px;
+    padding-left: 16px;
     flex: 8;
   }
 }
