@@ -6,7 +6,10 @@
         v-on:click="goToPage(key)"
         v-for="(value, key) in getPages"
         v-bind:key="key"
-      >{{ key }}</li>
+        >
+        <span class="index__list-item__key">{{ key }} {{ value.type}}</span>
+        <span class="index__list-item__value">{{ value.header }}</span>
+      </li>
     </ul>
   </section>
 </template>
@@ -43,18 +46,25 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
 
   &__list {
     padding: 0;
+    width: 70%;
 
     &-item {
-      width: 100px;
       border-left: solid;
       border-width: 2px;
       text-align: center;
       list-style-type: none;
       margin: 12px;
       padding: 4px;
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

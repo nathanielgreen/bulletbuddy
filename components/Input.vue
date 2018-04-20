@@ -58,21 +58,21 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: solid;
-  border-color: #cccccc;
-  border-width: 1px;
   padding: 16px;
 
   &__input {
     flex: 8;
+    margin-left: 10px;
     font-size: 18px;
     border: none;
+    outline: none;
   }
   &__icon {
     flex: 1;
 
     &-img {
       height: 30px;
+      width: 35px;
     }
   }
 }

@@ -41,13 +41,13 @@ a {
   color: inherit;
 }
 #__nuxt {
-  height: 90%;
+  height: 91%;
 }
 #__layout {
   height: 100%;
 }
 .layout--default {
-    height: 100%;
+  height: 100%;
 }
 .layout__navbar {
   height: 10%;

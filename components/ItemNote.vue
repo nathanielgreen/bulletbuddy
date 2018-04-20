@@ -16,6 +16,7 @@ export default {
 .item-note {
   display: flex;
   align-items: center;
+  justify-content: center;
 
   &__icon {
     flex: 1;
@@ -23,7 +24,7 @@ export default {
   }
   &__label {
     font-size: 18px;
-    padding-left: 16px;
+    margin-left: 10px;
     flex: 8;
   }
 }
