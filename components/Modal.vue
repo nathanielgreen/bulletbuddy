@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-show="modal.show">
+  <div class="modal" v-if="modal.show">
     <div class="modal__background"></div>
     <div class="modal__container">
       <div
@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/global.scss';
+
 .modal {
   position: absolute;
   z-index: 50;
@@ -43,6 +45,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: fadein;
+  animation-duration: 1s;
 
   &__background {
     position: absolute;

@@ -3,7 +3,10 @@
     <div class="item-event__icon">
       <img class="item-event__icon-img" src="../static/icons/circle.svg" />
     </div>
-    <div class="item-event__label">{{ data.value }}</div>
+    <div
+      class="item-event__label"
+      v-on:click="showModal(data)"
+    >{{ data.value }}</div>
   </div>
 </template>
 
@@ -11,6 +14,11 @@
 export default {
   name: 'ItemEvent',
   props: ['data'],
+  methods: {
+    showModal(item) {
+      this.$store.commit('TOGGLE_SHOW_MODAL', item);
+    },
+  },
 };
 </script>
 

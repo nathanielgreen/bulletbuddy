@@ -3,7 +3,6 @@
     <div
       class="list__item"
       v-for="item in items"
-      v-on:click="showModal(item)"
       :key="item.index"
     >
       <ItemTask
