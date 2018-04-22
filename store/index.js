@@ -7,12 +7,17 @@ const store = () => new Vuex.Store({
     viewedItems: {},
     viewedHeader: '',
     pages: {},
+    modal: {
+      show: false,
+      item: '',
+    },
   },
   getters: {
     getViewedItems: state => state.viewedItems,
     getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
     getTotalPages: state => Object.keys(state.pages).length,
+    getModal: state => state.modal,
   },
   mutations: {
     ADD_NOTE(state, val) {
@@ -46,6 +51,9 @@ const store = () => new Vuex.Store({
     TOGGLE_TASK(state, data) {
       const task = state.viewedItems[data.index];
       task.checked = !task.checked;
+    },
+    TOGGLE_SHOW_MODAL(state) {
+      state.showModal = !state.showModal;
     },
     ADD_NEW_DAILY_LOG(state, currentDate) {
       const size = Object.keys(state.pages).length;
