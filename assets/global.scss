@@ -10,25 +10,33 @@
 @keyframes fadeinfromright {
   0% {
     opacity: 0;
-    transform: translateX(80px);;
+    transform: translateX(80px);
   }
   50% {
     opacity: 1;
   }
   100% {
-    transform: translateX(0px);;
+    transform: translateX(0px);
   }
 }
 
 @keyframes fadeinfromleft {
   0% {
     opacity: 0;
-    transform: translateX(-80px);;
+    transform: translateX(-80px);
   }
   50% {
     opacity: 1;
   }
   100% {
-    transform: translateX(0px);;
+    transform: translateX(0px);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

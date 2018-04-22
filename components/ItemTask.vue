@@ -14,7 +14,10 @@
         src="../static/icons/x-square.svg"
       />
     </div>
-    <div class="item-task__label">{{ data.value }}</div>
+    <div
+      class="item-task__label"
+      v-on:click="showModal(data)"
+    >{{ data.value }}</div>
   </div>
 </template>
 
@@ -25,6 +28,9 @@ export default {
   methods: {
     toggleTask(data) {
       this.$store.commit('TOGGLE_TASK', data);
+    },
+    showModal(item) {
+      this.$store.commit('TOGGLE_SHOW_MODAL', item);
     },
   },
 };
