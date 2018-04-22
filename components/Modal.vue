@@ -46,7 +46,7 @@ export default {
   align-items: center;
   justify-content: center;
   animation-name: fadein;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 
   &__background {
     position: absolute;
