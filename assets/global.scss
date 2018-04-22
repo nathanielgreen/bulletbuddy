@@ -1,0 +1,34 @@
+.fade-left {
+  animation-name: fadeinfromleft;
+  animation-duration: 0.2;
+}
+.fade-right {
+  animation-name: fadeinfromright;
+  animation-duration: 0.2;
+}
+
+@keyframes fadeinfromright {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);;
+  }
+}
+
+@keyframes fadeinfromleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);;
+  }
+}
