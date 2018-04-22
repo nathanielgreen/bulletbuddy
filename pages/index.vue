@@ -40,6 +40,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/global.scss';
+
 .index {
   height: 100%;
   display: flex;
@@ -47,6 +49,8 @@ export default {
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  animation-name: fadeinfromleft;
+  animation-duration: 0.2s;
 
   &__list {
     padding: 0;

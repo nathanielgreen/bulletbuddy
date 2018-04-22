@@ -1,5 +1,5 @@
 <template>
-  <div class="add-new">
+  <div class="add-new" v-touch:swipe.right="swipeRight">
     <button
       class="add-new__button"
       v-on:click="addNewDailyLog"
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -34,6 +35,17 @@ export default {
           this.$router.push(`/pages/${this.getTotalPages}`);
         });
     },
+    swipeRight() {
+      anime({
+        targets: '.add-new',
+        translateX: 160,
+        opacity: 0,
+        duration: 300,
+        complete: () => {
+          this.$router.push(`/pages/${this.getTotalPages}`);
+        },
+      });
+    },
   },
 };
 </script>
@@ -45,6 +57,8 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+  animation-name: fadeinfromright;
+  animation-duration: 0.2s;
 
   &__button {
     background: none;

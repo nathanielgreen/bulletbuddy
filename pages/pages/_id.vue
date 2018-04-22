@@ -12,6 +12,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import anime from 'animejs';
 import List from '~/components/List.vue';
 import Input from '~/components/Input.vue';
 import PageInfo from '~/components/PageInfo.vue';
@@ -26,6 +27,7 @@ export default {
   computed: {
     ...mapGetters([
       'getTotalPages',
+      'getFadeClass',
     ]),
   },
   components: {
@@ -39,22 +41,34 @@ export default {
   },
   methods: {
     swipeLeft() {
-      const URL = window.location.href;
-      const pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
-      if (pageNumber === this.getTotalPages) {
-        this.$router.push('/add-new');
-      } else {
-        this.$router.push(`/pages/${pageNumber + 1}`);
-      }
+      anime({
+        targets: '.page',
+        translateX: -80,
+        opacity: 0,
+        duration: 300,
+        complete: () => {
+          if (this.pageNumber === this.getTotalPages) {
+            this.$router.push('/add-new');
+          } else {
+            this.$router.push(`/pages/${this.pageNumber + 1}`);
+          }
+        },
+      });
     },
     swipeRight() {
-      const URL = window.location.href;
-      const pageNumber = Number(URL.substr(URL.lastIndexOf('/') + 1));
-      if (pageNumber === 1) {
-        this.$router.push('/');
-      } else {
-        this.$router.push(`/pages/${pageNumber - 1}`);
-      }
+      anime({
+        targets: '.page',
+        translateX: 160,
+        opacity: 0,
+        duration: 300,
+        complete: () => {
+          if (this.pageNumber === 1) {
+            this.$router.push('/');
+          } else {
+            this.$router.push(`/pages/${this.pageNumber - 1}`);
+          }
+        },
+      });
     },
   },
   async validate({ params }) {
@@ -73,7 +87,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '~/assets/global.scss';
+
 .page {
   height: 100%;
   display: flex;
@@ -81,11 +97,13 @@ export default {
   align-items: center;
   width: 100%;
   overflow-y: scroll;
+  animation-name: fadeinfromleft;
+  animation-duration: 0.2;
 
   &__list {
   }
   &__input {
-    width: 20vw;
+    width: 100%;
   }
 }
 </style>
