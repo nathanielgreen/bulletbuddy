@@ -58,7 +58,7 @@ export default {
     swipeRight() {
       anime({
         targets: '.page',
-        translateX: 160,
+        translateX: 80,
         opacity: 0,
         duration: 300,
         complete: () => {

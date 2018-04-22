@@ -1,5 +1,5 @@
 <template>
-  <section class="index" v-touch:swipe.left="swipeHandler">
+  <section class="index" v-touch:swipe.left="swipeLeft">
     <ul class="index__list">
       <li
         class="index__list-item"
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -32,8 +33,16 @@ export default {
     goToPage(value) {
       this.$router.push(`/pages/${value}`);
     },
-    swipeHandler() {
-      this.$router.push('/pages/1');
+    swipeLeft() {
+      anime({
+        targets: '.index',
+        translateX: -80,
+        opacity: 0,
+        duration: 300,
+        complete: () => {
+          this.$router.push('/pages/1');
+        },
+      });
     },
   },
 };
