@@ -1,6 +1,11 @@
 <template>
   <div class="list">
-    <div class="list__item" v-for="item in items" :key="item.index">
+    <div
+      class="list__item"
+      v-for="item in items"
+      v-on:click="showModal(item)"
+      :key="item.index"
+    >
       <ItemTask
         v-if="item.type === 'task'"
         v-bind:data="item"
@@ -34,6 +39,11 @@ export default {
     ...mapGetters({
       items: 'getViewedItems',
     }),
+  },
+  methods: {
+    showModal(item) {
+      this.$store.commit('TOGGLE_SHOW_MODAL', item);
+    },
   },
 };
 </script>

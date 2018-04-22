@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="modal.show">
+  <div class="modal" v-show="modal.show">
     <div class="modal__background"></div>
     <div class="modal__container">
       <div
@@ -9,6 +9,7 @@
       <div
         class="modal__container-option
         modal__container-option--delete"
+        v-on:click="deleteItem()"
        >Delete</div>
     </div>
   </div>
@@ -24,6 +25,12 @@ export default {
       modal: 'getModal',
     }),
   },
+  methods: {
+    deleteItem() {
+      this.$store.commit('DELETE_ITEM');
+      this.$store.commit('TOGGLE_SHOW_MODAL', '');
+    },
+  },
 };
 </script>
 
@@ -31,11 +38,11 @@ export default {
 .modal {
   position: absolute;
   z-index: 50;
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
 
   &__background {
     position: absolute;
@@ -62,10 +69,12 @@ export default {
       display: flex;
       flex: 1;
       justify-content: center;
+      transition: 0.5s;
 
       &:hover, active {
         border-radius: 4px;
         background: #cccccc;
+        transition: 0.5s;
       }
 
       &--edit {

@@ -48,12 +48,16 @@ const store = () => new Vuex.Store({
       };
       Vue.set(state.viewedItems, (size + 1), task);
     },
+    DELETE_ITEM(state) {
+      Vue.delete(state.viewedItems, state.modal.item.index);
+    },
     TOGGLE_TASK(state, data) {
       const task = state.viewedItems[data.index];
       task.checked = !task.checked;
     },
-    TOGGLE_SHOW_MODAL(state) {
-      state.showModal = !state.showModal;
+    TOGGLE_SHOW_MODAL(state, value) {
+      state.modal.show = !state.modal.show;
+      state.modal.item = value;
     },
     ADD_NEW_DAILY_LOG(state, currentDate) {
       const size = Object.keys(state.pages).length;
