@@ -106,9 +106,6 @@ const store = () => new Vuex.Store({
           break;
       }
     },
-    deletePage(context, index) {
-      context.commit('DELETE_PAGE', index);
-    },
   },
 });
 

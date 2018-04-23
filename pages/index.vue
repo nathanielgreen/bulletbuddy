@@ -55,7 +55,7 @@ export default {
     },
     deletePage(index) {
       this.delay = setTimeout(() => {
-        this.$store.dispatch('deletePage', index);
+        this.$store.commit('DELETE_PAGE', index);
       }, 1000);
     },
     stopDeletePage() {
