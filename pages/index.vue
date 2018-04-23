@@ -8,7 +8,7 @@
         v-bind:key="index"
         v-on:click="goToPage(index)"
         v-on:mousedown="deletePage(index)"
-        v-on:mouseup="stop"
+        v-on:mouseup="stopDeletePage"
         v-on:touchdown="deletePage(index)"
         >
         <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
@@ -58,7 +58,7 @@ export default {
         this.$store.dispatch('deletePage', index);
       }, 1000);
     },
-    stop() {
+    stopDeletePage() {
       clearTimeout(this.delay);
     },
   },
