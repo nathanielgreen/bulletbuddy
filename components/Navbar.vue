@@ -33,7 +33,7 @@ export default {
     margin: 0 auto;
     outline: none;
 
-    &:hover, active {
+    &:hover {
       background-color: #f1f1f1;
     }
   }
