@@ -92,10 +92,6 @@ export default {
       display: flex;
       justify-content: space-between;
 
-      &--deleting {
-        background-color: #ff7f7f !important;
-      }
-
       &:hover, active {
         cursor: pointer;
         background: #f1f1f1;
