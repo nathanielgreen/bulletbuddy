@@ -4,12 +4,12 @@
       <li
         oncontextmenu="return false;"
         class="index__list-item"
-        v-on:click="goToPage(index)"
-        v-on:mousedown="deletePage(key)"
-        v-on:mouseup="stop"
-        v-on:touchdown="deletePage"
         v-for="(page, index) in getPages"
         v-bind:key="index"
+        v-on:click="goToPage(index)"
+        v-on:mousedown="deletePage(index)"
+        v-on:mouseup="stop"
+        v-on:touchdown="deletePage(index)"
         >
         <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
         <span class="index__list-item__value">{{ page.header }}</span>
@@ -53,9 +53,9 @@ export default {
         },
       });
     },
-    deletePage(key) {
+    deletePage(index) {
       this.delay = setTimeout(() => {
-        this.$store.dispatch('deletePage', key);
+        this.$store.dispatch('deletePage', index);
       }, 1000);
     },
     stop() {

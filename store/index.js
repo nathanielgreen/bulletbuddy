@@ -50,8 +50,8 @@ const store = () => new Vuex.Store({
     DELETE_ITEM(state) {
       Vue.delete(state.viewedItems, state.modal.item.index);
     },
-    DELETE_PAGE(state, key) {
-      Vue.delete(state.pages, key);
+    DELETE_PAGE(state, index) {
+      state.pages.splice(index, 1);
     },
     TOGGLE_TASK(state, data) {
       const task = state.viewedItems[data.index];
@@ -106,8 +106,8 @@ const store = () => new Vuex.Store({
           break;
       }
     },
-    deletePage(context, key) {
-      context.commit('DELETE_PAGE', key);
+    deletePage(context, index) {
+      context.commit('DELETE_PAGE', index);
     },
   },
 });
