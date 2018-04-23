@@ -5,7 +5,7 @@
         oncontextmenu="return false;"
         class="index__list-item"
         v-on:click="goToPage(key)"
-        v-on:mousedown="deletePage"
+        v-on:mousedown="deletePage(key)"
         v-on:mouseup="stop"
         v-on:touchdown="deletePage"
         v-for="(value, key) in getPages"
@@ -53,9 +53,9 @@ export default {
         },
       });
     },
-    deletePage() {
+    deletePage(key) {
       this.delay = setTimeout(() => {
-        console.log('hi');
+        this.$store.dispatch('deletePage', key);
       }, 1000);
     },
     stop() {

@@ -51,6 +51,9 @@ const store = () => new Vuex.Store({
     DELETE_ITEM(state) {
       Vue.delete(state.viewedItems, state.modal.item.index);
     },
+    DELETE_PAGE(state, key) {
+      Vue.delete(state.pages, key);
+    },
     TOGGLE_TASK(state, data) {
       const task = state.viewedItems[data.index];
       task.checked = !task.checked;
@@ -103,6 +106,9 @@ const store = () => new Vuex.Store({
           state.commit('ADD_EVENT', data.value);
           break;
       }
+    },
+    deletePage(context, key) {
+      context.commit('DELETE_PAGE', key);
     },
   },
 });
