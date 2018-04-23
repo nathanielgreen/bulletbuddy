@@ -4,6 +4,10 @@
       <img class="navbar__item-img" src="../static/icons/bookmark.svg" />
       <label>Index</label>
     </nuxt-link>
+    <div class="navbar__item">
+      <img class="navbar__item-img" src="../static/icons/clipboard.svg" />
+      <label>Daily Log</label>
+    </div>
     <nuxt-link class="navbar__item" to="/add-new">
       <img class="navbar__item-img" src="../static/icons/file-plus.svg" />
       <label>New Page</label>
