@@ -78,10 +78,12 @@ export default {
   width: 100%;
   animation-name: fadeinfromleft;
   animation-duration: 0.2s;
+  overflow-y: scroll;
 
   &__list {
     padding: 0;
     width: 70%;
+    height: 100%;
 
     &-item {
       border-left: solid;
