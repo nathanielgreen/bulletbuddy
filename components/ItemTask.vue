@@ -16,22 +16,22 @@
     </div>
     <div
       class="item-task__label"
-      v-on:click="showModal(data)"
+      v-on:click="toggleShowModal(data)"
     >{{ data.value }}</div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'ItemTask',
   props: ['data'],
   methods: {
-    toggleTask(data) {
-      this.$store.commit('TOGGLE_TASK', data);
-    },
-    showModal(item) {
-      this.$store.commit('TOGGLE_SHOW_MODAL', item);
-    },
+    ...mapMutations({
+      toggleShowModal: 'TOGGLE_SHOW_MODAL',
+      toggleTask: 'TOGGLE_TASK',
+    }),
   },
 };
 </script>
