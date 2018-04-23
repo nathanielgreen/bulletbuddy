@@ -6,7 +6,7 @@ const store = () => new Vuex.Store({
   state: {
     viewedItems: {},
     viewedHeader: '',
-    pages: {},
+    pages: [],
     modal: {
       show: false,
       item: '',
@@ -16,7 +16,6 @@ const store = () => new Vuex.Store({
     getViewedItems: state => state.viewedItems,
     getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
-    getTotalPages: state => Object.keys(state.pages).length,
     getModal: state => state.modal,
   },
   mutations: {
@@ -51,6 +50,9 @@ const store = () => new Vuex.Store({
     DELETE_ITEM(state) {
       Vue.delete(state.viewedItems, state.modal.item.index);
     },
+    DELETE_PAGE(state, index) {
+      state.pages.splice(index, 1);
+    },
     TOGGLE_TASK(state, data) {
       const task = state.viewedItems[data.index];
       task.checked = !task.checked;
@@ -60,20 +62,20 @@ const store = () => new Vuex.Store({
       state.modal.item = value;
     },
     ADD_NEW_DAILY_LOG(state, currentDate) {
-      const size = Object.keys(state.pages).length;
-      Vue.set(state.pages, (size + 1), {
+      const page = {
         type: 'DL',
         header: currentDate,
         items: {},
-      });
+      };
+      state.pages.push(page);
     },
     ADD_NEW_MONTHLY_LOG(state, currentMonth) {
-      const size = Object.keys(state.pages).length;
-      Vue.set(state.pages, (size + 1), {
+      const page = {
         type: 'ML',
         header: currentMonth,
         items: {},
-      });
+      };
+      state.pages.push(page);
     },
     UPDATE_VIEWED_ITEMS(state, value) {
       state.viewedItems = state.pages[value].items;

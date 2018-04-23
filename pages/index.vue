@@ -2,13 +2,17 @@
   <section class="index" v-touch:swipe.left="swipeLeft">
     <ul class="index__list">
       <li
+        oncontextmenu="return false;"
         class="index__list-item"
-        v-on:click="goToPage(key)"
-        v-for="(value, key) in getPages"
-        v-bind:key="key"
+        v-for="(page, index) in getPages"
+        v-bind:key="index"
+        v-on:click="goToPage(index)"
+        v-on:mousedown="deletePage(index)"
+        v-on:mouseup="stopDeletePage"
+        v-on:touchdown="deletePage(index)"
         >
-        <span class="index__list-item__key">{{ key }} {{ value.type}}</span>
-        <span class="index__list-item__value">{{ value.header }}</span>
+        <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
+        <span class="index__list-item__value">{{ page.header }}</span>
       </li>
     </ul>
   </section>
@@ -19,19 +23,24 @@ import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
+  data() {
+    return {
+      delay: '',
+    };
+  },
   computed: {
     ...mapGetters([
       'getPages',
     ]),
   },
   mounted() {
-    if (Object.keys(this.getPages).length === 0) {
+    if (this.getPages.length === 0) {
       this.$router.push('/add-new');
     }
   },
   methods: {
-    goToPage(value) {
-      this.$router.push(`/pages/${value}`);
+    goToPage(index) {
+      this.$router.push(`/pages/${index + 1}`);
     },
     swipeLeft() {
       anime({
@@ -43,6 +52,14 @@ export default {
           this.$router.push('/pages/1');
         },
       });
+    },
+    deletePage(index) {
+      this.delay = setTimeout(() => {
+        this.$store.commit('DELETE_PAGE', index);
+      }, 1000);
+    },
+    stopDeletePage() {
+      clearTimeout(this.delay);
     },
   },
 };
@@ -75,8 +92,9 @@ export default {
       display: flex;
       justify-content: space-between;
 
-      &:hover {
+      &:hover, active {
         cursor: pointer;
+        background: #f1f1f1;
       }
     }
   }
