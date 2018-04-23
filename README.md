@@ -28,13 +28,26 @@ A live WIP version is available at: https://bulletjournal.ngreen.io
 
 # 1.0 Tech Stack
 
+**Front-end:**
+
 - [Nuxt.js (Vue.js Framework)](https://nuxtjs.org/guide)
+  - [Nuxt PWA Module](https://github.com/nuxt-community/pwa-module)
 - [Vue.js (Javascript SPA Framework)](https://vuejs.org/)
+  - [Vue Touch Events](https://www.npmjs.com/package/vue2-touch-events)
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
+  - [Vuex Persisted State](https://github.com/robinvdvleuten/vuex-persistedstate)
+- [Anime.js (Javascript Animation Engine)](https://github.com/juliangarnier/anime/)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
-- [Netlify (Static Site Hosting)](https://www.netlify.com/)
+
+**Assets:**
+
 - [Feather Icons](https://feathericons.com/)
+
+**Hosting:**
+
+- [Netlify (Static Site Hosting)](https://www.netlify.com/)
+
 
 [<-- Back to Contents](#contents)
 
