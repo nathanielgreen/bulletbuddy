@@ -9,7 +9,8 @@
         v-on:click="goToPage(index)"
         v-on:mousedown="deletePage(index)"
         v-on:mouseup="stopDeletePage"
-        v-on:touchdown="deletePage(index)"
+        v-on:touchdown="console.log('hi');"
+        v-on:touchup="stopDeletePage"
         >
         <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
         <span class="index__list-item__value">{{ page.header }}</span>
@@ -91,6 +92,10 @@ export default {
       padding: 4px;
       display: flex;
       justify-content: space-between;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 
       &:hover, active {
         cursor: pointer;
