@@ -27,6 +27,7 @@ const actions = {
     for (let i = 0; i < context.state.pages.length; i += 1) {
       if (currentDate === context.state.pages[i].header) {
         router.push(`/pages/${i + 1}`);
+        break;
       } else {
         router.push('/add-new');
       }
