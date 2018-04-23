@@ -6,7 +6,7 @@ const store = () => new Vuex.Store({
   state: {
     viewedItems: {},
     viewedHeader: '',
-    pages: {},
+    pages: [],
     modal: {
       show: false,
       item: '',
@@ -63,20 +63,20 @@ const store = () => new Vuex.Store({
       state.modal.item = value;
     },
     ADD_NEW_DAILY_LOG(state, currentDate) {
-      const size = Object.keys(state.pages).length;
-      Vue.set(state.pages, (size + 1), {
+      const page = {
         type: 'DL',
         header: currentDate,
         items: {},
-      });
+      };
+      state.pages.push(page);
     },
     ADD_NEW_MONTHLY_LOG(state, currentMonth) {
-      const size = Object.keys(state.pages).length;
-      Vue.set(state.pages, (size + 1), {
+      const page = {
         type: 'ML',
         header: currentMonth,
         items: {},
-      });
+      };
+      state.pages.push(page);
     },
     UPDATE_VIEWED_ITEMS(state, value) {
       state.viewedItems = state.pages[value].items;

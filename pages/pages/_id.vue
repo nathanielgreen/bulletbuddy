@@ -62,7 +62,7 @@ export default {
         opacity: 0,
         duration: 300,
         complete: () => {
-          if (this.pageNumber === 1) {
+          if (this.pageNumber === 0) {
             this.$router.push('/');
           } else {
             this.$router.push(`/pages/${this.pageNumber - 1}`);

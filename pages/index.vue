@@ -4,15 +4,15 @@
       <li
         oncontextmenu="return false;"
         class="index__list-item"
-        v-on:click="goToPage(key)"
+        v-on:click="goToPage(index)"
         v-on:mousedown="deletePage(key)"
         v-on:mouseup="stop"
         v-on:touchdown="deletePage"
-        v-for="(value, key) in getPages"
-        v-bind:key="key"
+        v-for="(page, index) in getPages"
+        v-bind:key="index"
         >
-        <span class="index__list-item__key">{{ key }} {{ value.type}}</span>
-        <span class="index__list-item__value">{{ value.header }}</span>
+        <span class="index__list-item__key">{{ index }} {{ page.type}}</span>
+        <span class="index__list-item__value">{{ page.header }}</span>
       </li>
     </ul>
   </section>
@@ -34,7 +34,7 @@ export default {
     ]),
   },
   mounted() {
-    if (Object.keys(this.getPages).length === 0) {
+    if (this.getPages.length === 0) {
       this.$router.push('/add-new');
     }
   },
