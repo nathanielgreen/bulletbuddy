@@ -4,7 +4,7 @@
       <img class="navbar__item-img" src="../static/icons/bookmark.svg" />
       <label>Index</label>
     </nuxt-link>
-    <div class="navbar__item">
+    <div class="navbar__item" @click="goToDailyLog($router)">
       <img class="navbar__item-img" src="../static/icons/clipboard.svg" />
       <label>Daily Log</label>
     </div>
@@ -16,8 +16,15 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'Navbar',
+  methods: {
+    ...mapActions([
+      'goToDailyLog',
+    ]),
+  },
 };
 </script>
 

@@ -1,4 +1,5 @@
 import Moment from 'moment';
+import DayJs from 'dayjs';
 
 const actions = {
   addNewDailyLog(state) {
@@ -20,6 +21,17 @@ const actions = {
       default:
         state.commit('ADD_EVENT', data.value);
         break;
+    }
+  },
+  goToDailyLog(context, router) {
+    const currentDate = DayJs().format('DD/MM/YYYY');
+    console.log(currentDate);
+    for (let i = 0; i < context.state.pages.length; i += 1) {
+      if (currentDate === context.state.pages[i].header) {
+        router.push(`/pages/${i + 1}`);
+      } else {
+        router.push('/add-new');
+      }
     }
   },
 };
