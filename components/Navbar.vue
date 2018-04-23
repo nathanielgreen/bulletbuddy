@@ -25,11 +25,17 @@ export default {
 
   &__item {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     flex: 1;
     height: 100%;
     text-align: center;
     margin: 0 auto;
+    outline: none;
+
+    &:hover, active {
+      background-color: #f1f1f1;
+    }
   }
 }
 </style>

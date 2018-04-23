@@ -5,8 +5,9 @@
         oncontextmenu="return false;"
         class="index__list-item"
         v-on:click="goToPage(key)"
-        v-touch:longtap="deletePage"
-        v-touch-class="'index__list-item--deleting'"
+        v-on:mousedown="deletePage"
+        v-on:mouseup="stop"
+        v-on:touchdown="deletePage"
         v-for="(value, key) in getPages"
         v-bind:key="key"
         >
@@ -22,6 +23,11 @@ import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
+  data() {
+    return {
+      delay: '',
+    };
+  },
   computed: {
     ...mapGetters([
       'getPages',
@@ -48,7 +54,12 @@ export default {
       });
     },
     deletePage() {
-      console.log('hi');
+      this.delay = setTimeout(() => {
+        console.log('hi');
+      }, 1000);
+    },
+    stop() {
+      clearTimeout(this.delay);
     },
   },
 };
