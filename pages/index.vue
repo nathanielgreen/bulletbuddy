@@ -9,8 +9,8 @@
         v-on:click="goToPage(index)"
         v-on:mousedown="deletePage(index)"
         v-on:mouseup="stopDeletePage"
-        v-on:touchdown="console.log('hi');"
-        v-on:touchup="stopDeletePage"
+        v-on:touchstart="deletePage(index)"
+        v-on:touchend="stopDeletePage"
         >
         <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
         <span class="index__list-item__value">{{ page.header }}</span>
