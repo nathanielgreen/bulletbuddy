@@ -6,7 +6,7 @@ const actions = {
     state.commit('ADD_NEW_DAILY_LOG', currentDate);
   },
   addNewMonthlyLog(state) {
-    const currentMonth = Moment().format('MMMM');
+    const currentMonth = Moment().format('MMMM YYYY');
     state.commit('ADD_NEW_MONTHLY_LOG', currentMonth);
   },
   addItem(state, data) {
