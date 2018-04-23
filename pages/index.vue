@@ -2,8 +2,11 @@
   <section class="index" v-touch:swipe.left="swipeLeft">
     <ul class="index__list">
       <li
+        oncontextmenu="return false;"
         class="index__list-item"
         v-on:click="goToPage(key)"
+        v-touch:longtap="deletePage"
+        v-touch-class="'index__list-item--deleting'"
         v-for="(value, key) in getPages"
         v-bind:key="key"
         >
@@ -44,6 +47,9 @@ export default {
         },
       });
     },
+    deletePage() {
+      console.log('hi');
+    },
   },
 };
 </script>
@@ -75,8 +81,13 @@ export default {
       display: flex;
       justify-content: space-between;
 
-      &:hover {
+      &--deleting {
+        background-color: #ff7f7f !important;
+      }
+
+      &:hover, active {
         cursor: pointer;
+        background: #f1f1f1;
       }
     }
   }
