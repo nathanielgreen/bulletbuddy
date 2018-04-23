@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getTotalPages',
+      'getPages',
       'getFadeClass',
     ]),
   },
@@ -47,7 +47,7 @@ export default {
         opacity: 0,
         duration: 300,
         complete: () => {
-          if (this.pageNumber === this.getTotalPages) {
+          if (this.pageNumber === this.getPages.length) {
             this.$router.push('/add-new');
           } else {
             this.$router.push(`/pages/${this.pageNumber + 1}`);
@@ -62,7 +62,7 @@ export default {
         opacity: 0,
         duration: 300,
         complete: () => {
-          if (this.pageNumber === 0) {
+          if (this.pageNumber === 1) {
             this.$router.push('/');
           } else {
             this.$router.push(`/pages/${this.pageNumber - 1}`);
@@ -76,12 +76,13 @@ export default {
   },
   async asyncData({ store, params, error }) {
     const pages = await store.getters.getPages;
-    const data = pages[params.id];
+    const index = Number(params.id) - 1;
+    const data = pages[index];
     if (data == null) {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
-      store.commit('UPDATE_VIEWED_ITEMS', params.id);
-      store.commit('UPDATE_VIEWED_HEADER', params.id);
+      store.commit('UPDATE_VIEWED_ITEMS', index);
+      store.commit('UPDATE_VIEWED_HEADER', index);
     }
   },
 };

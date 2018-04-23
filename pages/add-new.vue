@@ -19,14 +19,14 @@ export default {
   name: 'AddNew',
   computed: {
     ...mapGetters([
-      'getTotalPages',
+      'getPages',
     ]),
   },
   methods: {
     addNewDailyLog() {
       this.$store.dispatch('addNewDailyLog')
         .then(() => {
-          this.$router.push(`/pages/${this.getTotalPages}`);
+          this.$router.push(`/pages/${this.getPages.length}`);
         });
     },
     addNewMonthlyLog() {
@@ -42,7 +42,7 @@ export default {
         opacity: 0,
         duration: 300,
         complete: () => {
-          this.$router.push(`/pages/${this.getTotalPages}`);
+          this.$router.push(`/pages/${this.getPages.length}`);
         },
       });
     },

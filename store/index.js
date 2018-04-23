@@ -16,7 +16,6 @@ const store = () => new Vuex.Store({
     getViewedItems: state => state.viewedItems,
     getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
-    getTotalPages: state => Object.keys(state.pages).length,
     getModal: state => state.modal,
   },
   mutations: {

@@ -11,7 +11,7 @@
         v-for="(page, index) in getPages"
         v-bind:key="index"
         >
-        <span class="index__list-item__key">{{ index }} {{ page.type}}</span>
+        <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
         <span class="index__list-item__value">{{ page.header }}</span>
       </li>
     </ul>
@@ -39,8 +39,8 @@ export default {
     }
   },
   methods: {
-    goToPage(value) {
-      this.$router.push(`/pages/${value}`);
+    goToPage(index) {
+      this.$router.push(`/pages/${index + 1}`);
     },
     swipeLeft() {
       anime({
