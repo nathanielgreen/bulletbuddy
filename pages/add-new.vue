@@ -32,7 +32,7 @@ export default {
     addNewMonthlyLog() {
       this.$store.dispatch('addNewMonthlyLog')
         .then(() => {
-          this.$router.push(`/pages/${this.getTotalPages}`);
+          this.$router.push(`/pages/${this.getPages.length}`);
         });
     },
     swipeRight() {
