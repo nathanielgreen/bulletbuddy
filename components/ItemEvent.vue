@@ -5,19 +5,21 @@
     </div>
     <div
       class="item-event__label"
-      v-on:click="showModal(data)"
+      v-on:click="toggleShowModal(data)"
     >{{ data.value }}</div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'ItemEvent',
   props: ['data'],
   methods: {
-    showModal(item) {
-      this.$store.commit('TOGGLE_SHOW_MODAL', item);
-    },
+    ...mapMutations({
+      toggleShowModal: 'TOGGLE_SHOW_MODAL',
+    }),
   },
 };
 </script>

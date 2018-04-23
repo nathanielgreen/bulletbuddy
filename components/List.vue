@@ -39,11 +39,6 @@ export default {
       items: 'getViewedItems',
     }),
   },
-  methods: {
-    showModal(item) {
-      this.$store.commit('TOGGLE_SHOW_MODAL', item);
-    },
-  },
 };
 </script>
 
