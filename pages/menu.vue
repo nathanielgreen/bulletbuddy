@@ -25,7 +25,7 @@ export default {
           async: true,
         },
         {
-          src: 'http://cdn.headwayapp.co/widget.js',
+          src: 'https://cdn.headwayapp.co/widget.js',
           type: 'text/javascript',
           body: true,
           async: true,
