@@ -1,6 +1,8 @@
 <template>
   <div class="menu">
-    <div class="menu__headway" id="headway">
+    <div class="menu__item">
+      <h1 class="menu__item-header">Latest Changes:</h1>
+      <span class="menu__item-headway" id="headway"></span>
     </div>
   </div>
 </template>
@@ -14,7 +16,7 @@ export default {
         {
           innerHTML: `
             var HW_config = {
-              selector: '.menu__headway',
+              selector: '#headway',
               account: 'xbgK17',
             };
           `,
@@ -39,10 +41,23 @@ export default {
   height: 100%;
   width: 100%;
 
+  &__item {
+    border-bottom: solid;
+    display: flex;
+    aling-items: center;
+    justify-content: center;
+    border-color: #cccccc;
+    border-width: 1px;
+    height: 60px;
 
-  &__headway {
-    height: 100%;
-    width: 100%;
+    &-header {
+      display: flex;
+      align-items: center;
+    }
+    &-headway {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 </style>
