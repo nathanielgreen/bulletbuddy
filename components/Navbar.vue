@@ -12,6 +12,10 @@
       <img class="navbar__item-img" src="../static/icons/file-plus.svg" />
       <label>New Page</label>
     </nuxt-link>
+    <nuxt-link class="navbar__item" to="/menu">
+      <img class="navbar__item-img" src="../static/icons/more-vertical.svg" />
+      <label>More</label>
+    </nuxt-link>
   </nav>
 </template>
 
