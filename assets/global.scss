@@ -7,6 +7,10 @@
   animation-duration: 0.2;
 }
 
+#HW_frame_cont { 
+  width: 100% !important;
+}
+
 @keyframes fadeinfromright {
   0% {
     opacity: 0;
