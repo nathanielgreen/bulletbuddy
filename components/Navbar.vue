@@ -34,6 +34,7 @@ export default {
 
 <style lang="scss">
 .navbar {
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +51,8 @@ export default {
     text-align: center;
     margin: 0 auto;
     outline: none;
+    font-size: 14px;
+    word-wrap: break-word;
 
     &:hover {
       background-color: #f1f1f1;
