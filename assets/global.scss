@@ -1,46 +1,61 @@
-.fade-left {
-  animation-name: fadeinfromleft;
-  animation-duration: 0.2;
-}
-.fade-right {
-  animation-name: fadeinfromright;
-  animation-duration: 0.2;
-}
-
+// Headway iFrame Overwrite
 #HW_frame_cont { 
   width: 100% !important;
 }
 
-@keyframes fadeinfromright {
+// Slide Right animations
+.slide-right-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+.slide-right-leave-active {
+	animation: slide-right .25s;
+  transition: opacity 0.15s ease-in;
+}
+.slide-right-enter,
+.slide-right-leave-active {
+  opacity: 0;
+}
+
+@keyframes slide-right {
   0% {
-    opacity: 0;
-    transform: translateX(80px);
-  }
-  50% {
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(0px);
+    transform: translate3d(100%, 0, 0);
   }
 }
 
-@keyframes fadeinfromleft {
+// Slide Left animations
+.slide-left-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+.slide-left-leave-active {
+	animation: slide-left .25s;
+  transition: opacity 0.15s ease-in;
+}
+.slide-left-enter,
+.slide-left-leave-active {
+  opacity: 0;
+}
+
+@keyframes slide-left {
   0% {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  50% {
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(0px);
+    transform: translate3d(-100%, 0, 0);
   }
 }
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+
+// Default Page animation
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+.page-leave-active {
+	animation: page .25s;
+  transition: opacity 0.15s ease-in;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }
