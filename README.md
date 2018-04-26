@@ -36,7 +36,6 @@ A live WIP version is available at: https://bulletjournal.ngreen.io
   - [Vue Touch Events](https://www.npmjs.com/package/vue2-touch-events)
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
   - [Vuex Persisted State](https://github.com/robinvdvleuten/vuex-persistedstate)
-- [Anime.js (Javascript Animation Engine)](https://github.com/juliangarnier/anime/)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
 

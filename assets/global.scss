@@ -1,7 +1,9 @@
+// Headway iFrame Overwrite
 #HW_frame_cont { 
   width: 100% !important;
 }
 
+// Slide Right animations
 .slide-right-enter-active {
   transition: opacity 0.25s ease-out;
 }
@@ -23,6 +25,7 @@
   }
 }
 
+// Slide Left animations
 .slide-left-enter-active {
   transition: opacity 0.25s ease-out;
 }
@@ -44,6 +47,7 @@
   }
 }
 
+// Default Page animation
 .page-enter-active {
   transition: opacity 0.25s ease-out;
 }
