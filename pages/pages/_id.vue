@@ -29,6 +29,10 @@ export default {
       'getFadeClass',
     ]),
   },
+  transition(to, from) {
+    if (!from) return 'slide-left';
+    return +to.params.id < +from.params.id ? 'slide-right' : 'slide-left';
+  },
   components: {
     List,
     Input,
@@ -40,6 +44,7 @@ export default {
   },
   methods: {
     swipeLeft() {
+      this.$store.commit('UPDATE_ENTER_ANIMATION', 'acrossIn');
       if (this.pageNumber === this.getPages.length) {
         this.$router.push('/add-new');
       } else {
