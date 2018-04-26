@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.0.8",
-    "animejs": "^2.2.0",
     "moment": "^2.22.1",
     "nuxt": "^1.0.0",
     "vue": "^2.5.16",
