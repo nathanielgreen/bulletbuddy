@@ -1,46 +1,16 @@
-.fade-left {
-  animation-name: fadeinfromleft;
-  animation-duration: 0.2;
-}
-.fade-right {
-  animation-name: fadeinfromright;
-  animation-duration: 0.2;
-}
-
 #HW_frame_cont { 
   width: 100% !important;
 }
 
-@keyframes fadeinfromright {
-  0% {
-    opacity: 0;
-    transform: translateX(80px);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0px);
-  }
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
 }
 
-@keyframes fadeinfromleft {
-  0% {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0px);
-  }
+.page-leave-active {
+  transition: opacity 0.25s ease-in;
 }
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }
