@@ -44,3 +44,14 @@
   }
 }
 
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+.page-leave-active {
+	animation: page .25s;
+  transition: opacity 0.15s ease-in;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
