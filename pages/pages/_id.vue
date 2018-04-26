@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     swipeLeft() {
-      this.$store.commit('UPDATE_ENTER_ANIMATION', 'acrossIn');
       if (this.pageNumber === this.getPages.length) {
         this.$router.push('/add-new');
       } else {
