@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -36,15 +35,7 @@ export default {
         });
     },
     swipeRight() {
-      anime({
-        targets: '.add-new',
-        translateX: 160,
-        opacity: 0,
-        duration: 300,
-        complete: () => {
-          this.$router.push(`/pages/${this.getPages.length}`);
-        },
-      });
+      this.$router.push(`/pages/${this.getPages.length}`);
     },
   },
 };
@@ -57,8 +48,6 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
-  animation-name: fadeinfromright;
-  animation-duration: 0.2s;
 
   &__button {
     background: none;

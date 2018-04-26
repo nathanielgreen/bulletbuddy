@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import anime from 'animejs';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -44,15 +43,7 @@ export default {
       this.$router.push(`/pages/${index + 1}`);
     },
     swipeLeft() {
-      anime({
-        targets: '.index',
-        translateX: -80,
-        opacity: 0,
-        duration: 300,
-        complete: () => {
-          this.$router.push('/pages/1');
-        },
-      });
+      this.$router.push('/pages/1');
     },
     deletePage(index) {
       this.delay = setTimeout(() => {
@@ -76,8 +67,6 @@ export default {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  animation-name: fadeinfromleft;
-  animation-duration: 0.2s;
   overflow-y: scroll;
 
   &__list {

@@ -12,7 +12,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import anime from 'animejs';
 import List from '~/components/List.vue';
 import Input from '~/components/Input.vue';
 import PageInfo from '~/components/PageInfo.vue';
@@ -41,34 +40,18 @@ export default {
   },
   methods: {
     swipeLeft() {
-      anime({
-        targets: '.page',
-        translateX: -80,
-        opacity: 0,
-        duration: 300,
-        complete: () => {
-          if (this.pageNumber === this.getPages.length) {
-            this.$router.push('/add-new');
-          } else {
-            this.$router.push(`/pages/${this.pageNumber + 1}`);
-          }
-        },
-      });
+      if (this.pageNumber === this.getPages.length) {
+        this.$router.push('/add-new');
+      } else {
+        this.$router.push(`/pages/${this.pageNumber + 1}`);
+      }
     },
     swipeRight() {
-      anime({
-        targets: '.page',
-        translateX: 80,
-        opacity: 0,
-        duration: 300,
-        complete: () => {
-          if (this.pageNumber === 1) {
-            this.$router.push('/');
-          } else {
-            this.$router.push(`/pages/${this.pageNumber - 1}`);
-          }
-        },
-      });
+      if (this.pageNumber === 1) {
+        this.$router.push('/');
+      } else {
+        this.$router.push(`/pages/${this.pageNumber - 1}`);
+      }
     },
   },
   async validate({ params }) {
@@ -98,8 +81,6 @@ export default {
   align-items: center;
   width: 100%;
   overflow-y: scroll;
-  animation-name: fadeinfromleft;
-  animation-duration: 0.2;
 
   &__list {
   }
