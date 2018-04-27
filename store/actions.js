@@ -33,6 +33,17 @@ const actions = {
       }
     }
   },
+  goToMonthlyLog(context, router) {
+    const currentMonth = Moment().format('MMMM YYYY');
+    for (let i = 0; i < context.state.pages.length; i += 1) {
+      if (currentMonth === context.state.pages[i].header) {
+        router.push(`/pages/${i + 1}`);
+        break;
+      } else {
+        router.push('/add-new');
+      }
+    }
+  },
 };
 
 export default actions;
