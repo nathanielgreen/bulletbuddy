@@ -4,6 +4,7 @@
     <div class="menu__item">
       <h3 v-if="timer.visible">Deleting ALL Pages in {{ timer.count }}</h3>
       <button
+        oncontextmenu="return false;"
         class="menu__item-button"
         v-on:mousedown="deleteAllPages"
         v-on:mouseup="stopDeleteAllPages"
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       delay: '',
+      countdown: '',
       timer: {
         visible: false,
         count: 3,
@@ -51,11 +53,22 @@ export default {
   },
   methods: {
     deleteAllPages() {
-      this.delay = setTimeout(() => {
+      this.timer.visible = true;
+      this.countdown = setInterval(() => {
+        this.timer.count -= 1;
       }, 1000);
+      this.delay = setTimeout(() => {
+        this.timer.visible = false;
+        this.timer.count = 3;
+        clearInterval(this.countdown);
+        console.log('hi');
+      }, 3000);
     },
-    stopDeletePage() {
+    stopDeleteAllPages() {
       clearTimeout(this.delay);
+      clearInterval(this.countdown);
+      this.timer.count = 3;
+      this.timer.visible = false;
     },
   },
 };
@@ -82,6 +95,10 @@ export default {
     align-self: center;
     text-align: center;
     margin: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     width: 100%;
 
     &-button {
@@ -91,6 +108,7 @@ export default {
       border-radius: 4px;
       margin: 8px;
       padding: 8px;
+      user-select: none;
       width: 50%;
     }
 

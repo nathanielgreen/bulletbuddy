@@ -83,9 +83,6 @@ export default {
       padding: 4px;
       display: flex;
       justify-content: space-between;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
 
       &:hover, active {
