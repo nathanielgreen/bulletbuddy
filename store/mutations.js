@@ -35,6 +35,9 @@ const mutations = {
   DELETE_PAGE(state, index) {
     state.pages.splice(index, 1);
   },
+  DELETE_ALL_PAGES(state) {
+    state.pages = [];
+  },
   TOGGLE_TASK(state, data) {
     const task = state.viewedItems[data.index];
     task.checked = !task.checked;

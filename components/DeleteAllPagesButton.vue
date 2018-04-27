@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'Menu',
   data() {
@@ -26,6 +28,9 @@ export default {
     };
   },
   methods: {
+    ...mapMutations({
+      deleteAllPagesMutation: 'DELETE_ALL_PAGES',
+    }),
     deleteAllPages() {
       this.timer.visible = true;
       this.countdown = setInterval(() => {
@@ -35,7 +40,7 @@ export default {
         this.timer.visible = false;
         this.timer.count = 3;
         clearInterval(this.countdown);
-        console.log('hi');
+        this.deleteAllPagesMutation();
       }, 3000);
     },
     stopDeleteAllPages() {
