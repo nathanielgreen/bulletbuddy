@@ -5,9 +5,9 @@
       oncontextmenu="return false;"
       class="delete-all-pages-button__button"
       v-on:mousedown="deleteAllPages"
-      v-on:mouseup="stopDeleteAllPages"
+      v-on:mouseup="clearTimerAndIntervals"
       v-on:touchstart="deleteAllPages"
-      v-on:touchend="stopDeleteAllPages"
+      v-on:touchend="clearTimerAndIntervals"
     >Delete ALL Pages</button>
   </div>
 </template>
@@ -31,23 +31,21 @@ export default {
     ...mapMutations({
       deleteAllPagesMutation: 'DELETE_ALL_PAGES',
     }),
+    clearTimerAndIntervals() {
+      clearTimeout(this.delay);
+      clearInterval(this.countdown);
+      this.timer.visible = false;
+      this.timer.count = 3;
+    },
     deleteAllPages() {
       this.timer.visible = true;
       this.countdown = setInterval(() => {
         this.timer.count -= 1;
       }, 1000);
       this.delay = setTimeout(() => {
-        this.timer.visible = false;
-        this.timer.count = 3;
-        clearInterval(this.countdown);
+        this.clearTimerAndIntervals();
         this.deleteAllPagesMutation();
       }, 3000);
-    },
-    stopDeleteAllPages() {
-      clearTimeout(this.delay);
-      clearInterval(this.countdown);
-      this.timer.count = 3;
-      this.timer.visible = false;
     },
   },
 };
@@ -55,7 +53,6 @@ export default {
 
 <style lang="scss" scoped>
 .delete-all-pages-button {
-
   &__button {
     background: none;
     border: solid;
