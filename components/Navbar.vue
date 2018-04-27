@@ -31,6 +31,7 @@ export default {
   methods: {
     ...mapActions([
       'goToDailyLog',
+      'goToMonthlyLog',
     ]),
   },
 };
