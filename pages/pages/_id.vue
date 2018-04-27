@@ -4,7 +4,7 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
-    <PageInfo :pageNumber="pageNumber"></PageInfo>
+    <PageInfo class="page__info" :pageNumber="pageNumber"></PageInfo>
     <List class="page__list"></List>
     <Input class="page__input"/>
   </div>
@@ -87,7 +87,11 @@ export default {
   width: 100%;
   overflow-y: scroll;
 
+  &__info {
+    position: fixed;
+  }
   &__list {
+    margin-top: 40px;
   }
   &__input {
     width: 100%;
