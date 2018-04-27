@@ -1,15 +1,18 @@
 <template>
   <div class="menu">
-    <div class="menu__item">
-      <h1 class="menu__item-header">Latest Changes:</h1>
-      <span class="menu__item-headway" id="headway"></span>
-    </div>
+    <span class="menu-headway" id="headway"></span>
+    <DeleteAllPagesButton class="menu__item"/>
   </div>
 </template>
 
 <script>
+import DeleteAllPagesButton from '~/components/DeleteAllPagesButton.vue';
+
 export default {
   name: 'Menu',
+  components: {
+    DeleteAllPagesButton,
+  },
   head() {
     return {
       script: [
@@ -38,26 +41,31 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
+  display: flex;
   height: 100%;
   width: 100%;
 
-  &__item {
-    border-bottom: solid;
+  &-headway {
+    align-items: center;
     display: flex;
-    aling-items: center;
+    height: 40px;
     justify-content: center;
-    border-color: #cccccc;
-    border-width: 1px;
-    height: 60px;
-
-    &-header {
-      display: flex;
-      align-items: center;
-    }
-    &-headway {
-      display: flex;
-      align-items: center;
-    }
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
   }
+
+  &__item {
+    align-self: center;
+    text-align: center;
+    margin: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+  }
+
 }
 </style>
