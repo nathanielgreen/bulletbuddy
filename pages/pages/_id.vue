@@ -69,8 +69,10 @@ export default {
     if (data == null) {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
-      store.commit('UPDATE_VIEWED_ITEMS', index);
-      store.commit('UPDATE_VIEWED_HEADER', index);
+      setTimeout(() => {
+        store.commit('UPDATE_VIEWED_ITEMS', index);
+        store.commit('UPDATE_VIEWED_HEADER', index);
+      }, 250);
     }
   },
 };
