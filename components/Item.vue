@@ -1,23 +1,32 @@
 <template>
-  <div class="item-task">
-    <div class="item-task__icon">
+  <div class="item">
+    <div class="item__icon">
       <img
-        v-if="data.checked === false"
+        v-if="data.type === 'task' && data.checked === false"
         v-on:click="toggleTask(index)"
-        class="item-task__icon-img"
+        class="item__icon-img"
         src="../static/icons/square.svg"
       />
       <img
-        v-if="data.checked === true"
+        v-if="data.type === 'task' && data.checked === true"
         v-on:click="toggleTask(index)"
-        class="item-task__icon-img"
+        class="item__icon-img"
         src="../static/icons/x-square.svg"
       />
+      <img
+        v-if="data.type === 'note'"
+        class="item__icon-img"
+        src="../static/icons/minus.svg"
+      />
+      <img
+        v-if="data.type === 'event'"
+        class="item__icon-img"
+        src="../static/icons/circle.svg"
+      />
     </div>
-    <div
-      class="item-task__label"
-      v-on:click="toggleShowModal(data)"
-    >{{ data.value }}</div>
+    <div class="item__label" v-on:click="toggleShowModal(index)">
+      {{ data.value }}
+    </div>
   </div>
 </template>
 
@@ -25,7 +34,7 @@
 import { mapMutations } from 'vuex';
 
 export default {
-  name: 'ItemTask',
+  name: 'Item',
   props: ['data', 'index'],
   methods: {
     ...mapMutations({
@@ -36,8 +45,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.item-task {
+<style lang="scss" scoped>
+.item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,4 +68,3 @@ export default {
   }
 }
 </style>
-

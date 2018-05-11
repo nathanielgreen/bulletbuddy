@@ -9,7 +9,7 @@ const store = () => new Vuex.Store({
     pages: [],
     modal: {
       show: false,
-      item: '',
+      itemIndex: '',
     },
   },
   getters: {

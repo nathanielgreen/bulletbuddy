@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Modal',
@@ -26,10 +26,9 @@ export default {
     }),
   },
   methods: {
-    deleteItem() {
-      this.$store.commit('DELETE_ITEM');
-      this.$store.commit('TOGGLE_SHOW_MODAL', '');
-    },
+    ...mapActions([
+      'deleteItem',
+    ]),
   },
 };
 </script>

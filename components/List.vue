@@ -5,37 +5,22 @@
       v-for="(item, index) in items"
       :key="index"
     >
-      <ItemTask
-        v-if="item.type === 'task'"
+      <Item
         v-bind:data="item"
         v-bind:index="index"
-      ></ItemTask>
-      <ItemNote
-        v-if="item.type === 'note'"
-        v-bind:data="item"
-        v-bind:index="index"
-      ></ItemNote>
-      <ItemEvent
-        v-if="item.type === 'event'"
-        v-bind:data="item"
-        v-bind:index="index"
-      ></ItemEvent>
+      ></Item>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import ItemTask from '~/components/ItemTask.vue';
-import ItemNote from '~/components/ItemNote.vue';
-import ItemEvent from '~/components/ItemEvent.vue';
+import Item from '~/components/Item.vue';
 
 export default {
   name: 'List',
   components: {
-    ItemTask,
-    ItemNote,
-    ItemEvent,
+    Item,
   },
   computed: {
     ...mapGetters({

@@ -22,6 +22,10 @@ const actions = {
         break;
     }
   },
+  deleteItem(context) {
+    context.commit('DELETE_ITEM');
+    context.commit('TOGGLE_SHOW_MODAL', '');
+  },
   goToDailyLog(context, router) {
     const currentDate = Moment().format('DD/MM/YYYY');
     for (let i = 0; i < context.state.pages.length; i += 1) {
