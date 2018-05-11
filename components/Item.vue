@@ -24,7 +24,10 @@
         src="../static/icons/circle.svg"
       />
     </div>
-    <div class="item__label" v-on:click="toggleShowModal(index)">
+    <div
+      class="item__label"
+      v-on:click="toggleShowModal(item)"
+    >
       {{ data.value }}
     </div>
   </div>
@@ -36,6 +39,14 @@ import { mapMutations } from 'vuex';
 export default {
   name: 'Item',
   props: ['data', 'index'],
+  computed: {
+    item(props) {
+      return {
+        data: props.data,
+        index: props.index,
+      };
+    },
+  },
   methods: {
     ...mapMutations({
       toggleShowModal: 'TOGGLE_SHOW_MODAL',
