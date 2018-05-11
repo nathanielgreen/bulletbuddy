@@ -9,6 +9,7 @@ const store = () => new Vuex.Store({
     pages: [],
     modal: {
       show: false,
+      editing: false,
       itemIndex: '',
     },
   },

@@ -5,6 +5,8 @@
       <div
         class="modal__container-option
         modal__container-option--edit"
+        v-if="!modal.editing"
+        v-on:click="editItem()"
       >Edit</div>
       <div
         class="modal__container-option
@@ -12,11 +14,22 @@
         v-on:click="deleteItem()"
        >Delete</div>
     </div>
+    <div
+      class="modal__container"
+      v-if="modal.editing"
+    >
+      <input
+        class="modal__container-input"
+        type="text"
+      />
+      <button>Save</button>
+      <button>Cancel</button>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
   name: 'Modal',
@@ -26,6 +39,9 @@ export default {
     }),
   },
   methods: {
+    ...mapMutations({
+      editItem: 'TOGGLE_EDITING_MODAL',
+    }),
     ...mapActions([
       'deleteItem',
     ]),
@@ -64,6 +80,10 @@ export default {
     height: 25%;
     position: absolute;
     width: 80%;
+
+    &-input {
+      display: flex;
+    }
 
     &-option {
       align-items: center;

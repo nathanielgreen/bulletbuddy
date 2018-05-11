@@ -38,6 +38,9 @@ const mutations = {
     state.modal.show = !state.modal.show;
     state.modal.itemIndex = itemIndex;
   },
+  TOGGLE_EDITING_MODAL(state) {
+    state.modal.editing = !state.modal.editing;
+  },
   ADD_NEW_DAILY_LOG(state, currentDate) {
     const page = {
       type: 'DL',
