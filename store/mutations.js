@@ -34,9 +34,13 @@ const mutations = {
     const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
-  TOGGLE_SHOW_MODAL(state, itemIndex) {
+  TOGGLE_SHOW_MODAL(state, item) {
     state.modal.show = !state.modal.show;
-    state.modal.itemIndex = itemIndex;
+    state.modal.item = item.data;
+    state.modal.itemIndex = item.index;
+  },
+  TOGGLE_EDITING_MODAL(state) {
+    state.modal.editing = !state.modal.editing;
   },
   ADD_NEW_DAILY_LOG(state, currentDate) {
     const page = {
