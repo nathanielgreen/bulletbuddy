@@ -32,8 +32,9 @@ const mutations = {
   DELETE_ALL_PAGES(state) {
     state.pages = [];
   },
-  TOGGLE_TASK(state, data) {
-    const task = state.viewedItems[data.index];
+  TOGGLE_TASK(state, index) {
+    console.log(index);
+    const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
   TOGGLE_SHOW_MODAL(state, value) {

@@ -2,20 +2,23 @@
   <div class="list">
     <div
       class="list__item"
-      v-for="item in items"
-      :key="item.index"
+      v-for="(item, index) in items"
+      :key="index"
     >
       <ItemTask
         v-if="item.type === 'task'"
         v-bind:data="item"
+        v-bind:index="index"
       ></ItemTask>
       <ItemNote
         v-if="item.type === 'note'"
         v-bind:data="item"
+        v-bind:index="index"
       ></ItemNote>
       <ItemEvent
         v-if="item.type === 'event'"
         v-bind:data="item"
+        v-bind:index="index"
       ></ItemEvent>
     </div>
   </div>
