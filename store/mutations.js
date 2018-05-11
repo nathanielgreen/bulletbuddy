@@ -2,32 +2,26 @@ import Vue from 'vue';
 
 const mutations = {
   ADD_NOTE(state, val) {
-    const size = Object.keys(state.viewedItems).length;
     const note = {
-      index: size + 1,
       type: 'note',
       value: val,
     };
-    Vue.set(state.viewedItems, (size + 1), note);
+    state.viewedItems.push(note);
   },
   ADD_EVENT(state, val) {
-    const size = Object.keys(state.viewedItems).length;
     const event = {
-      index: size + 1,
       type: 'event',
       value: val,
     };
-    Vue.set(state.viewedItems, (size + 1), event);
+    state.viewedItems.push(event);
   },
   ADD_TASK(state, val) {
-    const size = Object.keys(state.viewedItems).length;
     const task = {
-      index: size + 1,
       type: 'task',
       value: val,
       checked: false,
     };
-    Vue.set(state.viewedItems, (size + 1), task);
+    state.viewedItems.push(task);
   },
   DELETE_ITEM(state) {
     Vue.delete(state.viewedItems, state.modal.item.index);
@@ -38,8 +32,9 @@ const mutations = {
   DELETE_ALL_PAGES(state) {
     state.pages = [];
   },
-  TOGGLE_TASK(state, data) {
-    const task = state.viewedItems[data.index];
+  TOGGLE_TASK(state, index) {
+    console.log(index);
+    const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
   TOGGLE_SHOW_MODAL(state, value) {
@@ -50,7 +45,7 @@ const mutations = {
     const page = {
       type: 'DL',
       header: currentDate,
-      items: {},
+      items: [],
     };
     state.pages.push(page);
   },
@@ -58,7 +53,7 @@ const mutations = {
     const page = {
       type: 'ML',
       header: currentMonth,
-      items: {},
+      items: [],
     };
     state.pages.push(page);
   },

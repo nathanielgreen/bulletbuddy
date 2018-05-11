@@ -3,13 +3,13 @@
     <div class="item-task__icon">
       <img
         v-if="data.checked === false"
-        v-on:click="toggleTask(data)"
+        v-on:click="toggleTask(index)"
         class="item-task__icon-img"
         src="../static/icons/square.svg"
       />
       <img
         v-if="data.checked === true"
-        v-on:click="toggleTask(data)"
+        v-on:click="toggleTask(index)"
         class="item-task__icon-img"
         src="../static/icons/x-square.svg"
       />
@@ -26,7 +26,7 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'ItemTask',
-  props: ['data'],
+  props: ['data', 'index'],
   methods: {
     ...mapMutations({
       toggleShowModal: 'TOGGLE_SHOW_MODAL',

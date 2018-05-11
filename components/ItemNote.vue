@@ -15,7 +15,7 @@ import { mapMutations } from 'vuex';
 
 export default {
   name: 'ItemNote',
-  props: ['data'],
+  props: ['data', 'index'],
   methods: {
     ...mapMutations({
       toggleShowModal: 'TOGGLE_SHOW_MODAL',
