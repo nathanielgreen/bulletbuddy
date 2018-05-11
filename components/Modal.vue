@@ -21,9 +21,9 @@
       <input
         class="modal__container-input"
         type="text"
+        v-model="modal.item.value"
       />
-      <button>Save</button>
-      <button>Cancel</button>
+      <button v-on:click="toggleModal">Done</button>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default {
   methods: {
     ...mapMutations({
       editItem: 'TOGGLE_EDITING_MODAL',
+      toggleModal: 'TOGGLE_SHOW_MODAL',
     }),
     ...mapActions([
       'deleteItem',
