@@ -33,7 +33,6 @@ const mutations = {
     state.pages = [];
   },
   TOGGLE_TASK(state, index) {
-    console.log(index);
     const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
