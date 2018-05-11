@@ -4,7 +4,7 @@ import mutations from './mutations';
 
 const store = () => new Vuex.Store({
   state: {
-    viewedItems: {},
+    viewedItems: [],
     viewedHeader: '',
     pages: [],
     modal: {
