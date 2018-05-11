@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 const mutations = {
   ADD_NOTE(state, val) {
     const note = {
@@ -24,7 +22,7 @@ const mutations = {
     state.viewedItems.push(task);
   },
   DELETE_ITEM(state) {
-    Vue.delete(state.viewedItems, state.modal.item.index);
+    state.viewedItems.splice(state.modal.itemIndex, 1);
   },
   DELETE_PAGE(state, index) {
     state.pages.splice(index, 1);
@@ -36,9 +34,9 @@ const mutations = {
     const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
-  TOGGLE_SHOW_MODAL(state, value) {
+  TOGGLE_SHOW_MODAL(state, itemIndex) {
     state.modal.show = !state.modal.show;
-    state.modal.item = value;
+    state.modal.itemIndex = itemIndex;
   },
   ADD_NEW_DAILY_LOG(state, currentDate) {
     const page = {

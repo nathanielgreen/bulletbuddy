@@ -24,7 +24,7 @@
         src="../static/icons/circle.svg"
       />
     </div>
-    <div class="item__label" v-on:click="toggleShowModal(data)">
+    <div class="item__label" v-on:click="toggleShowModal(index)">
       {{ data.value }}
     </div>
   </div>
