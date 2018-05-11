@@ -6,7 +6,7 @@
         class="modal__container-option
         modal__container-option--edit"
         v-if="!modal.editing"
-        v-on:click="editItem()"
+        v-on:click="toggleEditingModal()"
       >Edit</div>
       <div
         class="modal__container-option
@@ -23,7 +23,10 @@
         type="text"
         v-model="modal.item.value"
       />
-      <button v-on:click="toggleModal">Done</button>
+      <button
+        class="modal__container-button"
+        v-on:click="toggleModal"
+      >Done</button>
     </div>
   </div>
 </template>
@@ -40,12 +43,16 @@ export default {
   },
   methods: {
     ...mapMutations({
-      editItem: 'TOGGLE_EDITING_MODAL',
-      toggleModal: 'TOGGLE_SHOW_MODAL',
+      toggleEditingModal: 'TOGGLE_EDITING_MODAL',
+      toggleShowModal: 'TOGGLE_SHOW_MODAL',
     }),
     ...mapActions([
       'deleteItem',
     ]),
+    toggleModal() {
+      this.toggleEditingModal();
+      this.toggleShowModal('');
+    },
   },
 };
 </script>
@@ -79,11 +86,28 @@ export default {
     display: flex;
     flex-direction: column;
     height: 25%;
+    justify-content: center;
     position: absolute;
     width: 80%;
 
     &-input {
-      display: flex;
+      align-self: center;
+      border: solid;
+      border-color: #000000;
+      border-width: 2px;
+      padding: 10px;
+      width: 80%;
+    }
+
+    &-button {
+      align-self: center;
+      background: none;
+      border: solid;
+      border-width: 2px;
+      border-radius: 4px;
+      margin: 8px;
+      padding: 8px;
+      width: 50%;
     }
 
     &-option {
