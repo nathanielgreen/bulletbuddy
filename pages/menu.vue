@@ -1,6 +1,9 @@
 <template>
   <div class="menu">
-    <span class="menu-headway" id="headway"></span>
+    <header class="menu__header">
+      <h1 class="menu__header-title">Settings</h1>
+      <span class="menu__header-headway" id="headway"></span>
+    </header>
     <DeleteAllPagesButton class="menu__item"/>
   </div>
 </template>
@@ -40,20 +43,40 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .menu {
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 
-  &-headway {
-    align-items: center;
+  &__header {
+    background: $color-white;
+    border-color: $color-grey;
+    border-style: none none dotted none;
+    border-width: 3px;
     display: flex;
-    height: 40px;
-    justify-content: center;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
+    height: auto;
+    justify-content: space-between;
+    width: 100%;
+
+    &-title {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    &-headway {
+      align-items: center;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+    }
   }
 
   &__item {
