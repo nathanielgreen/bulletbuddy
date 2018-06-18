@@ -41,12 +41,15 @@ export default {
 @import '~/assets/variables.scss';
 
 .navbar {
-  background: $color-white;
-  display: flex;
   align-items: center;
+  bottom: 0;
+  background: $color-white;
+  border-color: $color-grey;
+  border-style: dotted none none none;
+  border-width: 3px;
+  display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 0;
   width: 100%;
 
   &__item {

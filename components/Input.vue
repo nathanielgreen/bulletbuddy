@@ -54,11 +54,12 @@ export default {
 
 <style lang="scss">
 .input {
-  width: 100%;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  margin-top: auto;
   padding: 16px;
+  width: 100%;
 
   &__input {
     flex: 8;
