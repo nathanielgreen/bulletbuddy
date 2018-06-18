@@ -59,6 +59,7 @@ export default {
 
 <style lang="scss">
 @import '~/assets/global.scss';
+@import '~/assets/variables.scss';
 
 .index {
   height: 100%;
@@ -87,7 +88,7 @@ export default {
 
       &:hover, active {
         cursor: pointer;
-        background: #f1f1f1;
+        background: $color-darker-white;
       }
     }
   }

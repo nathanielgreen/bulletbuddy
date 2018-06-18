@@ -59,6 +59,7 @@ export default {
 
 <style lang="scss">
 @import '~/assets/global.scss';
+@import '~/assets/variables.scss';
 
 .modal {
   position: absolute;
@@ -73,16 +74,16 @@ export default {
 
   &__background {
     position: absolute;
-    background: #000;
+    background: $color-black;
     opacity: 0.5;
     height: 100%;
     width: 100%;
   }
   &__container {
-    background: #fff;
+    background: $color-white;
     border-radius: 4px;
     border-width: 1px;
-    border-color: #111111;
+    border-color: $color-lighter-black;
     display: flex;
     flex-direction: column;
     height: 25%;
@@ -93,7 +94,7 @@ export default {
     &-input {
       align-self: center;
       border: solid;
-      border-color: #000000;
+      border-color: $color-black;
       border-width: 2px;
       padding: 10px;
       width: 80%;
@@ -112,7 +113,7 @@ export default {
 
     &-option {
       align-items: center;
-      border-color: #cccccc;
+      border-color: $color-grey;
       border-width: 1px;
       display: flex;
       flex: 1;
@@ -121,18 +122,18 @@ export default {
 
       &:hover, active {
         border-radius: 4px;
-        background: #cccccc;
+        background: $color-grey;
         transition: 0.5s;
       }
 
       &--edit {
         border-bottom: solid;
-        border-color: #cccccc;
+        border-color: $color-grey;
         border-width: 1px;
       }
       &--delete {
         border-top: solid;
-        border-color: #cccccc;
+        border-color: $color-grey;
         border-width: 1px;
       }
     }

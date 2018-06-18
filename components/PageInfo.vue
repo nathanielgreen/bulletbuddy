@@ -20,8 +20,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/variables.scss';
+
 .page-info {
-  background: #ffffff;
+  background: $color-white;
   display: flex;
   font-size: 18px;
   font-weight: bold;
