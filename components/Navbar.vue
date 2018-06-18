@@ -38,8 +38,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/variables.scss';
+
 .navbar {
-  background: #ffffff;
+  background: $color-white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,12 +62,12 @@ export default {
     word-wrap: break-word;
 
     &--menu {
-      color: #ffffff;
+      color: $color-white;
       flex: .5;
     };
 
     &:active {
-      background-color: #f1f1f1;
+      background-color: $color-white;
     }
   }
 }
