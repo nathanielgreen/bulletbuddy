@@ -1,13 +1,13 @@
-# Bullet Journal
+# Bullet Buddy
 
-This is a PWA based on the analog organization system 
+Bullet Buddy is a PWA (Progressive Web App) based on the analog organization system 
 [Bullet Journal](http://bulletjournal.com/). The 
 app aims to take the systems combination of calender, to-do list and notebook,
 and emulate it's ease of use and handy method of 'Rapid Logging' in to a digital
 format, that doesn't adversely affect the speed of using Bullet Journal, and
 preserves the framework and it's modular system while still being customisable.
 
-A live WIP version is available at: https://bulletjournal.ngreen.io
+A live WIP version is available at: https://bulletbuddy.app
 
 <div id="contents" />
 
@@ -89,7 +89,7 @@ will be merged into.
 Branches should be named by their type, following they're Trello ticket number,
 and a few words describing that ticket.
 
-Example: `feature/BU-92-example-branch-name`
+Example: `feature/BB-92-example-branch-name`
 
 ### Branch Types
 
@@ -105,7 +105,7 @@ description of what was achieved in this commit.
 If a ticket is small enough of a task (like editing some docs/fixing typos etc)
 one can commit straight to dev instead of opening a pull request.
 
-e.g. `BU-94: Example git commit`
+e.g. `BB-94: Example git commit`
 
 If the commit is small enough that it isn't worth a Trello Card and Pull Request
 (fixing a README typo, removing old info/files), label it a PATCH and commit 
@@ -119,7 +119,7 @@ To merge your branch, open a pull request on Github and change the title of the
 pull request to match that of the Trello ticket, with square brackets around the
 ticket number, and regular brackets around the type of card (feature/task/fix).
 
-e.g. `[BU-92] (Feature) Example Pull Request Name`
+e.g. `[BB-92] (Feature) Example Pull Request Name`
 
 When code has been reviewed (if necessary) select the option 'Squash and Merge'
 
@@ -156,7 +156,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 # 4.0 Trello Board
 
-Link to Bullet Journal Trello Board: https://trello.com/b/DnCjHNmi
+Link to Bullet Buddy Trello Board: https://trello.com/b/DnCjHNmi
 
 <div id="4.1" />
 
@@ -169,7 +169,7 @@ Progress, PR/QA, Done, Cancelled.
 project initials, the card number, and a short description of what the card is
 for.
 
-e.g. BU-18: Update README with Trello Process
+e.g. BB-18: Update README with Trello Process
 
 A full description must be added to the card as well as a label before it can be
 moved to the ToDo column for a team member to pick up and complete.
