@@ -1,15 +1,23 @@
 <template>
   <div class="daily-log">
-    hello
+    <List :items="items"></List>
+    <Input />
   </div>
 </template>
 
 <script>
-import Item from '~/components/Item.vue';
+import { mapGetters } from 'vuex';
+import List from '~/components/List.vue';
+import Input from '~/components/Input.vue';
 
 export default {
   name: 'DailyLog',
-  components: { Item },
+  components: { List, Input },
+  computed: {
+    ...mapGetters({
+      items: 'getViewedItems',
+    }),
+  },
 };
 </script>
 

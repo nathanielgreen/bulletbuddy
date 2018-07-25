@@ -4,8 +4,11 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
-    <DailyLog v-if="viewedPageType === 'DL'"></DailyLog>
     <PageInfo class="page__info" :pageNumber="pageNumber"></PageInfo>
+    <DailyLog
+      class="page__type"
+      v-if="viewedPageType === 'DL'"
+      ></DailyLog>
   </div>
 </template>
 
@@ -94,6 +97,10 @@ export default {
     margin-top: 40px;
   }
   &__input {
+    width: 100%;
+  }
+  &__type {
+    height: 90%;
     width: 100%;
   }
 }

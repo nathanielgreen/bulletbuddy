@@ -14,18 +14,15 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import Item from '~/components/Item.vue';
 
 export default {
   name: 'List',
+  props: [
+    'items',
+  ],
   components: {
     Item,
-  },
-  computed: {
-    ...mapGetters({
-      items: 'getViewedItems',
-    }),
   },
 };
 </script>
