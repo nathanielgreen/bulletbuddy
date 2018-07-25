@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      toggleShowModal: 'TOGGLE_SHOW_MODAL',
+      toggleShowModal: 'modal/TOGGLE_SHOW_MODAL',
       toggleTask: 'TOGGLE_TASK',
     }),
   },

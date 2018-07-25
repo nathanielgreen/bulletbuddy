@@ -1,27 +1,24 @@
 import Vuex from 'vuex';
 import actions from './actions';
 import mutations from './mutations';
+import modal from './modules/modal';
 
 const store = () => new Vuex.Store({
   state: {
     viewedItems: [],
     viewedHeader: '',
     pages: [],
-    modal: {
-      show: false,
-      editing: false,
-      item: null,
-      itemIndex: null,
-    },
   },
   getters: {
     getViewedItems: state => state.viewedItems,
     getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
-    getModal: state => state.modal,
   },
   mutations,
   actions,
+  modules: {
+    modal,
+  },
 });
 
 export default store;

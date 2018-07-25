@@ -24,7 +24,7 @@ const actions = {
   },
   deleteItem(context) {
     context.commit('DELETE_ITEM');
-    context.commit('TOGGLE_SHOW_MODAL', '');
+    context.commit('modal/TOGGLE_SHOW_MODAL', '');
   },
   goToDailyLog(context, router) {
     const currentDate = Moment().format('DD/MM/YYYY');

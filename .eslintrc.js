@@ -28,6 +28,11 @@ module.exports = {
         'state',
       ]
     }],
+    'no-shadow': ["error", {
+      "allow": [
+        "state"
+      ]
+    }],
   },
   settings: {
     'import/resolver': {
