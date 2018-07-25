@@ -4,17 +4,15 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
+    <DailyLog v-if="viewedPageType === 'DL'"></DailyLog>
     <PageInfo class="page__info" :pageNumber="pageNumber"></PageInfo>
-    <List class="page__list"></List>
-    <Input class="page__input"/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import List from '~/components/List.vue';
-import Input from '~/components/Input.vue';
 import PageInfo from '~/components/PageInfo.vue';
+import DailyLog from '~/components/DailyLog.vue';
 
 export default {
   layout: 'default',
@@ -24,10 +22,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
-      'getPages',
-      'getFadeClass',
-    ]),
+    ...mapGetters({
+      pages: 'getPages',
+      viewedPageType: 'page/getViewedPageType',
+    }),
   },
   transition(to, from) {
     if (!from) return 'slide-left';
@@ -35,8 +33,7 @@ export default {
     return +to.params.id < +from.params.id ? 'slide-right' : 'slide-left';
   },
   components: {
-    List,
-    Input,
+    DailyLog,
     PageInfo,
   },
   mounted() {
@@ -45,7 +42,7 @@ export default {
   },
   methods: {
     swipeLeft() {
-      if (this.pageNumber === this.getPages.length) {
+      if (this.pageNumber === this.pages.length) {
         this.$router.push('/add-new');
       } else {
         this.$router.push(`/pages/${this.pageNumber + 1}`);
