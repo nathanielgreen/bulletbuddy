@@ -72,6 +72,7 @@ export default {
       setTimeout(() => {
         store.commit('UPDATE_VIEWED_ITEMS', index);
         store.commit('UPDATE_VIEWED_HEADER', index);
+        store.commit('page/UPDATE_VIEWED_PAGE_TYPE', data.type);
       }, 250);
     }
   },
