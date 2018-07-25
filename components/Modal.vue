@@ -37,12 +37,12 @@ import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
   name: 'Modal',
   computed: {
-    ...mapGetters({
+    ...mapGetters('modal', {
       modal: 'getModal',
     }),
   },
   methods: {
-    ...mapMutations({
+    ...mapMutations('modal', {
       toggleEditingModal: 'TOGGLE_EDITING_MODAL',
       toggleShowModal: 'TOGGLE_SHOW_MODAL',
     }),
