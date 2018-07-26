@@ -1,7 +1,7 @@
 <template>
   <div class="-log">
-    <List :items="items"></List>
-    <Input />
+    <LogList :items="items"></LogList>
+    <LogInput />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   components: { LogList, LogInput },
   computed: {
     ...mapGetters({
-      items: 'getViewedItems',
+      items: 'dailyLog/getLogItems',
     }),
   },
 };
