@@ -70,6 +70,7 @@ export default {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
       setTimeout(() => {
+        store.dispatch('page/updatePage', index);
         store.commit('UPDATE_VIEWED_ITEMS', index);
         store.commit('UPDATE_VIEWED_HEADER', index);
         store.commit('UPDATE_VIEWED_PAGE', index);
