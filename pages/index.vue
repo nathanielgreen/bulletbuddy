@@ -7,13 +7,9 @@
         v-for="(page, index) in pages"
         v-bind:key="index"
         v-on:click="goToPage(index)"
-        v-on:mousedown="deletePage(index)"
-        v-on:mouseup="stopDeletePage"
-        v-on:touchstart="deletePage(index)"
-        v-on:touchend="stopDeletePage"
-        >
-        <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
-        <span class="index__list-item__value">{{ page.header }}</span>
+      >
+      <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
+      <span class="index__list-item__value">{{ page.header }}</span>
       </li>
     </ul>
   </section>

@@ -6,13 +6,9 @@ import page from './modules/page';
 
 const store = () => new Vuex.Store({
   state: {
-    viewedItems: [],
-    viewedHeader: '',
     pages: [],
   },
   getters: {
-    getViewedItems: state => state.viewedItems,
-    getViewedHeader: state => state.viewedHeader,
     getPages: state => state.pages,
   },
   mutations,

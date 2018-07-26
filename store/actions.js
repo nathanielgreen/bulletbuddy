@@ -48,6 +48,17 @@ const actions = {
       }
     }
   },
+  addNewPage(context, pageType) {
+    let pageHeader;
+    if (pageType === 'DL') { pageHeader = Moment().format('DD/MM/YYYY'); }
+    if (pageType === 'ML') { pageHeader = Moment().format('MMMM YYYY'); }
+    const page = {
+      type: pageType,
+      header: pageHeader,
+      content: {},
+    };
+    context.commit('CREATE_NEW_PAGE', page);
+  },
 };
 
 export default actions;

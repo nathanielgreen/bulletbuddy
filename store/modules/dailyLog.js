@@ -7,6 +7,9 @@ const getters = {
 };
 
 const mutations = {
+  CREATE_NEW_DAILY_LOG(state, page) {
+    state.pages.push(page);
+  },
 };
 
 const actions = {

@@ -34,27 +34,8 @@ const mutations = {
     const task = state.viewedItems[index];
     task.checked = !task.checked;
   },
-  ADD_NEW_DAILY_LOG(state, currentDate) {
-    const page = {
-      type: 'DL',
-      header: currentDate,
-      items: [],
-    };
+  CREATE_NEW_PAGE(state, page) {
     state.pages.push(page);
-  },
-  ADD_NEW_MONTHLY_LOG(state, currentMonth) {
-    const page = {
-      type: 'ML',
-      header: currentMonth,
-      items: [],
-    };
-    state.pages.push(page);
-  },
-  UPDATE_VIEWED_ITEMS(state, value) {
-    state.viewedItems = state.pages[value].items;
-  },
-  UPDATE_VIEWED_HEADER(state, value) {
-    state.viewedHeader = state.pages[value].header;
   },
 };
 
