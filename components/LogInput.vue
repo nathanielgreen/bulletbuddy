@@ -1,12 +1,21 @@
 <template>
-  <form class="input" v-on:submit="addItem($event)">
-    <div class="input__icon" v-on:click="changeType">
-      <img class="input__icon-img" v-if="type === 'task'" src="../static/icons/square.svg" />
-      <img class="input__icon-img" v-if="type === 'note'" src="../static/icons/minus.svg" />
-      <img class="input__icon-img" v-if="type === 'event'" src="../static/icons/circle.svg" />
+  <form class="log-list-input" v-on:submit="addItem($event)">
+    <div class="log-list-input__icon" v-on:click="changeType">
+      <img
+        class="log-list-input__icon-img"
+        v-if="type === 'task'"
+        src="../static/icons/square.svg" />
+      <img
+        class="log-list-input__icon-img"
+        v-if="type === 'note'"
+        src="../static/icons/minus.svg" />
+      <img
+        class="log-list-input__icon-img"
+        v-if="type === 'event'"
+        src="../static/icons/circle.svg" />
     </div>
     <input
-      class="input__input"
+      class="log-list-input__input"
       v-model="value"
       type="text"
       placeholder="Type here..."
@@ -16,7 +25,7 @@
 
 <script>
 export default {
-  name: 'Input',
+  name: 'LogListInput',
   data() {
     return {
       type: 'note',
@@ -53,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
-.input {
+.log-list-input {
   align-items: center;
   display: flex;
   justify-content: center;

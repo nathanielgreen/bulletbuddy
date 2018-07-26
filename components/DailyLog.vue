@@ -1,5 +1,5 @@
 <template>
-  <div class="daily-log">
+  <div class="-log">
     <List :items="items"></List>
     <Input />
   </div>
@@ -7,12 +7,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import List from '~/components/List.vue';
-import Input from '~/components/Input.vue';
+import LogList from '~/components/LogList.vue';
+import LogInput from '~/components/LogInput.vue';
 
 export default {
   name: 'DailyLog',
-  components: { List, Input },
+  components: { LogList, LogInput },
   computed: {
     ...mapGetters({
       items: 'getViewedItems',
