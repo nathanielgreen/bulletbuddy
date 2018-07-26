@@ -25,6 +25,9 @@ const mutations = {
   UPDATE_VIEWED_PAGE_CONTENT(state, val) {
     state.viewedPageContent = val;
   },
+  ADD_VIEWED_PAGE_CONTENT(state, content) {
+    state.viewedPageContent[content.key] = content.content;
+  },
 };
 
 const actions = {
@@ -33,6 +36,9 @@ const actions = {
     context.commit('UPDATE_VIEWED_PAGE_INDEX', data.index);
     context.commit('UPDATE_VIEWED_PAGE_HEADER', data.header);
     context.commit('UPDATE_VIEWED_PAGE_CONTENT', data.content);
+  },
+  addViewedPageContent(context, content) {
+    context.commit('ADD_VIEWED_PAGE_CONTENT', content);
   },
 };
 

@@ -44,12 +44,13 @@ const actions = {
         break;
     }
   },
-  addNewItem(context) {
+  addNewItem(context, item) {
+    context.dispatch('addItem', item);
     const content = {
-      items: ['hello'],
+      key: 'items',
+      content: context.state.logItems,
     };
-    context.dispatch('page/updateViewedPageContent', content, { root: true });
-    context.dispatch('updateViewedPageContent', content, { root: true });
+    context.dispatch('page/addViewedPageContent', content, { root: true });
   },
 };
 
