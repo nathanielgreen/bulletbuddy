@@ -4,7 +4,11 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
-    <PageInfo class="page__info" :pageNumber="pageNumber"></PageInfo>
+    <PageInfo
+      class="page__info"
+      :pageNumber="pageNumber"
+      :pageHeader="viewedPageHeader"
+    ></PageInfo>
     <DailyLog
       class="page__type"
       v-if="viewedPageType === 'DL'"
@@ -25,9 +29,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      pages: 'getPages',
-      viewedPageType: 'page/getViewedPageType',
+    ...mapGetters('page', {
+      viewedPageType: 'getViewedPageType',
+      viewedPageHeader: 'getViewedPageHeader',
     }),
   },
   transition(to, from) {
@@ -71,10 +75,6 @@ export default {
     } else {
       setTimeout(() => {
         store.dispatch('page/updatePage', index);
-        store.commit('UPDATE_VIEWED_ITEMS', index);
-        store.commit('UPDATE_VIEWED_HEADER', index);
-        store.commit('UPDATE_VIEWED_PAGE', index);
-        store.commit('page/UPDATE_VIEWED_PAGE_TYPE', data.type);
       }, 250);
     }
   },

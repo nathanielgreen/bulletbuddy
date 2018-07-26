@@ -4,7 +4,7 @@
       <li
         oncontextmenu="return false;"
         class="index__list-item"
-        v-for="(page, index) in getPages"
+        v-for="(page, index) in pages"
         v-bind:key="index"
         v-on:click="goToPage(index)"
         v-on:mousedown="deletePage(index)"
@@ -23,20 +23,10 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      delay: '',
-    };
-  },
   computed: {
-    ...mapGetters([
-      'getPages',
-    ]),
-  },
-  mounted() {
-    if (this.getPages.length === 0) {
-      this.$router.push('/add-new');
-    }
+    ...mapGetters({
+      pages: 'getPages',
+    }),
   },
   methods: {
     goToPage(index) {
@@ -44,14 +34,6 @@ export default {
     },
     swipeLeft() {
       this.$router.push('/pages/1');
-    },
-    deletePage(index) {
-      this.delay = setTimeout(() => {
-        this.$store.commit('DELETE_PAGE', index);
-      }, 1000);
-    },
-    stopDeletePage() {
-      clearTimeout(this.delay);
     },
   },
 };
