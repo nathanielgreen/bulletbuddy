@@ -50,7 +50,7 @@ export default {
   methods: {
     ...mapMutations({
       toggleShowModal: 'modal/TOGGLE_SHOW_MODAL',
-      toggleTask: 'TOGGLE_TASK',
+      toggleTask: 'dailyLog/TOGGLE_TASK',
     }),
   },
 };

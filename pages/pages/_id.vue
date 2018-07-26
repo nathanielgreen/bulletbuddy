@@ -12,7 +12,8 @@
     <DailyLog
       class="page__type"
       v-if="viewedPageType === 'DL'"
-      ></DailyLog>
+      :pageContent="viewedPageContent"
+    ></DailyLog>
   </div>
 </template>
 
@@ -29,9 +30,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('page', {
-      viewedPageType: 'getViewedPageType',
-      viewedPageHeader: 'getViewedPageHeader',
+    ...mapGetters({
+      pages: 'getPages',
+      viewedPageType: 'page/getViewedPageType',
+      viewedPageHeader: 'page/getViewedPageHeader',
+      viewedPageContent: 'page/getViewedPageContent',
     }),
   },
   transition(to, from) {
@@ -68,13 +71,19 @@ export default {
   },
   async asyncData({ store, params, error }) {
     const pages = await store.getters.getPages;
-    const index = Number(params.id) - 1;
-    const data = pages[index];
+    const pageIndex = Number(params.id) - 1;
+    const data = pages[pageIndex];
+    const viewedPage = {
+      type: data.type,
+      index: pageIndex,
+      header: data.header,
+      content: data.content,
+    };
     if (data == null) {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
       setTimeout(() => {
-        store.dispatch('page/updatePage', index);
+        store.dispatch('page/updateViewedPage', viewedPage);
       }, 250);
     }
   },
