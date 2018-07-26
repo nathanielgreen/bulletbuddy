@@ -100,7 +100,8 @@ export default {
     width: 100%;
   }
   &__type {
-    height: 90%;
+    margin-top: 10%;
+    height: 100%;
     width: 100%;
   }
 }
