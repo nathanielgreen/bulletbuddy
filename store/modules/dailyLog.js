@@ -29,6 +29,10 @@ const mutations = {
     };
     state.logItems.push(item);
   },
+  TOGGLE_TASK(state, index) {
+    const task = state.logItems[index];
+    task.checked = !task.checked;
+  },
   CLEAR_LOG_ITEMS(state) {
     state.logItems = [];
   },
