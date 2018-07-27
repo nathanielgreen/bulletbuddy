@@ -18,12 +18,8 @@ import LogListItem from '~/components/LogListItem.vue';
 
 export default {
   name: 'LogList',
-  props: [
-    'items',
-  ],
-  components: {
-    LogListItem,
-  },
+  props: ['items'],
+  components: { LogListItem },
 };
 </script>
 

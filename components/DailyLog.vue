@@ -1,20 +1,30 @@
 <template>
   <div class="-log">
-    <LogList :items="content"></LogList>
+    <LogList :items="pageContent.items"></LogList>
     <LogInput />
   </div>
 </template>
 
 <script>
+import { mapMutations, mapActions } from 'vuex';
 import LogList from '~/components/LogList.vue';
 import LogInput from '~/components/LogInput.vue';
 
 export default {
   name: 'DailyLog',
   components: { LogList, LogInput },
-  props: ['content'],
+  props: ['pageContent'],
+  methods: {
+    ...mapMutations('dailyLog', {
+      clearLogItems: 'CLEAR_LOG_ITEMS',
+    }),
+    ...mapActions('dailyLog', {
+      setLogItems: 'setLogItems',
+    }),
+  },
   mounted() {
-    this.$store.commit('dailyLog/CLEAR_LOG_ITEMS');
+    this.clearLogItems();
+    this.setLogItems();
   },
 };
 </script>

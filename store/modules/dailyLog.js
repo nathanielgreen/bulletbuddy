@@ -3,6 +3,7 @@ const state = {
 };
 
 const getters = {
+  getLogItems: state => state.logItems,
 };
 
 const mutations = {
@@ -31,6 +32,9 @@ const mutations = {
   CLEAR_LOG_ITEMS(state) {
     state.logItems = [];
   },
+  SET_LOG_ITEMS(state, val) {
+    state.logItems = val;
+  },
 };
 
 const actions = {
@@ -54,6 +58,10 @@ const actions = {
       content: context.state.logItems,
     };
     context.dispatch('page/addViewedPageContent', content, { root: true });
+  },
+  setLogItems(context) {
+    const content = context.rootGetters['page/getViewedPageContent'];
+    context.commit('SET_LOG_ITEMS', content.items);
   },
 };
 
