@@ -28,6 +28,9 @@ const mutations = {
     };
     state.logItems.push(item);
   },
+  CLEAR_LOG_ITEMS(state) {
+    state.logItems = [];
+  },
 };
 
 const actions = {

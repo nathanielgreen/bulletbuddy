@@ -13,6 +13,9 @@ export default {
   name: 'DailyLog',
   components: { LogList, LogInput },
   props: ['content'],
+  mounted() {
+    this.$store.commit('dailyLog/CLEAR_LOG_ITEMS');
+  },
 };
 </script>
 
