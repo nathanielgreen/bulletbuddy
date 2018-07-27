@@ -9,18 +9,17 @@
       :pageNumber="pageNumber"
       :pageHeader="viewedPageHeader"
     ></PageInfo>
-    <DailyLog
+    <LogTypeDaily
       class="page__type"
       v-if="viewedPageType === 'DL'"
-      :pageContent="viewedPageContent"
-    ></DailyLog>
+    ></LogTypeDaily>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import PageInfo from '~/components/PageInfo.vue';
-import DailyLog from '~/components/DailyLog.vue';
+import LogTypeDaily from '~/components/LogTypeDaily.vue';
 
 export default {
   layout: 'default',
@@ -34,7 +33,6 @@ export default {
       pages: 'getPages',
       viewedPageType: 'page/getViewedPageType',
       viewedPageHeader: 'page/getViewedPageHeader',
-      viewedPageContent: 'page/getViewedPageContent',
     }),
   },
   transition(to, from) {
@@ -43,7 +41,7 @@ export default {
     return +to.params.id < +from.params.id ? 'slide-right' : 'slide-left';
   },
   components: {
-    DailyLog,
+    LogTypeDaily,
     PageInfo,
   },
   mounted() {

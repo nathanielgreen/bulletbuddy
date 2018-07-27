@@ -57,15 +57,13 @@ const actions = {
   },
   addNewItem(context, item) {
     context.dispatch('addItem', item);
-    const content = {
-      key: 'items',
-      content: context.state.logItems,
-    };
+    const content = { key: 'items', content: context.state.logItems };
     context.dispatch('page/addViewedPageContent', content, { root: true });
   },
   setLogItems(context) {
     const content = context.rootGetters['page/getViewedPageContent'];
-    context.commit('SET_LOG_ITEMS', content.items);
+    const logItems = content.items;
+    if (logItems) { context.commit('SET_LOG_ITEMS', logItems); }
   },
 };
 

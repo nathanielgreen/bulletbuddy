@@ -1,25 +1,29 @@
 <template>
-  <div class="-log">
-    <LogList :items="pageContent.items"></LogList>
+  <div class="log--daily">
+    <LogList :items="items"></LogList>
     <LogInput />
   </div>
 </template>
 
 <script>
-import { mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 import LogList from '~/components/LogList.vue';
 import LogInput from '~/components/LogInput.vue';
 
 export default {
-  name: 'DailyLog',
+  name: 'LogTypeDaily',
   components: { LogList, LogInput },
-  props: ['pageContent'],
   methods: {
     ...mapMutations('dailyLog', {
       clearLogItems: 'CLEAR_LOG_ITEMS',
     }),
     ...mapActions('dailyLog', {
       setLogItems: 'setLogItems',
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      items: 'dailyLog/getLogItems',
     }),
   },
   mounted() {
@@ -30,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.daily-log {
+.log--daily {
 }
 </style>
 
