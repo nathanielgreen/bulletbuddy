@@ -1,15 +1,15 @@
 <template>
-  <div class="monthly-log">
+  <div class="log--monthly">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'MonthlyLog',
+  name: 'LogTypeMonthly',
 };
 </script>
 
 <style lang="scss" scoped>
-.monthly-log {
+.log--monthly {
 }
 </style>
