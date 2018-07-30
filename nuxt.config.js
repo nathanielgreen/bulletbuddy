@@ -7,7 +7,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Bullet Journal',
+    title: 'Bullet Buddy',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -45,8 +45,8 @@ module.exports = {
       '@nuxtjs/pwa', 
       { 
         manifest: {
-          "name": "Bullet Journal",
-          "short_name": "Bullet Journal",
+          "name": "Bullet Buddy",
+          "short_name": "Bullet Buddy",
           "theme_color": "#000000",
           "background_color": "#ffffff",
           "display": "standalone",
