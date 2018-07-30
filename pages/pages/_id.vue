@@ -4,17 +4,22 @@
     v-touch:swipe.left="swipeLeft"
     v-touch:swipe.right="swipeRight"
   >
-    <PageInfo class="page__info" :pageNumber="pageNumber"></PageInfo>
-    <List class="page__list"></List>
-    <Input class="page__input"/>
+    <PageInfo
+      class="page__info"
+      :pageNumber="pageNumber"
+      :pageHeader="viewedPageHeader"
+    ></PageInfo>
+    <LogTypeDaily
+      class="page__type"
+      v-if="viewedPageType === 'DL'"
+    ></LogTypeDaily>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import List from '~/components/List.vue';
-import Input from '~/components/Input.vue';
 import PageInfo from '~/components/PageInfo.vue';
+import LogTypeDaily from '~/components/LogTypeDaily.vue';
 
 export default {
   layout: 'default',
@@ -24,10 +29,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
-      'getPages',
-      'getFadeClass',
-    ]),
+    ...mapGetters({
+      pages: 'getPages',
+      viewedPageType: 'page/getViewedPageType',
+      viewedPageHeader: 'page/getViewedPageHeader',
+    }),
   },
   transition(to, from) {
     if (!from) return 'slide-left';
@@ -35,8 +41,7 @@ export default {
     return +to.params.id < +from.params.id ? 'slide-right' : 'slide-left';
   },
   components: {
-    List,
-    Input,
+    LogTypeDaily,
     PageInfo,
   },
   mounted() {
@@ -45,7 +50,7 @@ export default {
   },
   methods: {
     swipeLeft() {
-      if (this.pageNumber === this.getPages.length) {
+      if (this.pageNumber === this.pages.length) {
         this.$router.push('/add-new');
       } else {
         this.$router.push(`/pages/${this.pageNumber + 1}`);
@@ -64,14 +69,19 @@ export default {
   },
   async asyncData({ store, params, error }) {
     const pages = await store.getters.getPages;
-    const index = Number(params.id) - 1;
-    const data = pages[index];
+    const pageIndex = Number(params.id) - 1;
+    const data = pages[pageIndex];
+    const viewedPage = {
+      type: data.type,
+      index: pageIndex,
+      header: data.header,
+      content: data.content,
+    };
     if (data == null) {
       error({ message: 'Page not found', statusCode: 404 });
     } else {
       setTimeout(() => {
-        store.commit('UPDATE_VIEWED_ITEMS', index);
-        store.commit('UPDATE_VIEWED_HEADER', index);
+        store.dispatch('page/updateViewedPage', viewedPage);
       }, 250);
     }
   },
@@ -96,6 +106,11 @@ export default {
     margin-top: 40px;
   }
   &__input {
+    width: 100%;
+  }
+  &__type {
+    margin-top: 10%;
+    height: 100%;
     width: 100%;
   }
 }

@@ -26,7 +26,6 @@
     </div>
     <div
       class="item__label"
-      v-on:click="toggleShowModal(item)"
     >
       {{ data.value }}
     </div>
@@ -49,8 +48,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      toggleShowModal: 'modal/TOGGLE_SHOW_MODAL',
-      toggleTask: 'TOGGLE_TASK',
+      toggleTask: 'logTypeDaily/TOGGLE_TASK',
     }),
   },
 };

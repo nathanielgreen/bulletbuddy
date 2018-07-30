@@ -1,21 +1,14 @@
 <template>
   <div class="page-info">
-    <div class="page-info__header">{{ getViewedHeader }}</div>
+    <div class="page-info__header">{{ pageHeader }}</div>
     <div class="page-info__page-number">{{ pageNumber }}</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
   name: 'PageInfo',
-  computed: {
-    ...mapGetters([
-      'getViewedHeader',
-    ]),
-  },
-  props: ['pageNumber'],
+  props: ['pageNumber', 'pageHeader'],
 };
 </script>
 

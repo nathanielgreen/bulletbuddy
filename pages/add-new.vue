@@ -17,25 +17,25 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'AddNew',
   computed: {
-    ...mapGetters([
-      'getPages',
-    ]),
+    ...mapGetters({
+      pages: 'getPages',
+    }),
   },
   methods: {
     addNewDailyLog() {
-      this.$store.dispatch('addNewDailyLog')
+      this.$store.dispatch('addNewPage', 'DL')
         .then(() => {
-          this.$router.push(`/pages/${this.getPages.length}`);
+          this.$router.push(`/pages/${this.pages.length}`);
         });
     },
     addNewMonthlyLog() {
-      this.$store.dispatch('addNewMonthlyLog')
+      this.$store.dispatch('addNewPage', 'ML')
         .then(() => {
-          this.$router.push(`/pages/${this.getPages.length}`);
+          this.$router.push(`/pages/${this.pages.length}`);
         });
     },
     swipeRight() {
-      this.$router.push(`/pages/${this.getPages.length}`);
+      this.$router.push(`/pages/${this.pages.length}`);
     },
   },
 };

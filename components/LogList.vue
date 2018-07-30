@@ -1,37 +1,30 @@
 <template>
-  <div class="list">
+  <div class="log-list">
     <div
-      class="list__item"
+      class="log-list__item"
       v-for="(item, index) in items"
       :key="index"
     >
-      <Item
+      <LogListItem
         v-bind:data="item"
         v-bind:index="index"
-      ></Item>
+      ></LogListItem>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import Item from '~/components/Item.vue';
+import LogListItem from '~/components/LogListItem.vue';
 
 export default {
-  name: 'List',
-  components: {
-    Item,
-  },
-  computed: {
-    ...mapGetters({
-      items: 'getViewedItems',
-    }),
-  },
+  name: 'LogList',
+  props: ['items'],
+  components: { LogListItem },
 };
 </script>
 
 <style lang="scss">
-.list {
+.log-list {
   width: 100%;
 
   &__item {
