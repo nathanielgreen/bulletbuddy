@@ -2,7 +2,7 @@ import Vuex from 'vuex';
 import Moment from 'moment';
 import modal from './modules/modal';
 import page from './modules/page';
-import dailyLog from './modules/dailyLog';
+import logTypeDaily from './modules/logTypeDaily';
 
 const store = () => new Vuex.Store({
   state: {
@@ -57,7 +57,7 @@ const store = () => new Vuex.Store({
   modules: {
     modal,
     page,
-    dailyLog,
+    logTypeDaily,
   },
 });
 

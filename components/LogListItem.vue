@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      toggleTask: 'dailyLog/TOGGLE_TASK',
+      toggleTask: 'logTypeDaily/TOGGLE_TASK',
     }),
   },
 };

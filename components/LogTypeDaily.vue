@@ -14,16 +14,16 @@ export default {
   name: 'LogTypeDaily',
   components: { LogList, LogInput },
   methods: {
-    ...mapMutations('dailyLog', {
+    ...mapMutations('logTypeDaily', {
       clearLogItems: 'CLEAR_LOG_ITEMS',
     }),
-    ...mapActions('dailyLog', {
+    ...mapActions('logTypeDaily', {
       setLogItems: 'setLogItems',
     }),
   },
   computed: {
     ...mapGetters({
-      items: 'dailyLog/getLogItems',
+      items: 'logTypeDaily/getLogItems',
     }),
   },
   mounted() {

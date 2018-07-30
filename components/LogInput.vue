@@ -39,7 +39,7 @@ export default {
         type: this.type,
         value: this.value,
       };
-      this.$store.dispatch('dailyLog/addNewItem', data)
+      this.$store.dispatch('logTypeDaily/addNewItem', data)
         .then(() => {
           this.value = '';
         });

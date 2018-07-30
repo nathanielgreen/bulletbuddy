@@ -58,6 +58,29 @@ A live WIP version is available at: https://bulletbuddy.app
 
 <div id="2.1" />
 
+## 2.1 Pages Types
+
+The code has been designed in a way that page types such as Daily Log, Monthly
+Log, Habit Tracker, are completely modular, only accessing their own Vuex
+module, and only interacting with other parts of the code through their Vuex actions.
+
+Here are some existing components and any child components associated:
+
+- DailyLog (LogTypeDaily):
+  - `LogInput.vue`
+  - `LogList.vue`
+  - `LogListItem.vue`
+
+The components will interact with their on Vuex state, which will be synced with
+the `viewedPageContent`, and in turn, synced with the respective space in the
+root `pages` array, containing all pages in the app.
+
+[<-- Back to Contents](#contents)
+
+---
+
+<div id="2.2" />
+
 ## 2.1 Styling Guidelines
 
 - Components are styled using the 
