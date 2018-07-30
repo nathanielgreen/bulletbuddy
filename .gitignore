@@ -13,3 +13,6 @@ dist
 
 # Service Worker
 sw.*
+
+# yarn not npm
+package-lock.json
