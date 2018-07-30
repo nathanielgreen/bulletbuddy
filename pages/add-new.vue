@@ -29,7 +29,7 @@ export default {
         });
     },
     addNewMonthlyLog() {
-      this.$store.dispatch('addNewPage', 'ML')
+      this.$store.dispatch('logTypeMonthly/createMonthlyLog')
         .then(() => {
           this.$router.push(`/pages/${this.pages.length}`);
         });

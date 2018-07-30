@@ -13,6 +13,10 @@
       class="page__type"
       v-if="viewedPageType === 'DL'"
     ></LogTypeDaily>
+    <LogTypeMonthly
+      class="page__type"
+      v-if="viewedPageType === 'ML'"
+    ></LogTypeMonthly>
   </div>
 </template>
 
@@ -20,6 +24,7 @@
 import { mapGetters } from 'vuex';
 import PageInfo from '~/components/PageInfo.vue';
 import LogTypeDaily from '~/components/LogTypeDaily.vue';
+import LogTypeMonthly from '~/components/LogTypeMonthly.vue';
 
 export default {
   layout: 'default',
@@ -42,6 +47,7 @@ export default {
   },
   components: {
     LogTypeDaily,
+    LogTypeMonthly,
     PageInfo,
   },
   mounted() {
@@ -109,7 +115,7 @@ export default {
     width: 100%;
   }
   &__type {
-    margin-top: 10%;
+    margin-top: 40px;
     height: 100%;
     width: 100%;
   }
