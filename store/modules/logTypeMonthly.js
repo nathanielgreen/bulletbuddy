@@ -1,4 +1,4 @@
-import Moment from 'moment';
+import DayJs from 'dayjs';
 
 const state = {
   logItems: [],
@@ -21,11 +21,12 @@ const actions = {
   createMonthlyLog(context) {
     const calendarArr = [];
 
-    const currentMonth = Moment().format('M-Y');
-    const days = Moment().daysInMonth();
+    const currentYear = DayJs().format('YYYY');
+    const currentMonth = DayJs().format('MM');
+    const days = DayJs().daysInMonth();
 
     for (let i = 0; i < days; i += 1) {
-      const date = Moment(`${i + 1}-${currentMonth}`, 'D-M-Y');
+      const date = DayJs(`${currentYear}-${currentMonth}-${i + 1}`);
       const dayLetter = date.format('ddd').substring(0, 1);
       const dayObj = {
         weekday: dayLetter,
@@ -37,7 +38,7 @@ const actions = {
 
     const newPage = {
       type: 'ML',
-      header: Moment().format('MMMM YYYY'),
+      header: DayJs().format('MMMM YYYY'),
       content: {
         items: calendarArr,
       },
