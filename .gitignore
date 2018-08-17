@@ -14,5 +14,5 @@ dist
 # Service Worker
 sw.*
 
-# yarn not npm
-package-lock.json
+# npm not yarn
+yarne-lock.json
