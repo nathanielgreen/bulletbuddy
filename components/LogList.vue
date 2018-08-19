@@ -54,6 +54,7 @@ export default {
 
   &__item {
     display: flex;
+    margin: 4px;
     align-items: center;
     justify-content: flex-start;
 

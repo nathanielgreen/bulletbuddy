@@ -1,6 +1,6 @@
 <template>
   <div class="log--daily">
-    <LogList :items="items"></LogList>
+    <LogList class="log--daily__list" :items="items"></LogList>
     <LogInput @emitAddItem="addItem"/>
   </div>
 </template>
@@ -39,6 +39,9 @@ export default {
 
 <style lang="scss" scoped>
 .log--daily {
+  &__list {
+    padding: 16px;
+  }
 }
 </style>
 
