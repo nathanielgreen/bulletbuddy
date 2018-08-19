@@ -5,11 +5,13 @@
       v-for="item in items"
       v-bind:key="item.index"
     >
-      <div class="monthly-log__item-date">
-        <span>{{ item.dayOfMonth }} {{ item.weekday }}</span>
+      <div class="monthly-log__item-info">
+        <span class="monthly-log__item-info-date">
+          {{ item.dayOfMonth }} {{ item.weekday }}
+        </span>
       </div>
       <div class="monthly-log__item-items">
-        <LogList :items="item.items" />
+        <LogList class="monthly-log__item-items-list" :items="item.items" />
       </div>
       <div class="monthly-log__item-options">
         <button
@@ -78,20 +80,40 @@ export default {
 <style lang="scss" scoped>
 .monthly-log {
   height: auto;
+  background: #eeeeee;
 
   &__item {
     align-items: center;
+    background: #ffffff;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
     display: flex;
     font-size: 18px;
-    justify-content: space-between;
-    margin: 20px;
-    padding: 4px;
+    margin: 16px;
+    padding: 10px;
+
+    &-info {
+      align-self: flex-start;
+      height: 30px;
+      display: flex;
+
+      &-date {
+        align-self: center;
+      }
+    }
+
+    &-items {
+      flex: 1;
+      display: flex;
+    }
 
     &-options {
+      align-self: flex-start;
+
       &-button {
         border: none;
         border-radius: 6px;
-        background: #eeeeee;
+        background: #f1f1f1;
         width: 30px;
         height: 30px;
         display: flex;
@@ -101,8 +123,8 @@ export default {
         &:hover {}
 
         &-img {
-          height: 20px;
-          width: 20px;
+          height: 18px;
+          width: 18px;
         }
       }
     }
