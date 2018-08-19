@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import Moment from 'moment';
+import DayJs from 'dayjs';
 import modal from './modules/modal';
 import page from './modules/page';
 import logTypeDaily from './modules/logTypeDaily';
@@ -22,7 +22,7 @@ const store = () => new Vuex.Store({
   },
   actions: {
     goToDailyLog(context, router) {
-      const currentDate = Moment().format('DD/MM/YYYY');
+      const currentDate = DayJs().format('DD/MM/YYYY');
       for (let i = 0; i < context.state.pages.length; i += 1) {
         if (currentDate === context.state.pages[i].header) {
           router.push(`/pages/${i + 1}`);
@@ -33,7 +33,7 @@ const store = () => new Vuex.Store({
       }
     },
     goToMonthlyLog(context, router) {
-      const currentMonth = Moment().format('MMMM YYYY');
+      const currentMonth = DayJs().format('MMMM YYYY');
       for (let i = 0; i < context.state.pages.length; i += 1) {
         if (currentMonth === context.state.pages[i].header) {
           router.push(`/pages/${i + 1}`);
@@ -45,8 +45,8 @@ const store = () => new Vuex.Store({
     },
     addNewPage(context, pageType) {
       let pageHeader;
-      if (pageType === 'DL') { pageHeader = Moment().format('DD/MM/YYYY'); }
-      if (pageType === 'ML') { pageHeader = Moment().format('MMMM YYYY'); }
+      if (pageType === 'DL') { pageHeader = DayJs().format('DD/MM/YYYY'); }
+      if (pageType === 'ML') { pageHeader = DayJs().format('MMMM YYYY'); }
       const newPage = {
         type: pageType,
         header: pageHeader,
