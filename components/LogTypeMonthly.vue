@@ -9,7 +9,7 @@
         <span>{{ item.dayOfMonth }} {{ item.weekday }}</span>
       </div>
       <div class="monthly-log__item-items">
-        {{ item.items }}
+        <LogList :items="item.items" />
       </div>
       <div class="monthly-log__item-options">
         <button
@@ -33,6 +33,7 @@
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 import LogInput from '~/components/LogInput.vue';
+import LogList from '~/components/LogList.vue';
 
 export default {
   name: 'LogTypeMonthly',
@@ -44,6 +45,7 @@ export default {
   },
   components: {
     LogInput,
+    LogList,
   },
   methods: {
     ...mapMutations('logTypeMonthly', {
@@ -74,12 +76,15 @@ export default {
 
 <style lang="scss" scoped>
 .monthly-log {
+  height: auto;
+
   &__item {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    display: flex;
     font-size: 18px;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 4px;
 
     &-options {
       &-button {
