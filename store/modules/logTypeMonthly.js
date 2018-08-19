@@ -15,6 +15,9 @@ const mutations = {
   SET_LOG_ITEMS(state, val) {
     state.logItems = val;
   },
+  CREATE_LOG_ITEM(state, val) {
+    state.logItems.push(val);
+  },
 };
 
 const actions = {

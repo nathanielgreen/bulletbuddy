@@ -8,8 +8,14 @@
       <div class="monthly-log__item-date">
         <span>{{ item.dayOfMonth }} {{ item.weekday }}</span>
       </div>
+      <div class="monthly-log__item-items">
+        {{ item.items }}
+      </div>
       <div class="monthly-log__item-options">
-        <button class="monthly-log__item-options-button">
+        <button
+          class="monthly-log__item-options-button"
+          @click="showInputForItem(item)"
+        >
           <img
             class="monthly-log__item-options-button-img"
             src="../static/icons/plus.svg"
@@ -17,14 +23,28 @@
         </button>
       </div>
     </div>
+    <LogInput
+      v-if="showLogInput"
+      @emitAddItem="addItem"
+    />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
+import LogInput from '~/components/LogInput.vue';
 
 export default {
   name: 'LogTypeMonthly',
+  data() {
+    return {
+      showLogInput: false,
+      selectedItem: '',
+    };
+  },
+  components: {
+    LogInput,
+  },
   methods: {
     ...mapMutations('logTypeMonthly', {
       clearLogItems: 'CLEAR_LOG_ITEMS',
@@ -32,6 +52,13 @@ export default {
     ...mapActions('logTypeMonthly', {
       setLogItems: 'setLogItems',
     }),
+    showInputForItem(item) {
+      this.showLogInput = true;
+      this.selectedItem = item;
+    },
+    addItem(emittedItem) {
+      this.selectedItem.items.push(emittedItem);
+    },
   },
   computed: {
     ...mapGetters({
@@ -47,7 +74,6 @@ export default {
 
 <style lang="scss" scoped>
 .monthly-log {
-
   &__item {
     display: flex;
     justify-content: space-between;
@@ -66,16 +92,15 @@ export default {
         align-items: center;
         justify-content: center;
 
-        &:hover {
-        }
+        &:hover {}
 
         &-img {
           height: 20px;
           width: 20px;
         }
       }
-
     }
+
   }
 }
 </style>
