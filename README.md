@@ -71,8 +71,12 @@ Here are some existing page types and any components associated:
   - `~/components/LogTypeDaily.vue` (Daily Log Parent Component)
   - `~/components/LogInput.vue`
   - `~/components/LogList.vue`
-  - `~/components/LogListItem.vue`
   - `~/store/modules/logTypeDaily.js` (Vuex Module)
+- Monthly Log:
+  - `~/components/LogTypeMonthly.vue` (Monthly Log Parent Component)
+  - `~/components/LogInput.vue`
+  - `~/components/LogList.vue`
+  - `~/store/modules/logTypeMonthly.js` (Vuex Module)
 
 The components will interact with their on Vuex state, which will be synced with
 the `viewedPageContent`, and in turn, synced with the respective space in the
@@ -200,14 +204,14 @@ e.g. BB-18: Update README with Trello Process
 A full description must be added to the card as well as a label before it can be
 moved to the ToDo column for a team member to pick up and complete.
 
-**ToDo**: Card is ready to be picked up but has not yet been.
+**To Do**: Card is ready to be picked up but has not yet been.
 
 **In Progress**: Branch has been opened (if required) and a member is working on that ticket.
 
-**PR/QA**: Requires a peer code review, and is currently in a  pull request from feature
+**Review**: Requires a peer code review, and is currently in a  pull request from feature
 branch to dev. (Not always a necessary step)
 
-**Done**: Card has been completed and merged into `dev` branch.
+**Done**: Card has been completed and merged into `master` branch.
 
 **Cancelled**: Card has been cancelled and is no longer a ToDo. A comment must
 be left on the card detailing reasons for its cancellation.
