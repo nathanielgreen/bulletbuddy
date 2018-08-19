@@ -18,6 +18,15 @@ const mutations = {
   CREATE_LOG_ITEM(state, data) {
     state.logItems[data.index].items.push(data.item);
   },
+  UPDATE_TASK(state, data) {
+    state
+      .logItems[data.logIndex]
+      .items[data.itemIndex]
+      .checked = !state
+        .logItems[data.logIndex]
+        .items[data.itemIndex]
+        .checked;
+  },
 };
 
 const actions = {

@@ -2,21 +2,21 @@
   <div class="log-list">
     <div
       class="log-list__item"
-      v-if="items.length >= 1"
-      v-for="(item, index) in items"
+      v-if="logItems.length >= 1"
+      v-for="(item, index) in logItems"
       :key="index"
     >
       <div class="log-list__item">
         <div class="log-list__item__icon">
           <img
             v-if="item.type === 'task' && item.checked === false"
-            v-on:click="toggleTask(index)"
+            v-on:click="$emit('toggleTask', index, logIndex)"
             class="log-list__item__icon-img"
             src="../static/icons/square.svg"
           />
           <img
             v-if="item.type === 'task' && item.checked === true"
-            v-on:click="toggleTask(index)"
+            v-on:click="$emit('toggleTask', index, logIndex)"
             class="log-list__item__icon-img"
             src="../static/icons/x-square.svg"
           />
@@ -44,7 +44,7 @@
 <script>
 export default {
   name: 'LogList',
-  props: ['items'],
+  props: ['logItems', 'logIndex'],
 };
 </script>
 

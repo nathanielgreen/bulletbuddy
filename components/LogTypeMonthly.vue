@@ -11,7 +11,11 @@
         </span>
       </div>
       <div class="log--monthly__item-items">
-        <LogList :items="item.items" />
+        <LogList
+          @toggleTask="toggleTask"
+          :logItems="item.items"
+          :logIndex="index"
+        />
       </div>
       <div class="log--monthly__item-options">
         <button
@@ -54,6 +58,7 @@ export default {
   methods: {
     ...mapMutations('logTypeMonthly', {
       clearLogItems: 'CLEAR_LOG_ITEMS',
+      updateTask: 'UPDATE_TASK',
     }),
     ...mapActions('logTypeMonthly', {
       setLogItems: 'setLogItems',
@@ -71,6 +76,13 @@ export default {
       };
       this.addLogItem(data);
       this.showLogInput = false;
+    },
+    toggleTask(itemsIndex, monthlyLogIndex) {
+      const payload = {
+        itemIndex: itemsIndex,
+        logIndex: monthlyLogIndex,
+      };
+      this.updateTask(payload);
     },
   },
   computed: {
