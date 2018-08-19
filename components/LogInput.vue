@@ -1,5 +1,5 @@
 <template>
-  <form class="log-list-input" v-on:submit="addItem($event)">
+  <form class="log-list-input" v-on:submit="emitAddItem($event)">
     <div class="log-list-input__icon" v-on:click="changeType">
       <img
         class="log-list-input__icon-img"
@@ -33,16 +33,17 @@ export default {
     };
   },
   methods: {
-    addItem(event) {
+    emitAddItem(event) {
       event.preventDefault();
-      const data = {
-        type: this.type,
-        value: this.value,
-      };
-      this.$store.dispatch('logTypeDaily/addNewItem', data)
-        .then(() => {
-          this.value = '';
-        });
+      this.$emit('emitAddItem', { ...this.$data });
+      // const data = {
+      //   type: this.type,
+      //   value: this.value,
+      // };
+      // this.$store.dispatch('logTypeDaily/addNewItem', data)
+      //   .then(() => {
+      //     this.value = '';
+      //   });
     },
     changeType() {
       switch (this.type) {
