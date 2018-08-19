@@ -1,7 +1,7 @@
 <template>
   <div class="log--daily">
     <LogList :items="items"></LogList>
-    <LogInput />
+    <LogInput @emitAddItem="addItem"/>
   </div>
 </template>
 
@@ -19,7 +19,11 @@ export default {
     }),
     ...mapActions('logTypeDaily', {
       setLogItems: 'setLogItems',
+      addNewItem: 'addNewItem',
     }),
+    addItem(emittedItem) {
+      this.addNewItem(emittedItem);
+    },
   },
   computed: {
     ...mapGetters({

@@ -60,6 +60,7 @@ export default {
     },
     addItem(emittedItem) {
       this.selectedItem.items.push(emittedItem);
+      this.showLogInput = false;
     },
   },
   computed: {

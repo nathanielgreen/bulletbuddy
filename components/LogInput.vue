@@ -36,14 +36,7 @@ export default {
     emitAddItem(event) {
       event.preventDefault();
       this.$emit('emitAddItem', { ...this.$data });
-      // const data = {
-      //   type: this.type,
-      //   value: this.value,
-      // };
-      // this.$store.dispatch('logTypeDaily/addNewItem', data)
-      //   .then(() => {
-      //     this.value = '';
-      //   });
+      this.value = '';
     },
     changeType() {
       switch (this.type) {
