@@ -15,12 +15,30 @@ const mutations = {
   SET_LOG_ITEMS(state, val) {
     state.logItems = val;
   },
-  CREATE_LOG_ITEM(state, val) {
-    state.logItems.push(val);
+  CREATE_LOG_ITEM(state, data) {
+    state.logItems[data.index].items.push(data.item);
   },
 };
 
 const actions = {
+  addLogItem(context, payload) {
+    const data = {
+      item: {
+        type: payload.item.type,
+        value: payload.item.value,
+      },
+      index: payload.index,
+    };
+    switch (data.item.type) {
+      case 'task':
+        data.item.checked = false;
+        context.commit('CREATE_LOG_ITEM', data);
+        break;
+      default:
+        context.commit('CREATE_LOG_ITEM', data);
+        break;
+    }
+  },
   createMonthlyLog(context) {
     const calendarArr = [];
 

@@ -1,25 +1,25 @@
 <template>
-  <div class="monthly-log">
+  <div class="log--monthly">
     <div
-      class="monthly-log__item"
-      v-for="item in items"
-      v-bind:key="item.index"
+      class="log--monthly__item"
+      v-for="(item, index) in items"
+      v-bind:key="index"
     >
-      <div class="monthly-log__item-info">
-        <span class="monthly-log__item-info-date">
+      <div class="log--monthly__item-info">
+        <span class="log--monthly__item-info-date">
           {{ item.dayOfMonth }} {{ item.weekday }}
         </span>
       </div>
-      <div class="monthly-log__item-items">
-        <LogList class="monthly-log__item-items-list" :items="item.items" />
+      <div class="log--monthly__item-items">
+        <LogList :items="item.items" />
       </div>
-      <div class="monthly-log__item-options">
+      <div class="log--monthly__item-options">
         <button
-          class="monthly-log__item-options-button"
-          @click="showInputForItem(item)"
+          class="log--monthly__item-options-button"
+          @click="showInputForItem(item, index)"
         >
           <img
-            class="monthly-log__item-options-button-img"
+            class="log--monthly__item-options-button-img"
             src="../static/icons/plus.svg"
           />
         </button>
@@ -27,6 +27,7 @@
     </div>
     <LogInput
       v-if="showLogInput"
+      class="log--monthly__input"
       @emitAddItem="addItem"
     />
   </div>
@@ -43,6 +44,7 @@ export default {
     return {
       showLogInput: false,
       selectedItem: '',
+      selectedItemIndex: '',
     };
   },
   components: {
@@ -55,13 +57,19 @@ export default {
     }),
     ...mapActions('logTypeMonthly', {
       setLogItems: 'setLogItems',
+      addLogItem: 'addLogItem',
     }),
-    showInputForItem(item) {
+    showInputForItem(item, index) {
       this.showLogInput = true;
       this.selectedItem = item;
+      this.selectedItemIndex = index;
     },
     addItem(emittedItem) {
-      this.selectedItem.items.push(emittedItem);
+      const data = {
+        index: this.selectedItemIndex,
+        item: emittedItem,
+      };
+      this.addLogItem(data);
       this.showLogInput = false;
     },
   },
@@ -78,9 +86,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.monthly-log {
+.log--monthly {
   height: auto;
   background: #eeeeee;
+  padding-bottom: 20%;
 
   &__item {
     align-items: center;
@@ -95,6 +104,7 @@ export default {
     &-info {
       align-self: flex-start;
       height: 30px;
+      margin-right: 15px;
       display: flex;
 
       &-date {
@@ -109,6 +119,7 @@ export default {
 
     &-options {
       align-self: flex-start;
+      margin-left: 15px;
 
       &-button {
         border: none;
@@ -129,6 +140,11 @@ export default {
       }
     }
 
+  }
+
+  &__input {
+    position: absolute;
+    bottom: 10%;
   }
 }
 </style>

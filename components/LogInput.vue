@@ -58,6 +58,7 @@ export default {
 <style lang="scss">
 .log-list-input {
   align-items: center;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   margin-top: auto;
