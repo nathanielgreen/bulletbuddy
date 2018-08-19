@@ -1,7 +1,11 @@
 <template>
   <div class="log--daily">
-    <LogList :items="items"></LogList>
-    <LogInput />
+    <LogList
+      class="log--daily__list"
+      :logItems="items"
+      @toggleTask="toggleTask"
+    ></LogList>
+    <LogInput @emitAddItem="addItem"/>
   </div>
 </template>
 
@@ -16,10 +20,15 @@ export default {
   methods: {
     ...mapMutations('logTypeDaily', {
       clearLogItems: 'CLEAR_LOG_ITEMS',
+      toggleTask: 'TOGGLE_TASK',
     }),
     ...mapActions('logTypeDaily', {
       setLogItems: 'setLogItems',
+      addNewItem: 'addNewItem',
     }),
+    addItem(emittedItem) {
+      this.addNewItem(emittedItem);
+    },
   },
   computed: {
     ...mapGetters({
@@ -35,6 +44,9 @@ export default {
 
 <style lang="scss" scoped>
 .log--daily {
+  &__list {
+    padding: 16px;
+  }
 }
 </style>
 
