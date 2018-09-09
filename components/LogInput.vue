@@ -62,17 +62,19 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  padding: 16px;
+  padding: 12px;
   width: 100%;
 
   &__input {
-    flex: 8;
+    flex: 10;
     font-size: 18px;
     border: none;
     outline: none;
   }
   &__icon {
     flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
 
     &-img {
