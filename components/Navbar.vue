@@ -55,6 +55,7 @@ export default {
   &__item {
     display: flex;
     justify-content: center;
+    cursor: pointer;
     flex-direction: column;
     flex: 1;
     height: 100%;

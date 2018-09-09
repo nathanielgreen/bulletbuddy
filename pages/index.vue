@@ -1,5 +1,6 @@
 <template>
   <section class="index" v-touch:swipe.left="swipeLeft">
+    <h1 class="index__header" v-if="pages.length < 1">No pages yet.</h1>
     <ul class="index__list">
       <li
         oncontextmenu="return false;"
@@ -8,8 +9,8 @@
         v-bind:key="index"
         v-on:click="goToPage(index)"
       >
-      <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
-      <span class="index__list-item__value">{{ page.header }}</span>
+        <span class="index__list-item__key">{{ index + 1}} {{ page.type}}</span>
+        <span class="index__list-item__value">{{ page.header }}</span>
       </li>
     </ul>
   </section>
@@ -47,6 +48,11 @@ export default {
   flex-direction: column;
   width: 100%;
   overflow-y: scroll;
+
+  &__header {
+    margin-top: 50%;
+    color: #a1a1a1;
+  }
 
   &__list {
     padding: 0;

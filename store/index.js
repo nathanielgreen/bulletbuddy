@@ -23,24 +23,30 @@ const store = () => new Vuex.Store({
   actions: {
     goToDailyLog(context, router) {
       const currentDate = DayJs().format('DD/MM/YYYY');
-      for (let i = 0; i < context.state.pages.length; i += 1) {
-        if (currentDate === context.state.pages[i].header) {
-          router.push(`/pages/${i + 1}`);
-          break;
-        } else {
-          router.push('/add-new');
+      if (context.state.pages.length > 1) {
+        for (let i = 0; i < context.state.pages.length; i += 1) {
+          if (currentDate === context.state.pages[i].header) {
+            router.push(`/pages/${i + 1}`);
+          } else {
+            router.push({ path: '/error-page', query: { logType: 'DL' } });
+          }
         }
+      } else {
+        router.push({ path: '/error-page', query: { logType: 'DL' } });
       }
     },
     goToMonthlyLog(context, router) {
       const currentMonth = DayJs().format('MMMM YYYY');
-      for (let i = 0; i < context.state.pages.length; i += 1) {
-        if (currentMonth === context.state.pages[i].header) {
-          router.push(`/pages/${i + 1}`);
-          break;
-        } else {
-          router.push('/add-new');
+      if (context.state.pages.length > 1) {
+        for (let i = 0; i < context.state.pages.length; i += 1) {
+          if (currentMonth === context.state.pages[i].header) {
+            router.push(`/pages/${i + 1}`);
+          } else {
+            router.push({ path: '/error-page', query: { logType: 'ML' } });
+          }
         }
+      } else {
+        router.push({ path: '/error-page', query: { logType: 'ML' } });
       }
     },
     addNewPage(context, pageType) {

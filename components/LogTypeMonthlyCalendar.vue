@@ -48,10 +48,9 @@ export default {
       const calendar = this.createCalendarArray();
       for (let i = 0; i < this.logItems.length; i += 1) {
         if (this.logItems[i].day !== '') {
-          calendar[Number(this.logItems[i].day)].items.push(this.logItems[i]);
+          calendar[Number(this.logItems[i].day) - 1].items.push(this.logItems[i]);
         }
       }
-      console.log(calendar);
       return calendar;
     },
   },
