@@ -24,9 +24,10 @@ export default {
 .error-page {
   display: flex;
   height: 100%;
+  padding: 20px;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  color: #a1a1a1;
 }
 </style>
 

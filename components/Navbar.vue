@@ -1,24 +1,44 @@
 <template>
   <nav class="navbar">
     <nuxt-link class="navbar__item" to="/">
-      <img class="navbar__item-img" src="../static/icons/bookmark.svg" />
+      <img
+        class="navbar__item-img"
+        src="../static/icons/bookmark.svg"
+        alt="Bookmark"
+      />
       <label>Index</label>
     </nuxt-link>
     <div class="navbar__item" @click="goToDailyLog($router)">
-      <img class="navbar__item-img" src="../static/icons/clipboard.svg" />
+      <img
+        class="navbar__item-img"
+        src="../static/icons/clipboard.svg"
+        alt="Clipboard"
+      />
       <label>Daily Log</label>
     </div>
     <div class="navbar__item" @click="goToMonthlyLog($router)">
-      <img class="navbar__item-img" src="../static/icons/calendar.svg" />
+      <img
+        class="navbar__item-img"
+        src="../static/icons/calendar.svg"
+        alt="Calendar"
+      />
       <label>Monthly Log</label>
     </div>
     <nuxt-link class="navbar__item" to="/add-new">
-      <img class="navbar__item-img" src="../static/icons/file-plus.svg" />
+      <img
+        class="navbar__item-img"
+        src="../static/icons/file-plus.svg"
+        alt="File Plus"
+      />
       <label>New Page</label>
     </nuxt-link>
     <nuxt-link class="navbar__item navbar__item--menu" to="/menu">
-      <img class="navbar__item-img" src="../static/icons/more-vertical.svg" />
-      <label>More</label>
+      <img
+        class="navbar__item-img"
+        src="../static/icons/more-vertical.svg"
+        alt="More Menu"
+      />
+      <label>Settings</label>
     </nuxt-link>
   </nav>
 </template>

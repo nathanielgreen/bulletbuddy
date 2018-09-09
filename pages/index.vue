@@ -1,7 +1,7 @@
 <template>
   <section class="index" v-touch:swipe.left="swipeLeft">
     <h1 class="index__header" v-if="pages.length < 1">No pages yet.</h1>
-    <ul class="index__list">
+    <ul class="index__list" v-else>
       <li
         oncontextmenu="return false;"
         class="index__list-item"
@@ -48,11 +48,6 @@ export default {
   flex-direction: column;
   width: 100%;
   overflow-y: scroll;
-
-  &__header {
-    margin-top: 50%;
-    color: #a1a1a1;
-  }
 
   &__list {
     padding: 0;
