@@ -1,21 +1,21 @@
 <template>
-  <form class="log-list-input" v-on:submit="emitAddItem($event)">
-    <div class="log-list-input__icon" v-on:click="changeType">
+  <form class="log-input" v-on:submit="emitAddItem($event)">
+    <div class="log-input__icon" v-on:click="changeType">
       <img
-        class="log-list-input__icon-img"
+        class="log-input__icon-img"
         v-if="type === 'task'"
         src="../static/icons/square.svg" />
       <img
-        class="log-list-input__icon-img"
+        class="log-input__icon-img"
         v-if="type === 'note'"
         src="../static/icons/minus.svg" />
       <img
-        class="log-list-input__icon-img"
+        class="log-input__icon-img"
         v-if="type === 'event'"
         src="../static/icons/circle.svg" />
     </div>
     <input
-      class="log-list-input__input"
+      class="log-input__input"
       v-model="value"
       type="text"
       placeholder="Type here..."
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'LogListInput',
+  name: 'LogInput',
   data() {
     return {
       type: 'note',
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss">
-.log-list-input {
+.log-input {
   align-items: center;
   background: #ffffff;
   display: flex;

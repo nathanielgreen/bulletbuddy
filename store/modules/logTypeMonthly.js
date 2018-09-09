@@ -15,65 +15,53 @@ const mutations = {
   SET_LOG_ITEMS(state, val) {
     state.logItems = val;
   },
-  CREATE_LOG_ITEM(state, data) {
-    state.logItems[data.index].items.push(data.item);
+  CREATE_LOG_ITEM(state, item) {
+    state.logItems.push(item);
   },
-  UPDATE_TASK(state, data) {
+  UPDATE_TASK(state, index) {
     state
-      .logItems[data.logIndex]
-      .items[data.itemIndex]
+      .logItems[index]
       .checked = !state
-        .logItems[data.logIndex]
-        .items[data.itemIndex]
+        .logItems[index]
         .checked;
+  },
+  UPDATE_LOG_ITEM_DAY(state, data) {
+    state.logItems[data.index].day = data.item.day;
   },
 };
 
 const actions = {
   addLogItem(context, payload) {
+    const monthlyLogDate = context.rootGetters['page/getViewedPageContent'].date;
     const data = {
-      item: {
-        type: payload.item.type,
-        value: payload.item.value,
-      },
-      index: payload.index,
+      type: payload.type,
+      value: payload.value,
+      day: '',
+      monthAndYear: DayJs(monthlyLogDate).format('MM/YY'),
     };
-    switch (data.item.type) {
+    switch (data.type) {
       case 'task':
-        data.item.checked = false;
+        data.checked = false;
         context.commit('CREATE_LOG_ITEM', data);
         break;
       default:
         context.commit('CREATE_LOG_ITEM', data);
         break;
     }
+    const content = { key: 'items', content: context.state.logItems };
+    context.dispatch('page/addViewedPageContent', content, { root: true });
+  },
+  createCalenderView() {
   },
   createMonthlyLog(context) {
-    const calendarArr = [];
-
-    const currentYear = DayJs().format('YYYY');
-    const currentMonth = DayJs().format('MM');
-    const days = DayJs().daysInMonth();
-
-    for (let i = 0; i < days; i += 1) {
-      const date = DayJs(`${currentYear}-${currentMonth}-${i + 1}`);
-      const dayLetter = date.format('ddd').substring(0, 1);
-      const dayObj = {
-        weekday: dayLetter,
-        dayOfMonth: i + 1,
-        items: [],
-      };
-      calendarArr.push(dayObj);
-    }
-
     const newPage = {
       type: 'ML',
       header: DayJs().format('MMMM YYYY'),
       content: {
-        items: calendarArr,
+        date: DayJs(),
+        items: [],
       },
     };
-
     context.commit('CREATE_NEW_PAGE', newPage, { root: true });
   },
   setLogItems(context) {

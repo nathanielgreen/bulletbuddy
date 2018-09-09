@@ -33,6 +33,11 @@ export default {
       pageNumber: '',
     };
   },
+  components: {
+    LogTypeDaily,
+    LogTypeMonthly,
+    PageInfo,
+  },
   computed: {
     ...mapGetters({
       pages: 'getPages',
@@ -44,11 +49,6 @@ export default {
     if (!from) return 'slide-left';
     if (from.name === 'add-new') return 'slide-right';
     return +to.params.id < +from.params.id ? 'slide-right' : 'slide-left';
-  },
-  components: {
-    LogTypeDaily,
-    LogTypeMonthly,
-    PageInfo,
   },
   mounted() {
     const URL = window.location.href;

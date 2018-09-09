@@ -10,13 +10,13 @@
         <div class="log-list__item__icon">
           <img
             v-if="item.type === 'task' && item.checked === false"
-            v-on:click="$emit('toggleTask', index, logIndex)"
+            v-on:click="$emit('toggleTask', index, logIndex, item)"
             class="log-list__item__icon-img"
             src="../static/icons/square.svg"
           />
           <img
             v-if="item.type === 'task' && item.checked === true"
-            v-on:click="$emit('toggleTask', index, logIndex)"
+            v-on:click="$emit('toggleTask', index, logIndex, item)"
             class="log-list__item__icon-img"
             src="../static/icons/x-square.svg"
           />
