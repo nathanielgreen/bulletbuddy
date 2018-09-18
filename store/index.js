@@ -19,6 +19,9 @@ const store = () => new Vuex.Store({
     CREATE_NEW_PAGE(state, newPage) {
       state.pages.push(newPage);
     },
+    DELETE_PAGE(state, index) {
+      state.pages.splice(index, 1);
+    },
   },
   actions: {
     goToDailyLog(context, router) {
