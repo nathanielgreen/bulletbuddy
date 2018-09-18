@@ -59,3 +59,12 @@
 .page-leave-active {
   opacity: 0;
 }
+.grow-down-enter-active, .grow-down-leave-active {
+  transition: all 0.35s;
+  max-height: 230px;
+}
+.grow-down-enter, .grow-down-leave-to {
+  transition: all 0.2s;
+  opacity: 0;
+  max-height: 0px;
+}
