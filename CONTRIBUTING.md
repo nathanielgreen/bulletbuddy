@@ -12,7 +12,7 @@ please privatley contact the repository owner.
 
 # Contents
 
-- [1.0 Git Project Info](#11-git-project-info)
+- [1.0 Git Project Info](#10-git-project-info)
   - [1.1 Branching Strategy](#11-branching-strategy)
   - [1.2 Install and Run](#12-install-and-run)
 - [2.0 Trello Board](#20-trello-board)
