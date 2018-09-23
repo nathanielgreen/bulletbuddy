@@ -120,3 +120,10 @@ Designs and drafts are created on Figma, link here:
 https://www.figma.com/file/Qlxt0d7Bmdw1k5NCU0rdJPZH/Bullet-Buddy?node-id=24%3A8
 
 Contact the repository owner if you would like to contribute to the UI.
+
+---
+
+# Other Documents
+
+- [README](./README.md)
+- [Documentation](DOCUMENTATION.md)

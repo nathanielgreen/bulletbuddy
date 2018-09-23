@@ -111,3 +111,8 @@ root `pages` array, containing all pages in the app.
 [<-- Back to Contents](#contents)
 
 ---
+
+# Other Documents
+
+- [README](./README.md)
+- [Contributing](CONTRIBUTING.md)
