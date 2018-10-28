@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'AddNew',
@@ -22,17 +22,16 @@ export default {
     }),
   },
   methods: {
-    addNewDailyLog() {
-      this.$store.dispatch('addNewPage', 'DL')
-        .then(() => {
-          this.$router.push(`/pages/${this.pages.length}`);
-        });
+    ...mapActions([
+      'addNewPage',
+    ]),
+    async addNewDailyLog() {
+      await this.addNewPage('DL');
+      this.$router.push(`/pages/${this.pages.length}`);
     },
-    addNewMonthlyLog() {
-      this.$store.dispatch('logTypeMonthly/createMonthlyLog')
-        .then(() => {
-          this.$router.push(`/pages/${this.pages.length}`);
-        });
+    async addNewMonthlyLog() {
+      await this.addNewPage('ML');
+      this.$router.push(`/pages/${this.pages.length}`);
     },
     swipeRight() {
       this.$router.push(`/pages/${this.pages.length}`);

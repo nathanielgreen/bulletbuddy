@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Menu',
@@ -28,8 +28,8 @@ export default {
     };
   },
   methods: {
-    ...mapMutations({
-      deleteAllPagesMutation: 'DELETE_ALL_PAGES',
+    ...mapActions({
+      deleteAllPagesAction: 'deleteAllPages',
     }),
     clearTimerAndIntervals() {
       clearTimeout(this.delay);
@@ -44,7 +44,7 @@ export default {
       }, 1000);
       this.delay = setTimeout(() => {
         this.clearTimerAndIntervals();
-        this.deleteAllPagesMutation();
+        this.deleteAllPagesAction();
       }, 3000);
     },
   },

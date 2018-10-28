@@ -1,4 +1,5 @@
 import DayJs from 'dayjs';
+import { updateDoc } from '~/plugins/pouchdb';
 
 const state = {
   logItems: [],
@@ -31,7 +32,7 @@ const mutations = {
 };
 
 const actions = {
-  addLogItem(context, payload) {
+  async addLogItem(context, payload) {
     const monthlyLogDate = context.rootGetters['page/getViewedPageContent'].date;
     const data = {
       type: payload.type,
@@ -48,21 +49,12 @@ const actions = {
         context.commit('CREATE_LOG_ITEM', data);
         break;
     }
-    const content = { key: 'items', content: context.state.logItems };
-    context.dispatch('page/addViewedPageContent', content, { root: true });
-  },
-  createCalenderView() {
-  },
-  createMonthlyLog(context) {
-    const newPage = {
-      type: 'ML',
-      header: DayJs().format('MMMM YYYY'),
-      content: {
-        date: DayJs(),
-        items: [],
-      },
-    };
-    context.commit('CREATE_NEW_PAGE', newPage, { root: true });
+    const docId = context.rootGetters['page/getViewedPageId'];
+    await updateDoc(docId, data);
+    if (updateDoc) {
+      const content = { key: 'items', content: context.state.logItems };
+      context.dispatch('page/addViewedPageContent', content, { root: true });
+    }
   },
   setLogItems(context) {
     const content = context.rootGetters['page/getViewedPageContent'];

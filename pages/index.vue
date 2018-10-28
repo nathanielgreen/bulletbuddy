@@ -24,7 +24,7 @@
           <span class="index__list-item-options" v-if="showOptions === index">
             <button
               class="index__list-item-options-button"
-              @click="deletePage(index)"
+              @click="deletePage(page)"
             >
               <img src="../static/icons/trash-2.svg" />
             </button>

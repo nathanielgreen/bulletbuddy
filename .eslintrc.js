@@ -28,6 +28,7 @@ module.exports = {
         'state',
       ]
     }],
+    'no-underscore-dangle': [2, { "allow": ['_id', '_rev'] }],
     'no-shadow': ["error", {
       "allow": [
         "state"

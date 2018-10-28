@@ -4,10 +4,7 @@
       :logItems="monthlyLogItems"
       @emitToggleTask="catchEmitToggleTask"
     />
-    <LogInput
-      class="monthly-list"
-      @emitAddItem="catchEmitAddItem"
-    />
+    <LogInput class="monthly-list" @emitAddItem="addItem" />
   </div>
 </template>
 
@@ -36,7 +33,7 @@ export default {
       addLogItem: 'addLogItem',
       setLogItems: 'setLogItems',
     }),
-    catchEmitAddItem(emittedvalue) {
+    addItem(emittedvalue) {
       this.addLogItem(emittedvalue);
     },
     catchEmitToggleTask(emittedIndex) {

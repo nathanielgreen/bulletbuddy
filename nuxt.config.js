@@ -33,8 +33,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/localStorage.js', ssr: false },
     '~/plugins/vueTouchEvents.js',
+    { src: '~/plugins/pouchdb', ssr: false },
   ],
 
   /*

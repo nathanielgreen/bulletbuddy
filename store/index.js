@@ -1,5 +1,8 @@
 import Vuex from 'vuex';
 import DayJs from 'dayjs';
+
+import genUID from '~/assets/helperMethods';
+import db from '~/plugins/pouchdb';
 import modal from './modules/modal';
 import page from './modules/page';
 import logTypeDaily from './modules/logTypeDaily';
@@ -11,16 +14,22 @@ const store = () => new Vuex.Store({
   },
   getters: {
     getPages: state => state.pages,
+    getPage: state => index => state.pages[index],
   },
   mutations: {
     DELETE_ALL_PAGES(state) {
       state.pages = [];
     },
+    SET_PAGES(state, pages) {
+      state.pages = pages;
+    },
     CREATE_NEW_PAGE(state, newPage) {
       state.pages.push(newPage);
     },
-    DELETE_PAGE(state, index) {
-      state.pages.splice(index, 1);
+    DELETE_PAGE(state, pageToDelete) {
+      db.remove(pageToDelete).then(() => {
+        state.pages.splice(state.pages.indexOf(pageToDelete), 1);
+      });
     },
   },
   actions: {
@@ -42,16 +51,41 @@ const store = () => new Vuex.Store({
         }
       }
     },
-    addNewPage(context, pageType) {
+    deleteAllPages(context) {
+      db.destroy().then(() => {
+        context.commit('DELETE_ALL_PAGES');
+      });
+    },
+    async addNewPage(context, pageType) {
       let pageHeader;
       if (pageType === 'DL') { pageHeader = DayJs().format('DD/MM/YYYY'); }
       if (pageType === 'ML') { pageHeader = DayJs().format('MMMM YYYY'); }
       const newPage = {
+        _id: genUID(),
         type: pageType,
         header: pageHeader,
-        content: {},
+        content: {
+          items: [],
+        },
+        createdAt: new Date(),
       };
+      await db.put(newPage);
       context.commit('CREATE_NEW_PAGE', newPage);
+    },
+    async getPages(context) {
+      await db.allDocs({
+        include_docs: true,
+        descending: true,
+        attachments: true,
+      })
+        .then((result) => {
+          const pages = result.rows.map(row => row.doc);
+          pages.sort((a, b) => a.createdAt > b.createdAt);
+          context.commit('SET_PAGES', pages);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   modules: {

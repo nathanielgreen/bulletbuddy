@@ -74,22 +74,18 @@ export default {
     return /^\d+$/.test(params.id);
   },
   async asyncData({ store, params, error }) {
-    const pages = await store.getters.getPages;
-    const pageIndex = Number(params.id) - 1;
-    const data = pages[pageIndex];
-    const viewedPage = {
-      type: data.type,
-      index: pageIndex,
-      header: data.header,
-      content: data.content,
-    };
-    if (data == null) {
-      error({ message: 'Page not found', statusCode: 404 });
-    } else {
-      setTimeout(() => {
-        store.dispatch('page/updateViewedPage', viewedPage);
-      }, 250);
-    }
+    await store.dispatch('getPages').then(() => {
+      const pages = store.getters.getPages;
+      const pageIndex = Number(params.id) - 1;
+      const data = pages[pageIndex];
+      if (data) {
+        setTimeout(() => {
+          store.dispatch('page/updateViewedPage', data);
+        }, 250);
+      } else {
+        error({ message: 'Page not found', statusCode: 404 });
+      }
+    });
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="log--daily">
     <LogList
       class="log--daily__list"
-      :logItems="items"
+      :logItems="dailyLogItems"
       @toggleTask="toggleTask"
     ></LogList>
     <LogInput @emitAddItem="addItem"/>
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      items: 'logTypeDaily/getLogItems',
+      dailyLogItems: 'logTypeDaily/getLogItems',
     }),
   },
   mounted() {

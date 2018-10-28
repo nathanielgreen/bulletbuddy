@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Navbar from '~/components/Navbar.vue';
 import Modal from '~/components/Modal.vue';
 
@@ -14,6 +15,14 @@ export default {
   components: {
     Navbar,
     Modal,
+  },
+  mounted() {
+    this.getPages();
+  },
+  methods: {
+    ...mapActions([
+      'getPages',
+    ]),
   },
 };
 </script>
