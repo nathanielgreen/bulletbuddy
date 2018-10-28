@@ -3,7 +3,6 @@ import DayJs from 'dayjs';
 
 import genUID from '~/assets/helperMethods';
 import db from '~/plugins/pouchdb';
-import modal from './modules/modal';
 import page from './modules/page';
 import logTypeDaily from './modules/logTypeDaily';
 import logTypeMonthly from './modules/logTypeMonthly';
@@ -89,7 +88,6 @@ const store = () => new Vuex.Store({
     },
   },
   modules: {
-    modal,
     page,
     logTypeDaily,
     logTypeMonthly,

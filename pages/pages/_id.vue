@@ -9,22 +9,22 @@
       :pageNumber="pageNumber"
       :pageHeader="viewedPageHeader"
     ></PageInfo>
-    <LogTypeDaily
+    <DailyLog
       class="page__type"
       v-if="viewedPageType === 'DL'"
-    ></LogTypeDaily>
-    <LogTypeMonthly
+    ></DailyLog>
+    <MonthlyLog
       class="page__type"
       v-if="viewedPageType === 'ML'"
-    ></LogTypeMonthly>
+    ></MonthlyLog>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import PageInfo from '~/components/PageInfo.vue';
-import LogTypeDaily from '~/components/LogTypeDaily.vue';
-import LogTypeMonthly from '~/components/LogTypeMonthly.vue';
+import DailyLog from '~/components/DailyLog.vue';
+import MonthlyLog from '~/components/MonthlyLog.vue';
 
 export default {
   layout: 'default',
@@ -34,8 +34,8 @@ export default {
     };
   },
   components: {
-    LogTypeDaily,
-    LogTypeMonthly,
+    DailyLog,
+    MonthlyLog,
     PageInfo,
   },
   computed: {

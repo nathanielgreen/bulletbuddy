@@ -17,14 +17,14 @@
         List View
       </div>
     </div>
-    <LogTypeMonthlyList v-if="!isCalendar" />
-    <LogTypeMonthlyCalendar v-if="isCalendar" />
+    <MonthlyLogList v-if="!isCalendar" />
+    <MonthlyLogCalendar v-if="isCalendar" />
   </div>
 </template>
 
 <script>
-import LogTypeMonthlyList from '~/components/LogTypeMonthlyList.vue';
-import LogTypeMonthlyCalendar from '~/components/LogTypeMonthlyCalendar.vue';
+import MonthlyLogList from '~/components/MonthlyLogList.vue';
+import MonthlyLogCalendar from '~/components/MonthlyLogCalendar.vue';
 
 export default {
   name: 'LogTypeMonthly',
@@ -34,8 +34,8 @@ export default {
     };
   },
   components: {
-    LogTypeMonthlyList,
-    LogTypeMonthlyCalendar,
+    MonthlyLogList,
+    MonthlyLogCalendar,
   },
 };
 </script>

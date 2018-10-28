@@ -1,13 +1,11 @@
 <template>
   <div class="add-new" v-touch:swipe.right="swipeRight">
-    <button
-      class="add-new__button"
-      v-on:click="addNewDailyLog"
-    >New Daily Log</button>
-    <button
-      class="add-new__button"
-      v-on:click="addNewMonthlyLog"
-    >New Monthly Log</button>
+    <button class="add-new__button" v-on:click="addNewDailyLog">
+      New Daily Log
+    </button>
+    <button class="add-new__button" v-on:click="addNewMonthlyLog">
+      New Monthly Log
+    </button>
   </div>
 </template>
 
@@ -41,18 +39,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/variables.scss';
+
 .add-new {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100%;
+  justify-content: center;
 
   &__button {
     background: none;
     padding: 8px;
     margin: 8px;
     border: solid;
+    border-color: $color-black;
     border-width: 2px;
     border-radius: 4px;
     width: 50%;

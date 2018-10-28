@@ -1,6 +1,5 @@
 <template>
   <div class="layout--default">
-    <Modal />
     <nuxt/>
     <Navbar class="layout__navbar" />
   </div>
@@ -9,12 +8,10 @@
 <script>
 import { mapActions } from 'vuex';
 import Navbar from '~/components/Navbar.vue';
-import Modal from '~/components/Modal.vue';
 
 export default {
   components: {
     Navbar,
-    Modal,
   },
   mounted() {
     this.getPages();
