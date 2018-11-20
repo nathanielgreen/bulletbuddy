@@ -13,6 +13,10 @@ A live WIP version is available at: https://bulletbuddy.app
 
 - [1.0 Tech Stack](#10-tech-stack)
 - [2.0 Install and Run](#20-install-and-run)
+  - [2.1 Local Development](#21-local-development)
+  - [2.2 Local Docker](#22-local-docker)
+  - [2.3 Docker on a Remote Host](#23-docker-on-a-remote-host)
+  - [2.4 Docker on a Remote Host (with LetsEncrypt HTTPS)](#24-docker-on-a-remote-host-with-letsencrypt-https)
 - [3.0 System Design](#30-system-design)
   - [3.1 Page Types](#31-page-types)
   - [3.2 Styling Guidelines](#32-styling-guidelines)
@@ -25,22 +29,16 @@ A live WIP version is available at: https://bulletbuddy.app
 
 **Front-end:**
 
-- [Nuxt.js (Vue.js Framework)](https://nuxtjs.org/guide)
-  - [Nuxt PWA Module](https://github.com/nuxt-community/pwa-module)
 - [Vue.js (Javascript SPA Framework)](https://vuejs.org/)
-  - [Vue Touch Events](https://www.npmjs.com/package/vue2-touch-events)
 - [Vuex (Vue.js state management)](https://vuex.vuejs.org/en/)
-  - [Vuex Persisted State](https://github.com/robinvdvleuten/vuex-persistedstate)
 - [SASS (Compiled CSS Language)](http://sass-lang.com/)
 - [ESLint (Airbnb Javascript Style Guide)](https://github.com/airbnb/javascript)
+- [PouchDB (Javascript Client Database)](https://pouchdb.com/)
+- [DayJs (Date Library)](https://github.com/iamkun/dayjs)
 
 **Assets:**
 
 - [Feather Icons](https://feathericons.com/)
-
-**Hosting:**
-
-- [Netlify (Static Site Hosting)](https://www.netlify.com/)
 
 
 [<-- Back to Contents](#contents)
@@ -49,22 +47,99 @@ A live WIP version is available at: https://bulletbuddy.app
 
 # 2.0 Install and Run
 
+## 2.1 Local Development
+
 ``` bash
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# serve with hot reload at localhost:8080
+$ npm run serve
 
-# build for production and launch server
+# build for production into /dist
 $ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## 2.2 Local Docker
+
+```bash
+# Build container
+$ docker build -t bulletbuddy/bb-client .
+
+# Run the container
+$ docker run -d --rm -p 8080:80 --name bb-client bulletbuddy/bb-client
+```
+
+## 2.3 Docker on a Remote Host
+
+These instructions will deploy a BulletBuddy Container on a remote host and
+automatically set up a NGINX reverse proxy.
+
+```bash
+# Set Docker ENVs to your remote host
+$ eval $(docker-machine env <your-remote-host>)
+
+# Start the Auto NGINX Reverse Proxy container
+$ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+
+# Build container
+$ docker build -t bulletbuddy/bb-client .
+
+# Run the container
+$ docker run -d --rm -p 8080:80 -e VIRTUAL_HOST=yourdomainhere.com --name bb-client bulletbuddy/bb-client
+
+```
+
+## 2.4 Docker on a Remote Host (with Lets Encrypt HTTPS)
+
+These instructions will deploy a BulletBuddy Container on a remote host and
+automatically set up a NGINX reverse proxy, as well as issuing and automatically
+renewing [Lets Encrypt](https://letsencrypt.org/) certificates.
+
+```bash
+# Set Docker ENVs to your remote host
+$ eval $(docker-machine env <your-remote-host>)
+
+# Start the Auto NGINX Reverse Proxy container
+$ docker run -d -p 80:80 -p 443:443 \
+    --name nginx-proxy \
+    -v /path/to/certs:/etc/nginx/certs:ro \
+    -v /etc/nginx/vhost.d \
+    -v /usr/share/nginx/html \
+    -v /var/run/docker.sock:/tmp/docker.sock:ro \
+    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \
+    jwilder/nginx-proxy
+
+# Start Lets Encrypt NGINX Proxy Companion Container
+$ docker run -d \
+    -v /path/to/certs:/etc/nginx/certs:rw \
+    -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    --volumes-from nginx-proxy \
+    jrcs/letsencrypt-nginx-proxy-companion
+
+# Build container
+$ docker build -t bulletbuddy/bb-client .
+
+# Run the container (FILL IN YOUR CORRECT DETAILS HERE)
+$ docker run -d --rm -p 8080:80 \
+  -e VIRTUAL_HOST=example.com \
+  -e LETSENCRYPT_HOST=example.com \
+  -e LETSENCRYPT_EMAIL=your@email.com \
+  --name bb-client bulletbuddy/bb-client
+
+
+```
+
+**OPTIONAL: Stop 404s on refresh**
+
+- `$ docker cp bb-client:/etc/nginx/conf.d/default.conf .`
+
+- Add the following code below line 10 of `default.conf`
+  - `try_files $uri $uri/ /index.html;`
+
+- `$ docker cp default.conf bb-client:/etc/nginx/conf.d/default.conf`
+- `$ rm default.conf`
+
 
 [<-- Back to Contents](#contents)
 

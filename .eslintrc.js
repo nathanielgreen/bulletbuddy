@@ -3,25 +3,15 @@ const resolve = require('path').resolve;
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
+    node: true,
   },
   extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     'plugin:vue/essential',
-    'airbnb-base',
+    '@vue/airbnb',
   ],
-  // required to lint *.vue files
-  plugins: [
-    'import',
-    'vue'
-  ],
-  // add your custom rules here
   rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-param-reassign': ['error', {
       props: true,
       ignorePropertyModificationsFor: [
@@ -34,6 +24,9 @@ module.exports = {
         "state"
       ]
     }],
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
   },
   settings: {
     'import/resolver': {
@@ -57,4 +50,4 @@ module.exports = {
       }
     }
   }
-}
+};
