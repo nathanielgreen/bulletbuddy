@@ -6,35 +6,35 @@
       v-for="(item, index) in logItems"
       :key="index"
     >
-        <div class="log-list__item__icon">
-          <img
-            v-if="item.type === 'task' && item.checked === false"
-            v-on:click="$emit('toggleTask', index, logIndex, item)"
-            class="log-list__item__icon-img"
-            src="../assets/icons/square.svg"
-          />
-          <img
-            v-if="item.type === 'task' && item.checked === true"
-            v-on:click="$emit('toggleTask', index, logIndex, item)"
-            class="log-list__item__icon-img"
-            src="../assets/icons/x-square.svg"
-          />
-          <img
-            v-if="item.type === 'note'"
-            class="log-list__item__icon-img"
-            src="../assets/icons/minus.svg"
-          />
-          <img
-            v-if="item.type === 'event'"
-            class="log-list__item__icon-img"
-            src="../assets/icons/circle.svg"
-          />
-        </div>
-        <div
-          class="log-list__item__label"
-        >
-          {{ item.value }}
-        </div>
+      <div class="log-list__item__icon">
+        <img
+          v-if="item.type === 'task' && item.checked === false"
+          v-on:click="$emit('emitToggleTask', { item, index })"
+          class="log-list__item__icon-img"
+          src="../assets/icons/square.svg"
+        />
+        <img
+          v-if="item.type === 'task' && item.checked === true"
+          v-on:click="$emit('emitToggleTask', { item, index })"
+          class="log-list__item__icon-img"
+          src="../assets/icons/x-square.svg"
+        />
+        <img
+          v-if="item.type === 'note'"
+          class="log-list__item__icon-img"
+          src="../assets/icons/minus.svg"
+        />
+        <img
+          v-if="item.type === 'event'"
+          class="log-list__item__icon-img"
+          src="../assets/icons/circle.svg"
+        />
+      </div>
+      <div
+        class="log-list__item__label"
+      >
+        {{ item.value }}
+      </div>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@
 <script>
 export default {
   name: 'LogList',
-  props: ['logItems', 'logIndex'],
+  props: ['logItems'],
 };
 </script>
 
@@ -52,7 +52,7 @@ export default {
 
   &__item {
     align-items: center;
-    padding: 0 20px 0 20px;
+    padding: 10px 20px 0 20px;
     display: flex;
     justify-content: space-between;
 

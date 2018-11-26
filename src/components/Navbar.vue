@@ -86,9 +86,15 @@ export default {
     font-size: 12px;
     word-wrap: break-word;
 
+    & label {
+      color: $color-lighter-black;
+    }
+
     &--menu {
-      color: $color-white;
       flex: .5;
+      & label {
+        color: $color-white;
+      }
     };
 
     &:active {

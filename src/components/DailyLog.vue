@@ -1,49 +1,37 @@
 <template>
-  <div class="log--daily">
+  <div class="daily-log">
     <LogList
-      class="log--daily__list"
-      :logItems="dailyLogItems"
-      @toggleTask="toggleTask"
+      :logItems="activePageContent ? activePageContent.items : []"
+      @emitToggleTask="toggleTask"
     ></LogList>
-    <LogInput @emitAddItem="addNewItem"/>
+    <LogInput @emitAddItem="addItem($event)"/>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import LogList from '../components/LogList.vue';
 import LogInput from '../components/LogInput.vue';
 
 export default {
-  name: 'LogTypeDaily',
+  name: 'DailyLog',
   components: { LogList, LogInput },
-  methods: {
-    ...mapMutations('logTypeDaily', {
-      clearLogItems: 'CLEAR_LOG_ITEMS',
-      toggleTask: 'TOGGLE_TASK',
-    }),
-    ...mapActions('logTypeDaily', {
-      setLogItems: 'setLogItems',
-      addItem: 'addItem',
-    }),
-    addNewItem(emittedItem) {
-      this.addItem(emittedItem);
-    },
-  },
   computed: {
-    ...mapGetters({
-      dailyLogItems: 'logTypeDaily/getLogItems',
+    ...mapGetters('activePage', {
+      activePageContent: 'getActivePageContent',
     }),
   },
-  mounted() {
-    this.clearLogItems();
-    this.setLogItems();
+  methods: {
+    ...mapActions('dailyLog', {
+      addItem: 'addItem',
+      toggleTask: 'toggleTask',
+    }),
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.log--daily {
+.daily-log {
   width: 100%;
 }
 </style>

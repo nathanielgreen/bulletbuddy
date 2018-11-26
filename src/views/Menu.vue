@@ -1,16 +1,28 @@
 <template>
   <div class="menu">
+    <PageInfo
+      class="menu__info"
+      pageHeader="Settings"
+    ></PageInfo>
+    <div class="menu__header">
+      <h1 class="menu__header-title">Dangerous Operations</h1>
+      <p class="menu__header-label">
+        These are dangerous operations and should be used with caution.
+      </p>
+    </div>
     <DeleteAllPagesButton class="menu__item"/>
   </div>
 </template>
 
 <script>
 import DeleteAllPagesButton from '../components/DeleteAllPagesButton.vue';
+import PageInfo from '../components/PageInfo.vue';
 
 export default {
   name: 'Menu',
   components: {
     DeleteAllPagesButton,
+    PageInfo,
   },
 };
 </script>
@@ -24,10 +36,23 @@ export default {
   height: 100%;
   width: 100%;
 
+  &__header {
+    margin-top: 40px;
+    padding: 20px;
+
+    &-title {
+      font-size: 18px;
+      color: $color-danger-red;
+    }
+    &-label {
+      font-size: 12px;
+      color: #676767;
+    }
+  }
+
   &__item {
     align-self: center;
     text-align: center;
-    margin: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

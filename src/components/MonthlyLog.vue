@@ -5,17 +5,13 @@
         class="monthly-log__tabs-tab monthly-log__tabs-tab--calendar"
         :class="{selected: isCalendar}"
         @click="isCalendar = !isCalendar"
-      >
-        Calendar View
-      </div>
+      >Calendar View</div>
       <div
         class="monthly-log__tabs-tab
           monthly-log__tabs-tab--list"
         :class="{selected: !isCalendar}"
         @click="isCalendar = !isCalendar"
-      >
-        List View
-      </div>
+      >List View</div>
     </div>
     <MonthlyLogList v-if="!isCalendar" />
     <MonthlyLogCalendar v-if="isCalendar" />

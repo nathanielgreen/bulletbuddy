@@ -1,5 +1,8 @@
 <template>
   <section class="index">
+    <PageInfo
+      pageHeader="Index"
+    ></PageInfo>
     <h1 class="index__header" v-if="pages.length < 1">No pages yet.</h1>
     <ul class="index__list" v-else>
       <li
@@ -37,12 +40,16 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
+import PageInfo from '../components/PageInfo.vue';
 
 export default {
   data() {
     return {
       showOptions: null,
     };
+  },
+  components: {
+    PageInfo,
   },
   computed: {
     ...mapGetters({
@@ -85,11 +92,12 @@ export default {
   overflow-y: scroll;
 
   &__list {
-    padding: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
     height: 100%;
+    margin-top: 40px;
+    padding: 0;
+    width: 100%;
 
     &-item {
       display: grid;

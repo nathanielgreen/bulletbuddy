@@ -1,15 +1,16 @@
 <template>
   <div class="monthly-list">
     <LogListMonthly
-      :logItems="monthlyLogItems"
-      @emitToggleTask="catchEmitToggleTask"
+      :logItems="activePageContent ? activePageContent.items : []"
+      @emitToggleTask="toggleTask($event)"
+      @emitUpdateDay="updateDay($event)"
     />
-    <LogInput class="monthly-list" @emitAddItem="addItem" />
+    <LogInput class="monthly-list" @emitAddItem="addItem($event)" />
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 import LogInput from '../components/LogInput.vue';
 import LogListMonthly from '../components/LogListMonthly.vue';
@@ -21,29 +22,16 @@ export default {
     LogListMonthly,
   },
   computed: {
-    ...mapGetters({
-      monthlyLogItems: 'logTypeMonthly/getLogItems',
+    ...mapGetters('activePage', {
+      activePageContent: 'getActivePageContent',
     }),
   },
   methods: {
-    ...mapMutations('logTypeMonthly', {
-      clearLogItems: 'CLEAR_LOG_ITEMS',
-      updateTask: 'UPDATE_TASK',
-    }),
-    ...mapActions('logTypeMonthly', {
-      addLogItem: 'addLogItem',
-      setLogItems: 'setLogItems',
-    }),
-    addItem(emittedvalue) {
-      this.addLogItem(emittedvalue);
-    },
-    catchEmitToggleTask(emittedIndex) {
-      this.updateTask(emittedIndex);
-    },
-  },
-  mounted() {
-    this.clearLogItems();
-    this.setLogItems();
+    ...mapActions('monthlyLog', [
+      'addItem',
+      'toggleTask',
+      'updateDay',
+    ]),
   },
 };
 </script>

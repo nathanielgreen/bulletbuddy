@@ -4,16 +4,16 @@
   >
     <PageInfo
       class="page__info"
-      :pageNumber="pageNumber"
-      :pageHeader="viewedPageHeader"
+      :pageNumber="activePageIndex + 1"
+      :pageHeader="activePageHeader"
     ></PageInfo>
     <DailyLog
       class="page__type"
-      v-if="viewedPageType === 'DL'"
+      v-if="activePageType === 'DL'"
     ></DailyLog>
     <MonthlyLog
       class="page__type"
-      v-if="viewedPageType === 'ML'"
+      v-if="activePageType === 'ML'"
     ></MonthlyLog>
   </div>
 </template>
@@ -26,11 +26,6 @@ import MonthlyLog from '../components/MonthlyLog.vue';
 
 export default {
   layout: 'default',
-  data() {
-    return {
-      pageNumber: '',
-    };
-  },
   components: {
     DailyLog,
     MonthlyLog,
@@ -39,15 +34,13 @@ export default {
   computed: {
     ...mapGetters({
       pages: 'getPages',
-      viewedPageType: 'page/getViewedPageType',
-      viewedPageHeader: 'page/getViewedPageHeader',
+      activePageType: 'activePage/getActivePageType',
+      activePageHeader: 'activePage/getActivePageHeader',
+      activePageIndex: 'activePage/getActivePageIndex',
     }),
   },
   created() {
     this.getPages();
-  },
-  watch: {
-    $route: 'getPages',
   },
   methods: {
     getPages() {
@@ -56,9 +49,12 @@ export default {
       this.$store.dispatch('getPages').then(() => {
         const pages = this.$store.getters.getPages;
         const pageIndex = Number(params.id) - 1;
-        const data = pages[pageIndex];
+        const data = {
+          ...pages[pageIndex],
+          index: pageIndex,
+        };
         if (data) {
-          this.$store.dispatch('page/updateViewedPage', data);
+          this.$store.dispatch('activePage/updateActivePage', data);
         } else {
           console.log('404');
         }

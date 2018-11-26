@@ -25,6 +25,8 @@ export default {
   font-weight: bold;
   height: 40px;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
   width: 100%;
 
   &__header {

@@ -3,9 +3,9 @@ import DayJs from 'dayjs';
 
 import genUID from '../assets/js/helperMethods';
 import db from '../assets/js/pouchdb';
-import page from './modules/page';
-import logTypeDaily from './modules/logTypeDaily';
-import logTypeMonthly from './modules/logTypeMonthly';
+import activePage from './modules/activePage';
+import dailyLog from './modules/dailyLog';
+import monthlyLog from './modules/monthlyLog';
 
 const store = () => new Vuex.Store({
   state: {
@@ -88,9 +88,9 @@ const store = () => new Vuex.Store({
     },
   },
   modules: {
-    page,
-    logTypeDaily,
-    logTypeMonthly,
+    activePage,
+    dailyLog,
+    monthlyLog,
   },
 });
 

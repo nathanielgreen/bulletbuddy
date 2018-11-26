@@ -13,7 +13,7 @@
           class="calendar__day-item"
           :logItems="day.items"
           :logIndex="index"
-          @toggleTask="toggleTask"
+          @emitToggleTask="toggleTask"
         ></LogList>
       </div>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 import LogList from '../components/LogList.vue';
 import helpers from '../assets/js/helpers';
@@ -33,23 +33,20 @@ export default {
   },
   mixins: [helpers],
   methods: {
-    ...mapMutations('logTypeMonthly', {
-      updateTask: 'UPDATE_TASK',
-    }),
-    toggleTask(emittedIndex, emittedLogIndex, emittedItem) {
-      const itemIndex = this.logItems.indexOf(emittedItem);
-      this.updateTask(itemIndex);
-    },
+    ...mapActions('monthlyLog', [
+      'toggleTask',
+    ]),
   },
   computed: {
-    ...mapGetters('logTypeMonthly', {
-      logItems: 'getLogItems',
+    ...mapGetters('activePage', {
+      activePageContent: 'getActivePageContent',
     }),
     returnCalendar() {
+      const content = this.activePageContent;
       const calendar = this.createCalendarArray();
-      for (let i = 0; i < this.logItems.length; i += 1) {
-        if (this.logItems[i].day !== '') {
-          calendar[Number(this.logItems[i].day) - 1].items.push(this.logItems[i]);
+      for (let i = 0; i < content.items.length; i += 1) {
+        if (content.items[i].day !== '') {
+          calendar[Number(content.items[i].day) - 1].items.push(content.items[i]);
         }
       }
       return calendar;

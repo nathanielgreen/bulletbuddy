@@ -21,7 +21,7 @@ export default {
 <style lang="scss">
 html
 {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

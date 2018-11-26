@@ -10,13 +10,13 @@
           class="list__icon-img"
           src="../assets/icons/square.svg"
           v-if="item.type === 'task' && item.checked === false"
-          v-on:click="$emit('emitToggleTask', index)"
+          v-on:click="$emit('emitToggleTask', { item, index })"
         />
         <img
           class="list__icon-img"
           src="../assets/icons/x-square.svg"
           v-if="item.type === 'task' && item.checked === true"
-          v-on:click="$emit('emitToggleTask', index)"
+          v-on:click="$emit('emitToggleTask', { item, index })"
         />
         <img
           class="list__icon-img"
@@ -35,10 +35,13 @@
       <div class="list__date" v-if="item.options">
         {{ item.options.date }}
       </div>
-      <form class="list__options" @submit.prevent="updateDay(item, index)">
+      <form
+        class="list__options"
+        @submit.prevent="$emit('emitUpdateDay', { item, index })"
+      >
         <input
           class="list__options-input"
-          placeholder="DD"
+          placeholder="...."
           v-model="item.day"
         />
         <span class="list__options-suffix">/{{ item.monthAndYear }}</span>
@@ -48,34 +51,24 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-
 export default {
   name: 'LogListMonthly',
   props: ['logItems'],
-  methods: {
-    ...mapMutations({
-      updateLogItemDay: 'logTypeMonthly/UPDATE_LOG_ITEM_DAY',
-    }),
-    updateDay(item, index) {
-      this.updateLogItemDay({ item, index });
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
 .list {
   width: 100%;
-  padding: 12px;
 }
 .list__item {
   display: grid;
   grid-template-areas:
     "icon value"
     ". options";
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 1fr 8fr;
   grid-template-rows: 80% 20%;
+  padding: 10px 20px 0 20px;
 }
 .list__value {
   grid-area: value;
@@ -103,9 +96,12 @@ export default {
   justify-content: flex-start;
 
   &-input {
-    border: none;
+    border: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+    color: #000000;
     font-size: 14px;
-    width: 22px;
+    width: 23px;
 
     &:focus {
       border: solid;

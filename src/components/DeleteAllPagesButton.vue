@@ -52,12 +52,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/variables.scss';
+
 .delete-all-pages-button {
   &__button {
     background: none;
     border: solid;
     border-width: 2px;
     border-radius: 4px;
+    text-decoration: underline;
+    text-decoration-color: $color-danger-red;
     margin: 8px;
     padding: 8px;
     user-select: none;
