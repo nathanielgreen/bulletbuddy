@@ -1,20 +1,103 @@
 {
-  "name": "Bullet Buddy",
-  "short_name": "Bullet Buddy",
-  "icons": [
-    {
-      "src": "/img/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/img/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000"
+    "name": "Bullet Buddy",
+    "short_name": "Bullet Buddy",
+    "icons": [
+        {
+            "src": "/images/b04813d6-5b49-6a2f-b7ef-3a6af824db7f.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/304a96cb-81f1-bff8-2b37-c7f31c2b77ac.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cf940150-6a78-cbfe-8444-7d0ef03b790e.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/4d203c5f-e12c-3c4c-d07e-7f7527d55e84.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8e2f9948-40ff-0b7c-bc65-e341e005ba09.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/4e6fabaf-bff0-0041-0955-1c67e0d1f59a.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/609d39f6-d48e-6d62-8e1c-cae5d1b27de6.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bfce840e-6bf3-4d10-1127-86c538671acd.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/6a1f3ceb-b573-9607-c594-61b5b5ea427a.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/9b2346d8-e434-23aa-3714-cc84f69812f5.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cfc511a3-c2d5-12bc-7fb5-2d20ed7d70a8.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8f52e8e9-1785-3228-5054-080d9c81a98b.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c7d22af2-4e26-884a-ec5c-c5d5e62d5f38.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bb91fc6e-4326-9e47-c2c6-8c6e29f6e695.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/884fc53d-675e-ca7d-86f0-935b8fedb2d3.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a5c5c3b5-8d72-ee98-7d57-84b427a4361a.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8f2acb0a-2878-02e0-eaae-bd11753dbc6a.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/0fbc55ed-c426-d041-49e8-34476af56c72.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "https://bulletbuddy.app/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "lang": "",
+    "orientation": "portrait",
+    "description": "The analog organization system Bullet Journal in a digital format."
 }
