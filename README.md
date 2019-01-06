@@ -23,14 +23,46 @@
       Contributing
     </a>
     <span> | </span>
-    <a href="https://trello.com/b/DnCjHNmi">
+    <a href="https://airtable.com/shrj6ZefFj2aspBC5">
       Roadmap
     </a>
     <span> | </span>
     <a href="https://bulletbuddy.app">
-      Live App (WIP)
+      Demo
     </a>
   </h3>
 </div>
 
+## Introduction
 
+Bullet Buddy is a Progressive Web App that emulates the analog [Bullet
+Journal](https://bulletjournal.com/) system in a digital format. It works on
+both desktop and mobile and stores your pages and log entries locally, with
+cloud syncing capabilities coming soon.
+
+## Features
+
+Bullet Buddy currently implements the classic page types from Ryder's original
+system:
+
+- Index
+- Daily Log
+- Monthly Log
+  - Calender View
+  - Monthly Tasks List View
+
+## Upcoming Features
+
+Here's a list of some upcoming features for Bullet Buddy:
+
+- Future Log
+- Cloud Syncing (Self-hostable)
+- To Do List
+- Habit Tracker
+- Dark Mode
+
+## Feedback/Report a Bug
+
+Feel free to message the the maintainer directly if with any feedback or feature
+requests, or if you wish to file a bug report, [please use our bug report
+form](https://airtable.com/shrUVqQgxSuqbKPCI).

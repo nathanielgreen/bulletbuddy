@@ -40,7 +40,6 @@ A live WIP version is available at: https://bulletbuddy.app
 
 - [Feather Icons](https://feathericons.com/)
 
-
 [<-- Back to Contents](#contents)
 
 ---
@@ -156,18 +155,17 @@ module, and only interacting with other parts of the code through their Vuex act
 Here are some existing page types and any components associated:
 
 - Daily Log:
-  - `~/components/LogTypeDaily.vue` (Daily Log Parent Component)
-  - `~/components/LogInput.vue`
-  - `~/components/LogList.vue`
-  - `~/store/modules/logTypeDaily.js` (Vuex Module)
+  - `~/components/DailyLog.vue` (Daily Log Parent Component)
+  - `~/store/modules/dailyLog.js` (Vuex Module)
 - Monthly Log:
-  - `~/components/LogTypeMonthly.vue` (Monthly Log Parent Component)
-  - `~/components/LogInput.vue`
-  - `~/components/LogList.vue`
-  - `~/store/modules/logTypeMonthly.js` (Vuex Module)
+  - `~/components/MonthlyLog.vue` (Monthly Log Parent Component)
+  - `~/components/MonthlyLogCalender.vue`
+  - `~/components/MonthlyLogList.vue`
+  - `~/components/LogListMonthly.vue`
+  - `~/store/modules/monthlyLog.js` (Vuex Module)
 
-The components will interact with their on Vuex state, which will be synced with
-the `viewedPageContent`, and in turn, synced with the respective space in the
+The components will interact with their own local state, which will be synced with
+the `activePageContent`, and in turn, synced with the respective space in the
 root `pages` array, containing all pages in the app.
 
 [<-- Back to Contents](#contents)
