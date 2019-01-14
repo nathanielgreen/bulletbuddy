@@ -50,12 +50,12 @@ system:
 - Monthly Log
   - Calender View
   - Monthly Tasks List View
+- Future Log
 
 ## Upcoming Features
 
 Here's a list of some upcoming features for Bullet Buddy:
 
-- Future Log
 - Cloud Syncing (Self-hostable)
 - To Do List
 - Habit Tracker

@@ -6,6 +6,7 @@ const state = {
   activePageHeader: '',
   activePageContent: {},
   activePageId: '',
+  activePageCreatedAt: '',
 };
 
 const getters = {
@@ -14,6 +15,7 @@ const getters = {
   getActivePageHeader: state => state.activePageHeader,
   getActivePageContent: state => state.activePageContent,
   getActivePageId: state => state.activePageId,
+  getActivePageCreatedAt: state => state.activePageCreatedAt,
 };
 
 const mutations = {
@@ -32,6 +34,9 @@ const mutations = {
   UPDATE_ACTIVE_PAGE_ID(state, val) {
     state.activePageId = val;
   },
+  UPDATE_ACTIVE_PAGE_CREATED_AT(state, val) {
+    state.activePageCreatedAt = val;
+  },
 };
 
 const actions = {
@@ -41,6 +46,7 @@ const actions = {
     context.commit('UPDATE_ACTIVE_PAGE_HEADER', data.header);
     context.commit('UPDATE_ACTIVE_PAGE_CONTENT', data.content);
     context.commit('UPDATE_ACTIVE_PAGE_ID', data._id);
+    context.commit('UPDATE_ACTIVE_PAGE_CREATED_AT', data.createdAt);
   },
   async addActivePageContentItem({ commit, state }, item) {
     const docId = state.activePageId;

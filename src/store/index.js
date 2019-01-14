@@ -6,6 +6,7 @@ import db from '../assets/js/pouchdb';
 import activePage from './modules/activePage';
 import dailyLog from './modules/dailyLog';
 import monthlyLog from './modules/monthlyLog';
+import futureLog from './modules/futureLog';
 
 const store = () => new Vuex.Store({
   state: {
@@ -59,6 +60,10 @@ const store = () => new Vuex.Store({
       let pageHeader;
       if (pageType === 'DL') { pageHeader = DayJs().format('DD/MM/YYYY'); }
       if (pageType === 'ML') { pageHeader = DayJs().format('MMMM YYYY'); }
+      if (pageType === 'FL') {
+        pageHeader =
+          `${DayJs().format('MMMM YYYY')} - ${DayJs().add(5, 'month').format('MMMM YYYY')}`;
+      }
       const newPage = {
         _id: genUID(),
         type: pageType,
@@ -91,6 +96,7 @@ const store = () => new Vuex.Store({
     activePage,
     dailyLog,
     monthlyLog,
+    futureLog,
   },
 });
 

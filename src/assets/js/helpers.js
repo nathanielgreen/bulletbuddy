@@ -22,5 +22,20 @@ export default {
 
       return calendarArr;
     },
+    createFutureMonthsArray(createdAt) {
+      const months = [];
+
+      for (let i = 0; i < 6; i += 1) {
+        const date = createdAt;
+        const incrementedMonth = DayJs(date).add(i, 'month').format('MMMM YYYY');
+        const monthObj = {
+          items: [],
+          month: incrementedMonth,
+        };
+        months.push(monthObj);
+      }
+
+      return months;
+    },
   },
 };

@@ -12,10 +12,8 @@
     <button class="add-new__button" v-on:click="addNewMonthlyLog">
       New Monthly Log
     </button>
-    <button class="add-new__button add-new__button--disabled">
+    <button class="add-new__button" v-on:click="addNewFutureLog">
       New Future Log
-      <br />
-      (Coming Soon)
     </button>
   </div>
 </template>
@@ -40,6 +38,10 @@ export default {
     },
     async addNewMonthlyLog() {
       await this.addNewPage('ML');
+      this.$router.push(`/pages/${this.pages.length}`);
+    },
+    async addNewFutureLog() {
+      await this.addNewPage('FL');
       this.$router.push(`/pages/${this.pages.length}`);
     },
   },

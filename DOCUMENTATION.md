@@ -163,6 +163,9 @@ Here are some existing page types and any components associated:
   - `~/components/MonthlyLogList.vue`
   - `~/components/LogListMonthly.vue`
   - `~/store/modules/monthlyLog.js` (Vuex Module)
+- Future Log:
+  - `~/components/FutureLog.vue` (Future Log Parent Component)
+  - `~/store/modules/futureLog.js` (Vuex Module)
 
 The components will interact with their own local state, which will be synced with
 the `activePageContent`, and in turn, synced with the respective space in the

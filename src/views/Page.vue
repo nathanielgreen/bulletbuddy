@@ -15,6 +15,10 @@
       class="page__type"
       v-if="activePageType === 'ML'"
     ></MonthlyLog>
+    <FutureLog
+      class="page__type"
+      v-if="activePageType === 'FL'"
+    ></FutureLog>
   </div>
 </template>
 
@@ -23,12 +27,14 @@ import { mapGetters } from 'vuex';
 import PageInfo from '../components/PageInfo.vue';
 import DailyLog from '../components/DailyLog.vue';
 import MonthlyLog from '../components/MonthlyLog.vue';
+import FutureLog from '../components/FutureLog.vue';
 
 export default {
   layout: 'default',
   components: {
     DailyLog,
     MonthlyLog,
+    FutureLog,
     PageInfo,
   },
   computed: {
