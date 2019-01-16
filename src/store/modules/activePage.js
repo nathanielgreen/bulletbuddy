@@ -64,13 +64,13 @@ const actions = {
       commit('UPDATE_ACTIVE_PAGE_CONTENT', content);
     }
   },
-  async toggleActivePageContentTask({ state, commit }, { patchedItem, itemIndex }) {
+  async toggleActivePageContentTask({ state, commit }, patchedItem) {
     const docId = state.activePageId;
-    await patchItem(docId, patchedItem, itemIndex);
+    await patchItem(docId, patchedItem);
 
     if (patchItem) {
-      const items = state.activePageContent.items.map((item, index) => {
-        if (index !== itemIndex) { return item; }
+      const items = state.activePageContent.items.map((item) => {
+        if (item.id !== patchedItem.id) { return item; }
         return patchedItem;
       });
       const content = {

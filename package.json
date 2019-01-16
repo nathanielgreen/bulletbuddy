@@ -12,6 +12,7 @@
     "dayjs": "^1.7.7",
     "pouchdb-browser": "^7.0.0",
     "register-service-worker": "^1.0.0",
+    "uuid-js": "^0.7.5",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

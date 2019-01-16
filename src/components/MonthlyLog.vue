@@ -13,8 +13,8 @@
         @click="isCalendar = !isCalendar"
       >List View</div>
     </div>
-    <MonthlyLogList v-if="!isCalendar" />
-    <MonthlyLogCalendar v-if="isCalendar" />
+    <MonthlyLogList class="monthly-log__list" v-if="!isCalendar" />
+    <MonthlyLogCalendar class="monthly-log__calendar" v-if="isCalendar" />
   </div>
 </template>
 
@@ -39,12 +39,21 @@ export default {
 <style lang="scss" scoped>
 .monthly-log {
 
+  &__list {
+    margin-top: 53px;
+  }
+  &__calendar {
+    margin-top: 53px;
+  }
   &__tabs {
     align-items: center;
+    background: white;
     justify-content: center;
     text-align: center;
     display: flex;
-    margin: 10px;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
 
     &-tab {
       flex: 1;

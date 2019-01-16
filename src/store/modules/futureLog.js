@@ -1,6 +1,9 @@
+import UUID from 'uuid-js';
+
 const actions = {
   addItem(context, payload) {
     const item = {
+      id: UUID.create().toString(),
       type: payload.item.type,
       value: payload.item.value,
       month: payload.month,
@@ -9,16 +12,12 @@ const actions = {
 
     context.dispatch('activePage/addActivePageContentItem', item, { root: true });
   },
-  toggleTask({ dispatch }, { item, index }) {
+  toggleTask({ dispatch }, item) {
     const patchedItem = {
       ...item,
       checked: !item.checked,
     };
-    const payload = {
-      patchedItem,
-      itemIndex: index,
-    };
-    dispatch('activePage/toggleActivePageContentTask', payload, { root: true });
+    dispatch('activePage/toggleActivePageContentTask', patchedItem, { root: true });
   },
 };
 

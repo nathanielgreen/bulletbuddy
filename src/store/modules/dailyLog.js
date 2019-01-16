@@ -1,46 +1,23 @@
+import UUID from 'uuid-js';
+
 const actions = {
-  addItem({ dispatch }, data) {
-    switch (data.type) {
-      case 'note': {
-        const item = {
-          type: 'note',
-          value: data.value,
-        };
-        dispatch('updatePage', item);
-        break;
-      }
-      case 'task': {
-        const item = {
-          type: 'task',
-          value: data.value,
-          checked: false,
-        };
-        dispatch('updatePage', item);
-        break;
-      }
-      default: {
-        const item = {
-          type: 'event',
-          value: data.value,
-        };
-        dispatch('updatePage', item);
-        break;
-      }
-    }
+  addItem({ dispatch }, payload) {
+    const item = {
+      id: UUID.create().toString(),
+      type: payload.type,
+      value: payload.value,
+    };
+    if (item.type === 'task') { item.checked = false; }
+    console.log(item);
+
+    dispatch('activePage/addActivePageContentItem', item, { root: true });
   },
-  toggleTask({ dispatch }, { item, index }) {
+  toggleTask({ dispatch }, item) {
     const patchedItem = {
       ...item,
       checked: !item.checked,
     };
-    const payload = {
-      patchedItem,
-      itemIndex: index,
-    };
-    dispatch('activePage/toggleActivePageContentTask', payload, { root: true });
-  },
-  updatePage({ dispatch }, item) {
-    dispatch('activePage/addActivePageContentItem', item, { root: true });
+    dispatch('activePage/toggleActivePageContentTask', patchedItem, { root: true });
   },
 };
 

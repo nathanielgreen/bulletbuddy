@@ -1,22 +1,11 @@
 import DayJs from 'dayjs';
-
-const mutations = {
-  UPDATE_TASK(state, index) {
-    state
-      .logItems[index]
-      .checked = !state
-        .logItems[index]
-        .checked;
-  },
-  UPDATE_LOG_ITEM_DAY(state, data) {
-    state.logItems[data.index].day = data.item.day;
-  },
-};
+import UUID from 'uuid-js';
 
 const actions = {
   addItem(context, payload) {
     const monthlyLogDate = context.rootGetters['activePage/getActivePageContent'].date;
     const item = {
+      id: UUID.create().toString(),
       type: payload.type,
       value: payload.value,
       day: '',
@@ -26,16 +15,12 @@ const actions = {
 
     context.dispatch('activePage/addActivePageContentItem', item, { root: true });
   },
-  toggleTask({ dispatch }, { item, index }) {
+  toggleTask({ dispatch }, item) {
     const patchedItem = {
       ...item,
       checked: !item.checked,
     };
-    const payload = {
-      patchedItem,
-      itemIndex: index,
-    };
-    dispatch('activePage/toggleActivePageContentTask', payload, { root: true });
+    dispatch('activePage/toggleActivePageContentTask', patchedItem, { root: true });
   },
   updateDay({ dispatch }, { item, index }) {
     const payload = {
@@ -48,7 +33,6 @@ const actions = {
 
 export default {
   namespaced: true,
-  mutations,
   actions,
 };
 

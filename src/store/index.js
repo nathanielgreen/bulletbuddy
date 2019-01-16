@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import DayJs from 'dayjs';
+import UUID from 'uuid-js';
 
-import genUID from '../assets/js/helperMethods';
 import db from '../assets/js/pouchdb';
 import activePage from './modules/activePage';
 import dailyLog from './modules/dailyLog';
@@ -65,7 +65,7 @@ const store = () => new Vuex.Store({
           `${DayJs().format('MMMM YYYY')} - ${DayJs().add(5, 'month').format('MMMM YYYY')}`;
       }
       const newPage = {
-        _id: genUID(),
+        _id: UUID.create().toString(),
         type: pageType,
         header: pageHeader,
         content: {

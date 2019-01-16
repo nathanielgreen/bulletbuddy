@@ -3,7 +3,7 @@ import PouchDB from 'pouchdb-browser';
 const db = new PouchDB('bulletbuddy');
 
 export const putItem = async (docId, newItem) => {
-  console.log('POUCHDB: putItem');
+  console.log('POUCHDB: putItem', newItem);
   const doc = await db.get(docId);
   const res = await db.put({
     ...doc,
@@ -18,16 +18,16 @@ export const putItem = async (docId, newItem) => {
   });
   return res.ok;
 };
-export const patchItem = async (docId, patchedItem, itemIndex) => {
-  console.log('POUCHDB: patchItem');
+export const patchItem = async (docId, patchedItem) => {
+  console.log('POUCHDB: patchItem', patchedItem);
   const doc = await db.get(docId);
   const res = await db.put({
     ...doc,
     _id: docId,
     _rev: doc._rev,
     content: {
-      items: doc.content.items.map((item, index) => {
-        if (index !== itemIndex) { return item; }
+      items: doc.content.items.map((item) => {
+        if (item.id !== patchedItem.id) { return item; }
         return patchedItem;
       }),
     },
