@@ -27,7 +27,7 @@
       Roadmap
     </a>
     <span> | </span>
-    <a href="https://bulletbuddy.app">
+    <a href="https://bulletbuddy.surge.sh">
       Demo
     </a>
   </h3>

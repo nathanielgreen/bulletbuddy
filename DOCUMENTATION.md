@@ -161,7 +161,6 @@ Here are some existing page types and any components associated:
   - `~/components/MonthlyLog.vue` (Monthly Log Parent Component)
   - `~/components/MonthlyLogCalender.vue`
   - `~/components/MonthlyLogList.vue`
-  - `~/components/LogListMonthly.vue`
   - `~/store/modules/monthlyLog.js` (Vuex Module)
 - Future Log:
   - `~/components/FutureLog.vue` (Future Log Parent Component)
