@@ -2,12 +2,12 @@ import DayJs from 'dayjs';
 
 export default {
   methods: {
-    createCalendarArray() {
+    createMonthlyLogCalendarArray(createdAt) {
       const calendarArr = [];
 
-      const currentYear = DayJs().format('YYYY');
-      const currentMonth = DayJs().format('MM');
-      const days = DayJs().daysInMonth();
+      const currentYear = DayJs(createdAt).format('YYYY');
+      const currentMonth = DayJs(createdAt).format('MM');
+      const days = DayJs(createdAt).daysInMonth();
 
       for (let i = 0; i < days; i += 1) {
         const date = DayJs(`${currentYear}-${currentMonth}-${i + 1}`);
@@ -19,7 +19,6 @@ export default {
         };
         calendarArr.push(dayObj);
       }
-
       return calendarArr;
     },
     createFutureMonthsArray(createdAt) {

@@ -2,7 +2,7 @@
   <div class="calendar">
     <div
       class="calendar__day"
-      v-for="(day, index) in returnCalendar"
+      v-for="(day, index) in days"
       :key="index"
     >
       <div class="calendar__day-label">
@@ -28,10 +28,10 @@ import helpers from '../assets/js/helpers';
 
 export default {
   name: 'LogTypeMonthlyCalendar',
+  mixins: [helpers],
   components: {
     LogList,
   },
-  mixins: [helpers],
   methods: {
     ...mapActions('monthlyLog', [
       'toggleTask',
@@ -40,16 +40,17 @@ export default {
   computed: {
     ...mapGetters('activePage', {
       activePageContent: 'getActivePageContent',
+      activePageCreatedAt: 'getActivePageCreatedAt',
     }),
-    returnCalendar() {
+    days() {
       const content = this.activePageContent;
-      const calendar = this.createCalendarArray();
-      for (let i = 0; i < content.items.length; i += 1) {
-        if (content.items[i].day !== '') {
-          calendar[Number(content.items[i].day) - 1].items.push(content.items[i]);
-        }
-      }
-      return calendar;
+      const dayArr = this.createMonthlyLogCalendarArray(this.activePageCreatedAt);
+      const daysWithContent = dayArr.map(dayObj => ({
+        weekday: dayObj.weekday,
+        dayOfMonth: dayObj.dayOfMonth,
+        items: content.items.filter(item => item.dayOfMonth === dayObj.dayOfMonth),
+      }));
+      return daysWithContent;
     },
   },
 };
