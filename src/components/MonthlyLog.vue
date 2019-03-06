@@ -51,7 +51,7 @@ export default {
   }
   &__tabs {
     align-items: center;
-    background: white;
+    background: $color-darker-white;
     border-radius: 12px;
     justify-content: center;
     text-align: center;

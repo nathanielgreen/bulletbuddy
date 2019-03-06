@@ -1,8 +1,5 @@
 <template>
   <div class="add-new">
-    <PageInfo
-      pageHeader="Add New Page"
-    ></PageInfo>
     <div class="add-new__header">
       <h1 class="add-new__header-title">Classic Pages</h1>
       <p class="add-new__header-label">
@@ -39,6 +36,7 @@ export default {
     ...mapActions([
       'addNewPage',
     ]),
+    ...mapActions('activePage', ['updateActivePage']),
     async addNewDailyLog() {
       await this.addNewPage('DL');
       this.$router.push(`/pages/${this.pages.length}`);
@@ -51,6 +49,13 @@ export default {
       await this.addNewPage('FL');
       this.$router.push(`/pages/${this.pages.length}`);
     },
+  },
+  mounted() {
+    this.updateActivePage({
+      type: null,
+      index: null,
+      header: 'Add New Page',
+    });
   },
 };
 </script>

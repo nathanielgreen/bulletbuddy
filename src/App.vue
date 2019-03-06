@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PageInfo />
     <transition
       name="fade"
       mode="out-in"
@@ -12,6 +13,7 @@
 
 <script>
 import Navbar from './components/Navbar.vue';
+import PageInfo from './components/PageInfo.vue';
 
 export default {
   mounted() {
@@ -19,6 +21,7 @@ export default {
   },
   components: {
     Navbar,
+    PageInfo,
   },
 };
 </script>

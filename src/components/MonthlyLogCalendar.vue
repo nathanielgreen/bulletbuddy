@@ -57,9 +57,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/variables.scss';
+
 .calendar {
   &__day {
-    background: #ffffff;
+    background: $color-darker-white;
     margin: 8px;
     padding: 12px;
     width: auto;

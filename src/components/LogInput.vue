@@ -56,6 +56,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .log-input {
   align-items: center;
   display: flex;
@@ -66,6 +68,7 @@ export default {
   &__input {
     border: none;
     font-size: 18px;
+    background: $color-darker-white;
     flex: 8;
     padding-left: 16px;
     outline: none;

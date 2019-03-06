@@ -2,12 +2,6 @@
   <div
     class="page"
   >
-    <PageInfo
-      class="page__info"
-      :pageNumber="activePageIndex + 1"
-      :pageHeader="activePageHeader"
-      :pageType="activePageType"
-    ></PageInfo>
     <DailyLog
       class="page__type"
       v-if="activePageType === 'DL'"
@@ -24,7 +18,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import PageInfo from '../components/PageInfo.vue';
 import DailyLog from '../components/DailyLog.vue';
 import MonthlyLog from '../components/MonthlyLog.vue';
@@ -49,7 +43,15 @@ export default {
   created() {
     this.getPages();
   },
+  mounted() {
+    this.updateActivePage({
+      type: this.activePageType,
+      index: this.activePageIndex,
+      header: this.activePageHeader,
+    });
+  },
   methods: {
+    ...mapActions('activePage', ['updateActivePage']),
     getPages() {
       const { params } = this.$route;
       this.pageNumber = params.id;

@@ -1,15 +1,27 @@
 <template>
-  <div class="page-info">
-    <div class="page-info__page-type">{{ pageType }}</div>
-    <div class="page-info__header">{{ pageHeader }}</div>
-    <div class="page-info__page-number">{{ pageNumber }}</div>
-  </div>
+    <div class="page-info">
+        <div class="page-info__page-type" v-if="activePageType">
+          {{ activePageType }}
+        </div>
+        <div class="page-info__header">{{ activePageHeader }}</div>
+        <div class="page-info__page-number" v-if="activePageIndex">
+          {{ activePageIndex + 1 }}
+        </div>
+    </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'PageInfo',
-  props: ['pageNumber', 'pageHeader', 'pageType'],
+  computed: {
+    ...mapGetters({
+      activePageType: 'activePage/getActivePageType',
+      activePageHeader: 'activePage/getActivePageHeader',
+      activePageIndex: 'activePage/getActivePageIndex',
+    }),
+  },
 };
 </script>
 
@@ -40,5 +52,16 @@ export default {
     font-size: 18;
     padding: 10px;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 1s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 </style>

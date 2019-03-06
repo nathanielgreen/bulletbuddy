@@ -1,8 +1,5 @@
 <template>
   <section class="index">
-    <PageInfo
-      pageHeader="Index"
-    ></PageInfo>
     <h1 class="index__header" v-if="pages.length < 1">No pages yet.</h1>
     <ul class="index__list" v-else>
       <li
@@ -39,8 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import PageInfo from '../components/PageInfo.vue';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -48,15 +44,22 @@ export default {
       showOptions: null,
     };
   },
-  components: {
-    PageInfo,
-  },
   computed: {
     ...mapGetters({
       pages: 'getPages',
     }),
   },
+  mounted() {
+    this.updateActivePage({
+      type: null,
+      index: null,
+      header: 'Index',
+    });
+  },
   methods: {
+    ...mapActions('activePage', [
+      'updateActivePage',
+    ]),
     ...mapMutations({
       deletePageMutation: 'DELETE_PAGE',
     }),

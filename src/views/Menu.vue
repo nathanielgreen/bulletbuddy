@@ -1,9 +1,5 @@
 <template>
   <div class="menu">
-    <PageInfo
-      class="menu__info"
-      pageHeader="Settings"
-    ></PageInfo>
     <div class="menu__header">
       <h1 class="menu__header-title">Dangerous Operations</h1>
       <p class="menu__header-label">
@@ -15,14 +11,23 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import DeleteAllPagesButton from '../components/DeleteAllPagesButton.vue';
-import PageInfo from '../components/PageInfo.vue';
 
 export default {
   name: 'Menu',
   components: {
     DeleteAllPagesButton,
-    PageInfo,
+  },
+  methods: {
+    ...mapActions('activePage', ['updateActivePage']),
+  },
+  mounted() {
+    this.updateActivePage({
+      type: null,
+      index: null,
+      header: 'Settings',
+    });
   },
 };
 </script>
