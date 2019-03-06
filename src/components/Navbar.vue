@@ -1,53 +1,47 @@
 <template>
   <nav class="navbar">
     <router-link class="navbar__item" to="/">
-      <img
-        class="navbar__item-img"
-        src="../assets/icons/bookmark.svg"
-        alt="Bookmark"
-      />
+      <IconBase class="navbar__item-img"><IconBookmark /></IconBase>
       <label>Index</label>
     </router-link>
     <div class="navbar__item" @click="goToDailyLog($router)">
-      <img
-        class="navbar__item-img"
-        src="../assets/icons/clipboard.svg"
-        alt="Clipboard"
-      />
+      <IconBase class="navbar__item-img"><IconClipboard /></IconBase>
       <label>Daily Log</label>
     </div>
     <div class="navbar__item" @click="goToMonthlyLog($router)">
-      <img
-        class="navbar__item-img"
-        src="../assets/icons/calendar.svg"
-        alt="Calendar"
-      />
+      <IconBase class="navbar__item-img"><IconCalendar /></IconBase>
       <label>Monthly Log</label>
     </div>
     <router-link class="navbar__item" to="/add-new">
-      <img
-        class="navbar__item-img"
-        src="../assets/icons/file-plus.svg"
-        alt="File Plus"
-      />
+      <IconBase class="navbar__item-img"><IconFilePlus /></IconBase>
       <label>New Page</label>
     </router-link>
     <router-link class="navbar__item navbar__item--menu" to="/menu">
-      <img
-        class="navbar__item-img"
-        src="../assets/icons/more-vertical.svg"
-        alt="More Menu"
-      />
-      <label>Settings</label>
+      <IconBase class="navbar__item-img"><IconMenu /></IconBase>
+      <label style="visibility: hidden;">Settings</label>
     </router-link>
   </nav>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import IconBase from './icons/IconBase.vue';
+import IconBookmark from './icons/IconBookmark.vue';
+import IconCalendar from './icons/IconCalendar.vue';
+import IconClipboard from './icons/IconClipboard.vue';
+import IconFilePlus from './icons/IconFilePlus.vue';
+import IconMenu from './icons/IconMenu.vue';
 
 export default {
   name: 'Navbar',
+  components: {
+    IconBase,
+    IconBookmark,
+    IconCalendar,
+    IconClipboard,
+    IconFilePlus,
+    IconMenu,
+  },
   methods: {
     ...mapActions([
       'goToDailyLog',
@@ -63,10 +57,8 @@ export default {
 .navbar {
   align-items: center;
   bottom: 0;
-  background: $color-white;
-  border-color: $color-grey;
-  border-style: dotted none none none;
-  border-width: 3px;
+  background: $color-mint-green;
+  color: $color-darker-white;
   display: flex;
   height: 10%;
   justify-content: center;
@@ -76,6 +68,7 @@ export default {
   &__item {
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
     flex-direction: column;
     flex: 1;
@@ -84,11 +77,8 @@ export default {
     margin: 0 auto;
     outline: none;
     font-size: 12px;
+    font-weight: bold;
     word-wrap: break-word;
-
-    & label {
-      color: $color-lighter-black;
-    }
 
     &--menu {
       flex: .5;

@@ -90,68 +90,91 @@ export default {
   flex-direction: column;
   width: 100%;
   overflow-y: scroll;
+  background: $color-mint-green;
 
   &__list {
     display: flex;
     flex-direction: column;
     height: 100%;
-    margin-top: 40px;
+    margin-top: 60px;
     padding: 0;
     width: 100%;
+    background: $color-darker-white;
+    border-radius: 20px;
 
     &-item {
       display: grid;
       grid-template-columns: 1fr 8fr 50px;
-      grid-template-rows: 24px 12px;
       grid-template-areas:
         "key header menu"
-        ". pagetype ."
-        ". options ."
+        "key pagetype menu"
+        "options options options"
       ;
-      border-left: solid;
-      border-width: 2px;
+      border-radius: 12px;
+      color: rgba(0,0,0,0.9);
       text-align: center;
+      background: none;
+      height: auto;
       list-style-type: none;
-      margin: 4px 12px;
-      padding: 2px;
+      margin: 8px 8px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1), -2px -2px 10px rgba(0,0,0,0.1);
       user-select: none;
 
+      &-key {
+        border-radius: 12px;
+        margin: 6px;
+        background: $color-mint-green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        grid-area: key;
+        color: $color-darker-white;
+      }
       &-header {
         grid-area: header;
         font-size: 16px;
+        height: auto;
+        font-weight: bold;
         text-align: left;
+        padding: 4px 10px;
       }
       &-pagetype {
         font-size: 12px;
         grid-area: pagetype;
         text-align: left;
+        padding: 4px 10px;
       }
       &-menu {
+        display: flex;
         grid-area: menu;
-
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
         &-img {
           width: 30px;
         }
       }
       &-options {
         grid-area: options;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        background: none;
+        box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        display: flex;
 
         &-button {
           background: $color-danger-red;
           border: none;
           border-radius: 4px;
           box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-          margin: 8px 0;
+          margin: 8px 12px;
           padding: 6px 0px;
-          width: 100%;
+          flex: 1;
 
         }
       }
 
-      &:hover, active {
-        cursor: pointer;
-        background: $color-darker-white;
-      }
     }
   }
 }

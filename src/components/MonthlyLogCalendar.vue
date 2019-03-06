@@ -63,6 +63,12 @@ export default {
     margin: 8px;
     padding: 12px;
     width: auto;
+
+    &-label {
+      font-weight: bold;
+      color: rgba(0,0,0,0.7);
+
+    }
   }
 }
 </style>

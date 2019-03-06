@@ -37,7 +37,7 @@ export default {
   width: 100%;
 
   &__header {
-    margin-top: 40px;
+    margin-top: 60px;
     padding: 20px;
 
     &-title {

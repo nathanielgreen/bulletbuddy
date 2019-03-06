@@ -37,17 +37,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/global.scss';
+@import '@/assets/scss/variables.scss';
+
 .monthly-log {
 
   &__list {
     margin-top: 53px;
   }
   &__calendar {
+    background: $color-darker-white;
     margin-top: 53px;
   }
   &__tabs {
     align-items: center;
     background: white;
+    border-radius: 12px;
     justify-content: center;
     text-align: center;
     display: flex;
@@ -57,26 +62,18 @@ export default {
 
     &-tab {
       flex: 1;
-      border: solid 3px;
-      padding: 3px;
-
-      &--calendar {
-        border-radius: 4px 0px 0px 4px;
-        border-right: solid 1px;
-      }
-      &--list {
-        border-radius: 0px 4px 4px 0px;
-        border-left: solid 1px;
-      }
+      background: $color-darker-white;
+      font-weight: bold;
+      padding: 6px;
+      color: rgba(0,0,0,0.4);
+      border-radius: 12px;
     }
   }
 }
 
 .selected {
-  background: #000000;
-  border: solid;
-  border-color: #000000;
-  color: #ffffff;
+  background: $color-mint-green;
+  color: $color-darker-white;
 }
 </style>
 

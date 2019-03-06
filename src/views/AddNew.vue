@@ -1,5 +1,8 @@
 <template>
   <div class="add-new">
+    <PageInfo
+      pageHeader="Add New Page"
+    ></PageInfo>
     <div class="add-new__header">
       <h1 class="add-new__header-title">Classic Pages</h1>
       <p class="add-new__header-label">
@@ -20,9 +23,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import PageInfo from '../components/PageInfo.vue';
 
 export default {
   name: 'AddNew',
+  components: {
+    PageInfo,
+  },
   computed: {
     ...mapGetters({
       pages: 'getPages',

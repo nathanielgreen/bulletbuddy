@@ -6,6 +6,7 @@
       class="page__info"
       :pageNumber="activePageIndex + 1"
       :pageHeader="activePageHeader"
+      :pageType="activePageType"
     ></PageInfo>
     <DailyLog
       class="page__type"
@@ -72,26 +73,30 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/global.scss';
+@import '../assets/scss/variables.scss';
 
 .page {
-  height: 100%;
+  align-items: center;
+  background: $color-mint-green;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  height: 100%;
   overflow-y: scroll;
+  width: 100%;
 
   &__info {
     position: fixed;
   }
   &__list {
-    margin-top: 40px;
+    margin-top: 60px;
   }
   &__input {
     width: 100%;
   }
   &__type {
-    margin-top: 40px;
+    margin-top: 60px;
+    background: $color-darker-white;
+    border-radius: 12px;
     height: 100%;
     width: 100%;
   }
