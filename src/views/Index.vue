@@ -107,7 +107,7 @@ export default {
 
     &-item {
       display: grid;
-      grid-template-columns: 1fr 8fr 50px;
+      grid-template-columns: 40px auto  50px;
       grid-template-areas:
         "key header menu"
         "key pagetype menu"
@@ -130,9 +130,12 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        justify-self: center;
         font-weight: bold;
         grid-area: key;
         color: $color-darker-white;
+        max-width: 30px;
+        padding: 6px;
       }
       &-header {
         grid-area: header;
