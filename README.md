@@ -1,7 +1,7 @@
 <div align="center">
 	<p align="center">
 		<a href="https://gitlab.com/nathanielgreen/bulletbuddy">
-			<img src="./src/assets/templogo.png" width="200px" />
+			<img src="./src/assets/bulletbuddylogo.png" width="200px" />
 		</a>
 	</p>
 </div>
