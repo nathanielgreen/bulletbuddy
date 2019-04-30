@@ -72,8 +72,9 @@ export default {
 }
 
 .selected {
-  background: $color-mint-green;
-  color: $color-darker-white;
+  background: #e2e2e2;
+  color: $color-black;
+  text-decoration: underline;
 }
 </style>
 

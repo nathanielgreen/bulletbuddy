@@ -24,7 +24,7 @@ export default {
   },
   mounted() {
     this.updateActivePage({
-      type: null,
+      type: 'Bulk page actions and local settings.',
       index: null,
       header: 'Settings',
     });

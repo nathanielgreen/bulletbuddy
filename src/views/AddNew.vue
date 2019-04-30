@@ -52,7 +52,7 @@ export default {
   },
   mounted() {
     this.updateActivePage({
-      type: null,
+      type: 'Create new pages and logs.',
       index: null,
       header: 'Add New Page',
     });

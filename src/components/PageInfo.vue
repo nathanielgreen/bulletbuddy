@@ -1,10 +1,13 @@
 <template>
     <div class="page-info">
         <div class="page-info__page-type" v-if="activePageType">
-          {{ activePageType }}
+          {{ verbosePageType(activePageType) }}
         </div>
         <div class="page-info__header">{{ activePageHeader }}</div>
-        <div class="page-info__page-number" v-if="activePageIndex">
+        <div
+          class="page-info__page-number"
+          v-if="activePageIndex >= 0 && Number.isInteger(activePageIndex)"
+        >
           {{ activePageIndex + 1 }}
         </div>
     </div>
@@ -22,6 +25,20 @@ export default {
       activePageIndex: 'activePage/getActivePageIndex',
     }),
   },
+  methods: {
+    verbosePageType(pageType) {
+      switch (pageType) {
+        case 'ML':
+          return 'Monthly Log';
+        case 'DL':
+          return 'Daily Log';
+        case 'FL':
+          return 'Future Log';
+        default:
+          return pageType;
+      }
+    },
+  },
 };
 </script>
 
@@ -29,28 +46,50 @@ export default {
 @import '../assets/scss/variables.scss';
 
 .page-info {
-  align-items: center;
-  background: $color-mint-green;
-  color: $color-darker-white;
+  background: $color-white;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  color: $color-black;
+  display: grid;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  grid-template-columns: 8fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "header index"
+    "pagetype index"
+  ;
   height: 60px;
-  display: flex;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
-  font-weight: bold;
+  z-index: 99;
 
   &__header {
-    padding: 10px;
-    font-size: 24px;
+    grid-area: header;
+    align-self: flex-end;
+    padding-left: 16px;
+    font-size: 20px;
   }
   &__page-number {
-    font-size: 18px;
-    padding: 10px;
+    align-items: center;
+    align-self: center;
+    background: #e2e2e2;
+    border-radius: 180px;
+    display: flex;
+    font-size: 12px;
+    grid-area: index;
+    height: 25px;
+    justify-content: center;
+    justify-self: center;
+    width: 25px;
   }
   &__page-type {
-    font-size: 18;
-    padding: 10px;
+    align-self: flex-start;
+    grid-area: pagetype;
+    font-weight: normal;
+    font-size: 16px;
+    opacity: 0.5;
+    padding-left: 16px;
   }
 }
 .fade-enter-active,

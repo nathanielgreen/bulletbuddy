@@ -18,8 +18,17 @@
       class="log-input__input"
       v-model="value"
       type="text"
-      placeholder="Type here..."
+      placeholder="Add a task, event, note etc."
     />
+    <button
+      class="log-input__submit"
+      type="submit"
+    >
+      <img
+        class="log-input__submit-icon"
+        src="../assets/icons/arrow-right.svg"
+      />
+    </button>
   </form>
 </template>
 
@@ -61,28 +70,41 @@ export default {
 .log-input {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 20px;
   width: 100%;
 
   &__input {
+    background: none;
     border: none;
+    border-bottom: 2px solid;
+    border-color: rgba(0,0,0,0.5);
     font-size: 18px;
-    background: $color-darker-white;
-    flex: 8;
-    padding-left: 16px;
     outline: none;
+    width: 65vw;
   }
   &__icon {
     display: inherit;
     justify-content: center;
-    flex: 1;
     height: 30px;
     width: 30px;
 
     &-img {
-      height: 30px;
-      width: 30px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__submit {
+    background: none;
+    border: none;
+    height: 30px;
+    padding: 0;
+    width: 30px;
+
+    &-icon {
+      height: 100%;
+      width: 100%;
     }
   }
 }

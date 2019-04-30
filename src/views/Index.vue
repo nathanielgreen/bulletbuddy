@@ -51,7 +51,7 @@ export default {
   },
   mounted() {
     this.updateActivePage({
-      type: null,
+      type: 'All pages in your journal.',
       index: null,
       header: 'Index',
     });
@@ -93,63 +93,69 @@ export default {
   flex-direction: column;
   width: 100%;
   overflow-y: scroll;
-  background: $color-mint-green;
+  background: $color-darker-white;
 
   &__list {
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 100%;
     margin-top: 60px;
-    padding: 0;
+    padding: 8px 8px;
     width: 100%;
-    background: $color-darker-white;
-    border-radius: 20px;
 
     &-item {
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1), -2px -2px 10px rgba(0,0,0,0.1);
+      background: $color-white;
+      border-radius: 12px;
       display: grid;
-      grid-template-columns: 40px auto  50px;
+      font-family: 'Noto Sans', sans-serif;
+      min-height: 60px;
+      height: auto;
+      grid-template-columns: 50px auto  50px;
       grid-template-areas:
         "key header menu"
         "key pagetype menu"
         "options options options"
       ;
-      border-radius: 12px;
-      color: rgba(0,0,0,0.9);
       text-align: center;
-      background: none;
-      height: auto;
       list-style-type: none;
       margin: 8px 8px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1), -2px -2px 10px rgba(0,0,0,0.1);
       user-select: none;
+      width: 90%;
+      max-width: 800px;
 
       &-key {
-        border-radius: 12px;
-        margin: 6px;
-        background: $color-mint-green;
-        display: flex;
         align-items: center;
-        justify-content: center;
-        justify-self: center;
+        align-self: center;
+        color: #111111;
+        display:flex;
+        background: #e2e2e2;
+        border-radius: 180px;
+        font-size: 12px;
         font-weight: bold;
         grid-area: key;
-        color: $color-darker-white;
-        max-width: 30px;
-        padding: 6px;
+        height: 25px;
+        justify-content: center;
+        justify-self: center;
+        width: 25px;
       }
       &-header {
+        align-self: center;
         grid-area: header;
         font-size: 16px;
-        height: auto;
         font-weight: bold;
+        height: auto;
+        padding-top: 6px;
         text-align: left;
-        padding: 4px 10px;
       }
       &-pagetype {
+        align-self: center;
+        color: #808080;
         font-size: 12px;
         grid-area: pagetype;
+        padding-bottom: 6px;
         text-align: left;
-        padding: 4px 10px;
       }
       &-menu {
         display: flex;

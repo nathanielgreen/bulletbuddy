@@ -96,9 +96,10 @@ export default {
   justify-content: flex-start;
 
   &-input {
+    background: none;
     border: solid;
     border-width: 2px;
-    border-color: #ffffff;
+    border-color: rgba(0,0,0,0);
     color: #000000;
     font-size: 14px;
     width: 23px;

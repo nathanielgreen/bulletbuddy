@@ -79,7 +79,6 @@ export default {
 
 .page {
   align-items: center;
-  background: $color-mint-green;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -98,7 +97,6 @@ export default {
   &__type {
     margin-top: 60px;
     background: $color-darker-white;
-    border-radius: 12px;
     height: 100%;
     width: 100%;
   }

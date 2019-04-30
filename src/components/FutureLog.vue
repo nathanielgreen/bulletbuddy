@@ -1,5 +1,5 @@
 <template>
-  <section class="future-log">
+  <div class="future-log">
     <div
       class="future-log__month"
       v-for="(monthObj, index) in months"
@@ -13,7 +13,7 @@
       </LogList>
       <LogInput @emitAddItem="addItem({ item: $event, month: monthObj.month })"></LogInput>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -59,6 +59,7 @@ export default {
 
   &__month {
     min-height: 200px;
+    background: #f2f2f2;
     border-bottom: 2px solid #cccccc;
 
     &-header {

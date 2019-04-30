@@ -2,23 +2,18 @@
   <nav class="navbar">
     <router-link class="navbar__item" to="/">
       <IconBase class="navbar__item-img"><IconBookmark /></IconBase>
-      <label>Index</label>
     </router-link>
     <div class="navbar__item" @click="goToDailyLog($router)">
       <IconBase class="navbar__item-img"><IconClipboard /></IconBase>
-      <label>Daily Log</label>
     </div>
     <div class="navbar__item" @click="goToMonthlyLog($router)">
       <IconBase class="navbar__item-img"><IconCalendar /></IconBase>
-      <label>Monthly Log</label>
     </div>
     <router-link class="navbar__item" to="/add-new">
       <IconBase class="navbar__item-img"><IconFilePlus /></IconBase>
-      <label>New Page</label>
     </router-link>
-    <router-link class="navbar__item navbar__item--menu" to="/menu">
-      <IconBase class="navbar__item-img"><IconMenu /></IconBase>
-      <label style="visibility: hidden;">Settings</label>
+    <router-link class="navbar__item navbar__item" to="/menu">
+      <IconBase class="navbar__item-img"><IconSettings /></IconBase>
     </router-link>
   </nav>
 </template>
@@ -30,7 +25,7 @@ import IconBookmark from './icons/IconBookmark.vue';
 import IconCalendar from './icons/IconCalendar.vue';
 import IconClipboard from './icons/IconClipboard.vue';
 import IconFilePlus from './icons/IconFilePlus.vue';
-import IconMenu from './icons/IconMenu.vue';
+import IconSettings from './icons/IconSettings.vue';
 
 export default {
   name: 'Navbar',
@@ -40,7 +35,7 @@ export default {
     IconCalendar,
     IconClipboard,
     IconFilePlus,
-    IconMenu,
+    IconSettings,
   },
   methods: {
     ...mapActions([
@@ -57,8 +52,8 @@ export default {
 .navbar {
   align-items: center;
   bottom: 0;
-  background: $color-mint-green;
-  color: $color-darker-white;
+  box-shadow: 0px -4px 10px rgba(0,0,0,0.1);
+  background: $color-white;
   display: flex;
   height: 10%;
   justify-content: center;
@@ -73,22 +68,10 @@ export default {
     flex-direction: column;
     flex: 1;
     height: 100%;
-    text-align: center;
-    margin: 0 auto;
-    outline: none;
-    font-size: 12px;
-    font-weight: bold;
-    word-wrap: break-word;
 
-    &--menu {
-      flex: .5;
-      & label {
-        color: $color-white;
-      }
-    };
-
-    &:active {
-      background-color: $color-white;
+    &-img {
+      height: 30px;
+      width: 30px;
     }
   }
 }

@@ -49,12 +49,13 @@ export default {
 <style lang="scss" scoped>
 .log-list {
   width: 100%;
+  padding: 20px;
 
   &__item {
     align-items: center;
-    padding: 10px 20px 0 20px;
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 
     &__icon {
       display: inherit;
