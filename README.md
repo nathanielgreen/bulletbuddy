@@ -1,16 +1,20 @@
-# README
+<div style="text-align: center;">
 
- [![](.gitbook/assets/icon.png)](https://gitlab.com/nathanielgreen/bulletbuddy)
+**NOTE: BulletBuddy is currently under heavy re-developement to set foundations 
+for cloud-sync, with a new release aiming for Fall 2020.**
+
+<img style="height: 200px;" src=".gitbook/assets/icon.png" />
 
 ## Bullet Buddy
 
  **The analog organization system Bullet Journal in a digital format.**
 
-####  [Documentation](documentation.md) \| [Contributing](contributing.md) \| [Roadmap](https://airtable.com/shrj6ZefFj2aspBC5) \| [Demo](https://bulletbuddy.app)
+####  [Documentation](documentation.md) | [Contributing](contributing.md) | [Demo](https://bulletbuddy.app)
+</div>
 
 ### Introduction 
 
-Bullet Buddy is a Great Progressive Web App that emulates the analog [Bullet Journal](https://bulletjournal.com/) system in a digital format. It works on both desktop and mobile and stores your pages and log entries locally, with cloud syncing capabilities coming soon.
+Bullet Buddy is a Progressive Web App that emulates the analog [Bullet Journal](https://bulletjournal.com/) system in a digital format. It works on both desktop and mobile and stores your pages and log entries locally, with cloud syncing capabilities coming soon.
 
 ### Features
 
