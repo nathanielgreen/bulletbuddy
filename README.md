@@ -1,8 +1,5 @@
 <div style="text-align: center;">
 
-**NOTE: BulletBuddy is currently under heavy re-developement to set foundations 
-for cloud-sync, with a new release aiming for Fall 2020.**
-
 <img style="height: 200px;" src=".gitbook/assets/icon.png" />
 
 ## Bullet Buddy
